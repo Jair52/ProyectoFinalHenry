@@ -1,5 +1,5 @@
 import Style from './Card.module.css'
-import React from 'react';
+import React, { useState } from 'react';
 
 interface CardProps {
   name: string;
@@ -9,6 +9,15 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ name, img, weight, price }) => {
+  const [cant, setCant] = useState(0)
+
+  const cantSum = () => {
+    return setCant(cant !== 5 ? cant+1 : cant)
+  }
+
+  const cantRest = () => {
+    return setCant(cant !== 0 ? cant-1 : cant)
+  }
 
   return (
     <div className={Style.card}>
@@ -17,12 +26,23 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price }) => {
         <h2 className={Style.name}>{name}</h2>
         <p className={Style.weight}>{weight}g</p>
       </div>
-      <div className={Style.conteinerBtn}>
+      <div className={Style.conteinerPriceBtn}>
         <p className={Style.price}>${price}</p>
-        <button className={Style.btn}>Comprar</button>
+        <div className={Style.conteinerBtn}>
+          {cant > 0 ? (
+            <>
+              <button className={Style.btn} onClick={cantRest}>-</button>
+              <span className={Style.cant}>{cant}</span>
+              <button className={Style.btn} onClick={cantSum}>+</button>
+            </>
+          ) : (
+            <button className={Style.btnAdd} onClick={cantSum}>Añadir</button>
+          )}
+        </div>
       </div>
     </div>
   );
+  
   
 }
 
