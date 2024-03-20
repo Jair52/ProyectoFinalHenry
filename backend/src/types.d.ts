@@ -13,6 +13,6 @@ export interface FoodEntry {
     tipo: TypeFood
 };
 
-export type NonSensitiveInfoFoodEntry = Omit<FoodEntry>;
+export type NonSensitiveInfoFoodEntry = FoodEntry;
 
 export type NewFoodEntry = Omit<FoodEntry , 'id'>;

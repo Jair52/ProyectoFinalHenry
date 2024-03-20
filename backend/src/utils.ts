@@ -109,7 +109,7 @@ const toNewFoodEntry = (object: any): NewFoodEntry => {
         grasas: parseFats(object.grasas),
         peso: parseWeigth(object.peso),
         precio: parsePrice(object.precio),
-        tipo: parseType(object.typeFood)
+        tipo: parseType(object.tipo)
         //...
     } 
     return newEntry;
