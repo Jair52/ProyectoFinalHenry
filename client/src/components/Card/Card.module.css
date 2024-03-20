@@ -68,6 +68,7 @@
   color: white;
   transition: all 0.3s ease;
   border-radius: 25px;
+  cursor: pointer;
 }
 
 
@@ -99,4 +100,11 @@
   color: white;
   transition: all 0.3s ease;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+.btnAdd:hover{
+  background-color: #ffb469;
+  border: none;
+  color: rgb(33, 33, 33);
 }

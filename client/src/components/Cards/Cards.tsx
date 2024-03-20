@@ -9,8 +9,11 @@ interface Food {
   costo: number;
 }
 
+interface CardsProps {
+  numberOfCards?: number; // Prop opcional
+}
 
-const Cards = () => {
+const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
   const foods: Food[] = [
     {
       id: 1,
@@ -49,9 +52,11 @@ const Cards = () => {
     },
   ];
 
+  const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
+
   return (
     <div className={Style.cards}>
-      {foods.map((food) => (
+      {limitedFoods.map((food) => (
         <Card
           key={food.id}
           name={food.nombre}
