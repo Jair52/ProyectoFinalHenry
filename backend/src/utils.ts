@@ -1,78 +1,76 @@
 import { NewFoodEntry} from "./types";
 import { TypeFood } from "./enums";
 
-const parseName = (commentFromRequest: any): string => {
-    if(!isString(commentFromRequest)) {
+const parseName = (nameFromRequest: any): string => {
+    if(!isString(nameFromRequest)) {
         throw new Error('Incorrect or missing name');
     }
 
-    return commentFromRequest
+    return nameFromRequest
 }
 
-const parseOrigin = (commentFromRequest: any): string => {
-    if(!isString(commentFromRequest)) {
+const parseOrigin = (originFromRequest: any): string => {
+    if(!isString(originFromRequest)) {
         throw new Error('Incorrect or missing origin');
     }
 
-    return commentFromRequest
+    return originFromRequest
 }
 
-//!REVISAR
-const parseIngredients = (commentFromRequest: any): string[] => {
-    if(!isStringArray(commentFromRequest)) {
+const parseIngredients = (ingredientFromRequest: any): string[] => {
+    if(!isStringArray(ingredientFromRequest)) {
         throw new Error('Incorrect or missing ingredient');
     }
 
-    return commentFromRequest
+    return ingredientFromRequest
 }
-//!
 
-const parseKilocalories = (commentFromRequest: any): number => {
-    if(!isNumber(commentFromRequest)) {
+const parseKilocalories = (caloriesFromRequest: any): number => {
+    if(!isNumber(caloriesFromRequest)) {
         throw new Error('Incorrect or missing calories');
     }
 
-    return commentFromRequest
+    return caloriesFromRequest
 }
 
-const parseCarbohydrates = (commentFromRequest: any): number => {
-    if(!isNumber(commentFromRequest)) {
+const parseCarbohydrates = (carbohydratesFromRequest: any): number => {
+    if(!isNumber(carbohydratesFromRequest)) {
         throw new Error('Incorrect or missing carbohydrates');
     }
 
-    return commentFromRequest
+    return carbohydratesFromRequest
 }
 
-const parseFats = (commentFromRequest: any): number => {
-    if(!isNumber(commentFromRequest)) {
+const parseFats = (fatsFromRequest: any): number => {
+    if(!isNumber(fatsFromRequest)) {
         throw new Error('Incorrect or missing fats');
     }
 
-    return commentFromRequest
+    return fatsFromRequest
 }
 
-const parseWeigth = (commentFromRequest: any): number => {
-    if(!isNumber(commentFromRequest)) {
+const parseWeigth = (weigthFromRequest: any): number => {
+    if(!isNumber(weigthFromRequest)) {
         throw new Error('Incorrect or missing weigth');
     }
 
-    return commentFromRequest
+    return weigthFromRequest
 }
 
-const parsePrice = (commentFromRequest: any): number => {
-    if(!isNumber(commentFromRequest)) {
+const parsePrice = (priceFromRequest: any): number => {
+    if(!isNumber(priceFromRequest)) {
         throw new Error('Incorrect or missing price');
     }
 
-    return commentFromRequest
+    return priceFromRequest
 }
 
-const parseType = (weatherFromRequest: any): TypeFood => {
-    if( !isString(weatherFromRequest) || !isTypeFood(weatherFromRequest) ){
+const parseTypeFood = (foodFromRequest: any): TypeFood => {
+    if( !isString(foodFromRequest) || !isTypeFood(foodFromRequest) ){
         throw new Error('Incorrect or missing TypeFood');
     }
 
-    return weatherFromRequest
+    return foodFromRequest
 }
 
 //*-----------------------------------------------------------
@@ -109,7 +107,7 @@ const toNewFoodEntry = (object: any): NewFoodEntry => {
         grasas: parseFats(object.grasas),
         peso: parseWeigth(object.peso),
         precio: parsePrice(object.precio),
-        tipo: parseType(object.typeFood)
+        tipo: parseTypeFood(object.tipo)
         //...
     } 
     return newEntry;
