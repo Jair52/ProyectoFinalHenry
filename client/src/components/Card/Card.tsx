@@ -9,7 +9,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({ name, img, weight, price }) => {
-  const [cant, setCant] = useState(0)
+  const [cant, setCant] = useState<number>(0)
 
   const cantSum = () => {
     return setCant(cant !== 5 ? cant+1 : cant)
