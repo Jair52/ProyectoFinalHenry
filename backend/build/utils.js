@@ -39,9 +39,9 @@ const parseFats = (commentFromRequest) => {
     }
     return commentFromRequest;
 };
-const parseWeigth = (commentFromRequest) => {
+const parseWeight = (commentFromRequest) => {
     if (!isNumber(commentFromRequest)) {
-        throw new Error('Incorrect or missing weigth');
+        throw new Error('Incorrect or missing weight');
     }
     return commentFromRequest;
 };
@@ -83,7 +83,7 @@ const toNewFoodEntry = (object) => {
         kilocalorias: parseKilocalories(object.kilocalorias),
         carbohidratos: parseCarbohydrates(object.carbohidratos),
         grasas: parseFats(object.grasas),
-        peso: parseWeigth(object.peso),
+        peso: parseWeight(object.peso),
         precio: parsePrice(object.precio),
         tipo: parseType(object.typeFood)
         //...
