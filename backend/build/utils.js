@@ -37,9 +37,9 @@ const parseFats = (fatsFromRequest) => {
     }
     return fatsFromRequest;
 };
-const parseWeight = (weightFromRequest) => {
-    if (!isNumber(weightFromRequest)) {
-        throw new Error('Incorrect or missing weight');
+const parseWeigth = (commentFromRequest) => {
+    if (!isNumber(commentFromRequest)) {
+        throw new Error('Incorrect or missing weigth');
     }
     return weightFromRequest;
 };

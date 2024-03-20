@@ -1,101 +1,103 @@
-import { NewFoodEntry} from "./types";
+import { NewFoodEntry } from "./types";
 import { TypeFood } from "./enums";
 
-const parseName = (nameFromRequest: any): string => {
-    if(!isString(nameFromRequest)) {
+const parseName = (commentFromRequest: any): string => {
+    if(!isString(commentFromRequest)) {
         throw new Error('Incorrect or missing name');
     }
 
-    return nameFromRequest
+    return commentFromRequest
 }
 
-const parseOrigin = (originFromRequest: any): string => {
-    if(!isString(originFromRequest)) {
+const parseOrigin = (commentFromRequest: any): string => {
+    if(!isString(commentFromRequest)) {
         throw new Error('Incorrect or missing origin');
     }
 
-    return originFromRequest
+    return commentFromRequest
 }
 
-const parseIngredients = (ingredientFromRequest: any): string[] => {
-    if(!isStringArray(ingredientFromRequest)) {
+//!REVISAR
+const parseIngredients = (commentFromRequest: any): string[] => {
+    if(!isStringArray(commentFromRequest)) {
         throw new Error('Incorrect or missing ingredient');
     }
 
-    return ingredientFromRequest
+    return commentFromRequest
 }
+//!
 
-const parseKilocalories = (caloriesFromRequest: any): number => {
-    if(!isNumber(caloriesFromRequest)) {
+const parseKilocalories = (commentFromRequest: any): number => {
+    if(!isNumber(commentFromRequest)) {
         throw new Error('Incorrect or missing calories');
     }
 
-    return caloriesFromRequest
+    return commentFromRequest
 }
 
-const parseCarbohydrates = (carbohydratesFromRequest: any): number => {
-    if(!isNumber(carbohydratesFromRequest)) {
+const parseCarbohydrates = (commentFromRequest: any): number => {
+    if(!isNumber(commentFromRequest)) {
         throw new Error('Incorrect or missing carbohydrates');
     }
 
-    return carbohydratesFromRequest
+    return commentFromRequest
 }
 
-const parseFats = (fatsFromRequest: any): number => {
-    if(!isNumber(fatsFromRequest)) {
+const parseFats = (commentFromRequest: any): number => {
+    if(!isNumber(commentFromRequest)) {
         throw new Error('Incorrect or missing fats');
     }
 
-    return fatsFromRequest
+    return commentFromRequest
 }
 
-const parseWeight = (weightFromRequest: any): number => {
-    if(!isNumber(weightFromRequest)) {
-        throw new Error('Incorrect or missing weight');
+const parseWeigth = (commentFromRequest: any): number => {
+    if(!isNumber(commentFromRequest)) {
+        throw new Error('Incorrect or missing weigth');
     }
 
-    return weightFromRequest
+    return commentFromRequest
 }
 
-const parsePrice = (priceFromRequest: any): number => {
-    if(!isNumber(priceFromRequest)) {
+const parsePrice = (commentFromRequest: any): number => {
+    if(!isNumber(commentFromRequest)) {
         throw new Error('Incorrect or missing price');
     }
 
-    return priceFromRequest
+    return commentFromRequest
 }
 
-const parseTypeFood = (typeFoodFromRequest: any): TypeFood => {
-    if( !isString(typeFoodFromRequest) || !isTypeFood(typeFoodFromRequest) ){
+const parseType = (weatherFromRequest: any): TypeFood => {
+    if( !isString(weatherFromRequest) || !isTypeFood(weatherFromRequest) ){
         throw new Error('Incorrect or missing TypeFood');
     }
 
-    return typeFoodFromRequest
+    return weatherFromRequest
 }
 
 //*-----------------------------------------------------------
 
 const isString = (string: string): boolean => {
-    return typeof string === 'string';
-}
+  return typeof string === "string";
+};
 
 const isNumber = (number: number): boolean => {
-    return typeof number === 'number';
-}
+  return typeof number === "number";
+};
 
 const isTypeFood = (param: any): boolean => {
-    return Object.values(TypeFood).includes(param);
-}
+  return Object.values(TypeFood).includes(param);
+};
 
 const isStringArray = (stringArray: any): boolean => {
-    // Verificar si el argumento es un array
-    if (!Array.isArray(stringArray)) {
-        return false;
-    }
-    
-    // Verificar si todos los elementos del array son cadenas
-    return stringArray.every(element => typeof element === 'string');
-}
+  // Verificar si el argumento es un array
+  if (!Array.isArray(stringArray)) {
+    return false;
+  }
+
+  // Verificar si todos los elementos del array son cadenas
+  return stringArray.every((element) => typeof element === "string");
+};
 
 const toNewFoodEntry = (object: any): NewFoodEntry => {
     const newEntry: NewFoodEntry = {
@@ -105,12 +107,10 @@ const toNewFoodEntry = (object: any): NewFoodEntry => {
         kilocalorias: parseKilocalories(object.kilocalorias),
         carbohidratos: parseCarbohydrates(object.carbohidratos),
         grasas: parseFats(object.grasas),
-        peso: parseWeight(object.peso),
+        peso: parseWeigth(object.peso),
         precio: parsePrice(object.precio),
-        tipo: parseTypeFood(object.tipo)
+        tipo: parseType(object.tipo)
         //...
     } 
     return newEntry;
 }
-
-export default toNewFoodEntry
