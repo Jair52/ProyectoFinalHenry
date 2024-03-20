@@ -15,5 +15,5 @@ app.get('/ping', (_req, res) => {
 });
 app.use('/api/food', food_1.default);
 app.listen(PORT, () => {
-    console.log(`Server runing on port ${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
