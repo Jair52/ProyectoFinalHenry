@@ -63,6 +63,7 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
           img={food.imagen}
           weight={food.peso}
           price={food.costo}
+          id={food.id}
         />
       ))}
     </div>

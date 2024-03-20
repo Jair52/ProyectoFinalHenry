@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import Style from './Card.module.css'
 import React, { useState } from 'react';
 
@@ -6,9 +7,10 @@ interface CardProps {
   img: string;
   weight: number;
   price: number;
+  id: number
 }
 
-const Card: React.FC<CardProps> = ({ name, img, weight, price }) => {
+const Card: React.FC<CardProps> = ({ name, img, weight, price, id }) => {
   const [cant, setCant] = useState<number>(0)
 
   const cantSum = () => {
@@ -20,15 +22,18 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price }) => {
   }
 
   return (
+
     <div className={Style.card}>
+      <NavLink to={`/detail:${id}`} className={Style.navLink}>
       <img src={img} alt={name} className={Style.img}/>
       <div className={Style.conteinerName}>
         <h2 className={Style.name}>{name}</h2>
         <p className={Style.weight}>{weight}g</p>
       </div>
+      </NavLink>
       <div className={Style.conteinerPriceBtn}>
         <p className={Style.price}>${price}</p>
-        <div className={Style.conteinerBtn}>
+      <div className={Style.conteinerBtn}>
           {cant > 0 ? (
             <>
               <button className={Style.btn} onClick={cantRest}>-</button>
