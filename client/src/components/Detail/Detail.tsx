@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-=======
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
@@ -25,7 +23,9 @@ const Detail: React.FC = () =>{
     }, [id]);
     return ( 
                     <div className={styles.todo}>
-                        <div className={styles.navbar}>Templete navbar</div>
+                        <div className={styles.botonatras}>
+                            <button>hola</button>
+                        </div>
                         <div className={styles.container1}>
                           <img className={styles.imagen2} src={comida.image}/>
                             <div className={styles.container2}>
@@ -51,4 +51,4 @@ const Detail: React.FC = () =>{
 }
 
 export default Detail;
->>>>>>> Stashed changes
+
