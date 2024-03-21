@@ -55,6 +55,13 @@ const parseTypeFood = (foodFromRequest) => {
     }
     return foodFromRequest;
 };
+//* comprobacion imagen
+const parseImage = (foodFromRequest) => {
+    if (!isString(foodFromRequest) || !isTypeFood(foodFromRequest)) {
+        throw new Error('Incorrect or missing TypeFood');
+    }
+    return foodFromRequest;
+};
 //*-----------------------------------------------------------
 const isString = (string) => {
     return typeof string === 'string';
@@ -83,7 +90,8 @@ const toNewFoodEntry = (object) => {
         grasas: parseFats(object.grasas),
         peso: parseWeigth(object.peso),
         precio: parsePrice(object.precio),
-        tipo: parseTypeFood(object.tipo)
+        tipo: parseTypeFood(object.tipo),
+        imagen: parseImage(object.image)
         //...
     };
     return newEntry;

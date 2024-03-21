@@ -30,7 +30,7 @@ const findById = (id) => {
 };
 exports.findById = findById;
 const getEntriesWithoutSensitiveInfo = () => {
-    return foods.map(({ id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas, peso, precio, tipo }) => {
+    return foods.map(({ id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas, peso, precio, tipo, imagen }) => {
         return {
             id,
             nombre,
@@ -41,7 +41,8 @@ const getEntriesWithoutSensitiveInfo = () => {
             grasas,
             peso,
             precio,
-            tipo
+            tipo,
+            imagen
         };
     });
 };
