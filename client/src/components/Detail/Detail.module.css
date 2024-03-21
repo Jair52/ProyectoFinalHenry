@@ -1,0 +1,120 @@
+.todo{
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    background-color: rgba(245, 222, 179, 0.466);
+}
+
+.imagen{
+    border-radius: 10px;
+}
+.imagen2{
+    width: 41vw;
+    margin-left: 13vw;
+    border-top-left-radius: 20px;
+}
+
+.container2{
+    display: inline-block;
+    margin-left: 4vh;
+    background-color: rgba(255, 255, 255, 0.897);
+    width: 30vw;
+    border-top-right-radius: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-left: 0px;
+    padding-top: 20px;
+    padding-left: 40px;
+    overflow:auto
+}
+
+.container1{
+    display: inline-flex;
+    margin-top: 100px;
+    overflow: visible;
+}
+
+.calorias{
+    background-color: rgba(226, 226, 223, 0.685);
+    border-radius: 1000px;
+    text-align: center;
+    height: 50px;
+}
+
+.navbar{
+    position: fixed; 
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    height: 5vh;
+    padding: 2px; 
+    background-size: cover; 
+    background-color: rgb(24, 78, 49);
+    border: 2px solid rgb(53, 50, 50);
+    flex-wrap: wrap;     
+    padding-left: 45vw;
+    align-self: flex-start;     
+    text-align: center;
+}
+
+.status{
+    background-color: rgba(247, 229, 149, 0.37);
+    border-radius: 10px;
+    text-align: center;
+    padding-bottom: 5px;
+    margin-top: 30px;
+
+}
+
+.ingredientes{
+    padding-right: 1000px;
+    background-color: rgba(255, 228, 196, 0.253);
+    padding-left: 9px;
+    padding-right: 9px;
+    padding-bottom: 5px;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.name{
+    display: inline;
+    font-size: 45px;
+}
+
+.peso{
+    display: inline;
+    margin-left: 4px;
+    font-size: 30px;
+    color: rgb(161, 158, 158);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.descripcion{
+   max-width: 500px;
+   display: flex;
+   flex-direction: row;
+   font-size: 20px;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+   padding-bottom: 10px;
+   color: rgb(151, 149, 149);
+}
+
+.ingretitulo{
+    font-size: 20px;
+}
+
+.ingretexto{
+    font-size: 16px;
+}
+
+.boton{
+
+        display: flex;
+        font-size: 20px;
+        padding-top: 10px;
+}
+.container3{
+    background-color: rgba(0, 0, 0, 0.322);
+    height: 800px;
+    margin-top:70px;
+}
