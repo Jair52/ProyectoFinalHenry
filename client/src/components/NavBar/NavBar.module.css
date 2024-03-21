@@ -1,21 +1,23 @@
-nav {
-    
+.navContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #2F695C;
-  padding: 14px;
-  margin: -25px 0px;
+  position: fixed;
+  height: 110px;
+  width: 100%;
+  top: 0;
 }
 
-.nav-links-container {
+.navLinksContainer {
   display: flex;
   align-items: center;
 }
 
-.nav-link {
+.navLink {
   background-color: transparent;
   border: none;
+ 
   cursor: pointer;
   padding: 10px 20px; 
   font-size: 20px;
@@ -23,9 +25,9 @@ nav {
   text-decoration: none;
   font-family: "DM Serif Display", serif;
   position: relative;
-  
 }
-.nav-link2 {
+
+.navLink2 {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -33,14 +35,16 @@ nav {
   color: #000000;
   text-decoration: none;
   position: relative;
-  
-}
-p {
-  font-size: 30px;
-  font-family: "DM Serif Display", serif;
 }
 
-.nav-link::before {
+.parrafo{
+text-decoration: none;
+font-size: 35px;
+color: black;
+font-family: "DM Serif Display", serif;
+}
+
+.navLink::before {
   content: '';
   position: absolute;
   bottom: 0;
@@ -51,7 +55,7 @@ p {
   transition: width 0.6s ease;
 }
 
-.nav-link:hover::before {
+.navLink:hover::before {
   width: 100%;
 }
 
@@ -65,16 +69,9 @@ li {
   margin-right: 10px;
 }
 
-
-
-.nav-logo {
+.navLogo {
   width: 60px;
   height: 30px;
   margin-left: 10px; 
   cursor: pointer;
-}
-
-.nav-btn{
-  background-color: transparent;
-  border: none;
 }

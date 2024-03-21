@@ -1,0 +1,16 @@
+.footer{
+  background-color: #2F695C;
+  padding: 7% 12%;
+  align-items: center;
+  color: white;
+}
+
+.conteiner{
+  display: flex;
+  gap: 20%;
+}
+
+.title{
+  font-size: 35px;
+  font-weight: bold;
+}

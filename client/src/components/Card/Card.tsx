@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id }) => {
   return (
 
     <div className={Style.card}>
-      <NavLink to={`/detail:${id}`} className={Style.navLink}>
+      <NavLink to={`/detail/${id}`} className={Style.navLink}>
       <img src={img} alt={name} className={Style.img}/>
       <div className={Style.conteinerName}>
         <h2 className={Style.name}>{name}</h2>
