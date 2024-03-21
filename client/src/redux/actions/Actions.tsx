@@ -22,7 +22,7 @@ export const getFood = () => {
         payload: food
       })
     } catch (error) {
-      
+      console.error('Error', error)
     }
   }
 }

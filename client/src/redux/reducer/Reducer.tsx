@@ -9,7 +9,7 @@ import {
   // POST_FOOD,
   // ADD_CART,
   // REMOVE_CART,
-} from './ActionsTypes';
+} from '../actions/ActionsTypes';
 
 interface Product {
   id: number,
@@ -101,7 +101,7 @@ function Reducer(state: FoodState = initialState, action: FoodAction): FoodState
         }
         
     case PRICE_ORDER:
-      let priceSort = action.payload === 'asc'
+      const priceSort = action.payload === 'asc'
         ? state.foodCopy.slice().sort((a, b) => a.price - b.price)
         : state.foodCopy.slice().sort((a, b) => a.price - b.price)
       return{
