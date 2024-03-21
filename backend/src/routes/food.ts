@@ -1,33 +1,23 @@
 import express from 'express';
-import * as foodServices from '../services/foodServices';
-import toNewFoodEntry from '../utils';
-
+import { getFood } from '../controllers/getFood';
+import { getFoodId } from '../controllers/getFoodId';
+import { postFood } from '../controllers/postFood';
+// import { putFood } from '../controllers/putFood';
+// import { updateFood } from '../controllers/updateFood';
+// import * as foodServices from '../services/foodServices';
 
 const router = express.Router();
-router.get('/', (_req, res) => {
-    res.send(foodServices.getEntriesWithoutSensitiveInfo());
-});
 
-router.get('/:id', (req, res) => {
-    const food = foodServices.findById(Number(req.params.id));
-
-    return food
-        ? res.send(food)
-        : res.sendStatus(404);
-})
-
-router.post('/', (req, res) => {
-    try {
-        const newFoodEntry = toNewFoodEntry(req.body);
-
-        const addedFoodEntry = foodServices.addFood(newFoodEntry)
-
-        res.json(addedFoodEntry);
-    } catch (error: any ) {
-        res.status(400).send(error.message);
-    }
-
+router.get('/', getFood);
+router.get('/:id', getFoodId);
+router.post('/', postFood);
+// router.put('/:id', async (req, res) => { 
+//     const foodActualizado = req.body;
+//     const foodID = req.params.id;
     
-});
+//     const index = foodServices.findById(Number(foodID));
+
+//     foodServices[index] = 
+// });
 
 export default router;
