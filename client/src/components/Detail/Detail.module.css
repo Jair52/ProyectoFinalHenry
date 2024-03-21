@@ -12,8 +12,6 @@
 .imagen2{
     width: 41vw;
     margin-left: 13vw;
-    border-top-left-radius: 20px;
-    border-bottom-left-radius: 20px;
 }
 
 .container2{
@@ -45,15 +43,23 @@
     border-radius: 1000px;
     text-align: center;
     height: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.caloriastexto{
+    padding-top: 15px;
+    font-weight: 800;
 }
 
 
 .status{
-    background-color: rgb(255, 176, 130);
+    background-color: rgb(252, 217, 152);
     border-radius: 10px;
     text-align: center;
     padding-bottom: 5px;
     margin-top: 30px;
+    color: white;
 
 }
 
@@ -63,8 +69,10 @@
     padding-left: 9px;
     padding-right: 9px;
     padding-bottom: 5px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.438);
     border-radius: 8px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 900;
 }
 
 .name{
@@ -95,22 +103,41 @@
 
 .ingretexto{
     font-size: 16px;
+    min-height: 200px;
 }
 
 .boton{
-
+       margin-top: 20px;
+        border: 0.5px solid rgba(0, 0, 0, 0.479);
         display: flex;
-        font-size: 20px;
-        padding-top: 10px;
+        border-radius: 10px;
+        width: 140px;
+        padding-left: 4px;
+        height: 38px;
 }
-.container3{
-    background-color: white;
-    margin-top: 100px;
-    border: 2px solid black;
-    height: 800px;
+.botontexto2{
+    margin-top: 8px;
+    margin-left: 40px;
+    margin-right: 35px;
+    font-weight: 900;
+    font-size: 20px;
 }
+.botontexto1{
+    margin-top: 8px;
+    margin-left: 10px;
+    font-weight: 900;
+    font-size: 20px;
+}
+
+.cantidad{
+    font-size: 25px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 100;
+}
+
 
 .botonatras{
     background-color: rgb(255, 255, 255);
     height: 60px;
 }
+
