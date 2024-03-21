@@ -73,3 +73,8 @@ li {
   margin-left: 10px; 
   cursor: pointer;
 }
+
+.nav-btn{
+  background-color: transparent;
+  border: none;
+}
