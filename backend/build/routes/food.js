@@ -1,52 +1,23 @@
 "use strict";
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const foodServices = __importStar(require("../services/foodServices"));
-const utils_1 = __importDefault(require("../utils"));
+const getFood_1 = require("../controllers/getFood");
+const getFoodId_1 = require("../controllers/getFoodId");
+const postFood_1 = require("../controllers/postFood");
+// import { putFood } from '../controllers/putFood';
+// import { updateFood } from '../controllers/updateFood';
+// import * as foodServices from '../services/foodServices';
 const router = express_1.default.Router();
-router.get('/', (_req, res) => {
-    res.send(foodServices.getEntriesWithoutSensitiveInfo());
-});
-router.get('/:id', (req, res) => {
-    const food = foodServices.findById(Number(req.params.id));
-    return food
-        ? res.send(food)
-        : res.sendStatus(404);
-});
-router.post('/', (req, res) => {
-    try {
-        const newFoodEntry = (0, utils_1.default)(req.body);
-        const addedFoodEntry = foodServices.addFood(newFoodEntry);
-        res.json(addedFoodEntry);
-    }
-    catch (error) {
-        res.status(400).send(error.message);
-    }
-});
+router.get('/', getFood_1.getFood);
+router.get('/:id', getFoodId_1.getFoodId);
+router.post('/', postFood_1.postFood);
+// router.put('/:id', async (req, res) => { 
+//     const foodActualizado = req.body;
+//     const foodID = req.params.id;
+//     const index = foodServices.findById(Number(foodID));
+//     foodServices[index] = 
+// });
 exports.default = router;

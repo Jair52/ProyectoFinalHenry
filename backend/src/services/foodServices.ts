@@ -17,7 +17,7 @@ export const findById = (id: number): NonSensitiveInfoFoodEntry | undefined => {
 
 export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoFoodEntry[] => {
     return foods.map(({id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas,
-                       peso, precio, tipo}) => {
+                       peso, precio, tipo, imagen}) => {
         return {
             id,
             nombre,
@@ -28,7 +28,8 @@ export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoFoodEntry[] =>
             grasas,
             peso,
             precio,
-            tipo
+            tipo,
+            imagen
         }
     })
 };
