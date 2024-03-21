@@ -8,7 +8,7 @@ a{
 }
 
 .card{
-  background-color: rgb(179, 245, 245);
+  background-color: #e3eae8;
   width: 20vw;
   color: black;
   padding: 0;
@@ -56,7 +56,7 @@ a{
   margin-top: 8%;
   padding: 5% 6%;
   border-top: solid black 0.5px;
-  background-color: rgb(225, 255, 255);
+  background-color: #f4f7f6;
   border-radius: 0 0 35px 35px;
 }
 
