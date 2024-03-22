@@ -7,16 +7,14 @@ import NuestrosPlatos from './components/NuestrosPlatos/Platos.tsx';
 import QuienesSomos from './components/QuienesSomos/QuienesSomos.tsx';
 import Faqs from './components/FAQ\'S/Faqs.tsx';
 import Funciona from './components/ComoFunciona/Funciona.tsx';
-<<<<<<< Updated upstream
-import Detail from './components/Detail/Detail.tsx';
-import Login from './components/Login/Login.tsx';
-=======
 import  {useDispatch, useSelector} from 'react-redux'
 import {StoreState } from './redux/reducer/Reducer.tsx';
 import { useEffect } from 'react';
 import { getFood } from './redux/actions/Actions.tsx';
 import { Dispatch } from 'redux';
 import axios from 'axios'
+import Detail from './components/Detail/Detail.tsx';
+import Login from './components/Login/Login.tsx';
 
 
 
@@ -24,7 +22,6 @@ import axios from 'axios'
 
 
 
->>>>>>> Stashed changes
 
 function App() {
 
