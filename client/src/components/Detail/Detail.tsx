@@ -1,9 +1,8 @@
-<<<<<<< Updated upstream
-=======
 import React from "react";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from './Detail.module.css'
+import Reseñas from "../Reseñas/Reseñas";
 
 
 interface comida {
@@ -25,30 +24,32 @@ const Detail: React.FC = () =>{
     }, [id]);
     return ( 
                     <div className={styles.todo}>
-                        <div className={styles.navbar}>Templete navbar</div>
+                        <div className={styles.botonatras}>
+                            <button>hola</button>
+                        </div>
                         <div className={styles.container1}>
                           <img className={styles.imagen2} src={comida.image}/>
                             <div className={styles.container2}>
                              <h2 className={styles.name}>{comida.name}<p className={styles.peso}>({comida.peso}g)</p></h2>
                              <h2 className={styles.descripcion}>{comida.description}</h2>
-                             <div className={styles.calorias}> {comida.calorias}k</div>
-                             <div>Elije la Cantidad</div>
+                             <div className={styles.calorias}> <p className={styles.caloriastexto}>50 calorias | 25g proteinas | 28g grasas </p></div>
+                             <div className={styles.cantidad}>Elije la Cantidad</div>
                              <div className={styles.boton}>
-                                <button> &lt; </button>
-                                <p className={styles.pagina}>1</p>
-                                <button> &gt; </button> 
+                                 <p className={styles.botontexto1}>-</p>
+                                 <p className={styles.botontexto2}>1</p>
+                                 <p className={styles.botontexto1}>+</p>
                             </div>
                              <h2 className={styles.status}>{comida.status}</h2>
                              <div className={styles.ingredientes}>
                                 <h1 className={styles.ingretitulo}>ingredientes</h1>
-                                <h2 className={styles.ingretexto}>esto tiene milanesa y pure y muchas otras cosas que no se que poner para rrellenar<br></br><br></br><br></br><br></br><br></br>a</h2>
+                                <h2 className={styles.ingretexto}>esto tiene milanesa y pure y muchas otras cosas que no se que poner para rrellenar</h2>
                              </div>
                            </div>
                           </div>
-                          <div className={styles.container3}> OPINIONEs</div>
+                          <div><Reseñas/></div>
                 </div>
     );
 }
 
 export default Detail;
->>>>>>> Stashed changes
+

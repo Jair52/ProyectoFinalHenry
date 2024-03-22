@@ -4,7 +4,7 @@
   align-items: center;
   background-color: #2F695C;
   position: fixed;
-  height: 110px;
+  height: 80px;
   width: 100%;
   top: 0;
 }
@@ -40,7 +40,7 @@
 .parrafo{
 text-decoration: none;
 font-size: 35px;
-color: black;
+color: rgb(255, 251, 251);
 font-family: "DM Serif Display", serif;
 }
 
@@ -74,4 +74,8 @@ li {
   height: 30px;
   margin-left: 10px; 
   cursor: pointer;
+}
+.navbtn{
+  background-color: transparent;
+  border: none;
 }

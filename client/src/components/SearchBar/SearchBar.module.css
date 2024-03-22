@@ -14,6 +14,8 @@
     margin-left: 20px;
     border-radius: 30px;
     font-weight: bolder;
+    height: 40px;
+    width: 100px;
   }
 .botoncomida2 {
     border: 1px solid black;
@@ -23,6 +25,8 @@
     color: #ffffff;
     margin-left: 20px;
     border-radius: 30px;
+    height: 40px;
+    width: 100px;
 }
 
 .botoncomida:hover{
@@ -30,11 +34,14 @@
     background-color: #070707;
     color: #ffffff;
     font-weight: bolder;
+    height: 40px;
+    width: 100px;
 
     margin-left: 20px;
     border-radius: 30px;
 }
 .searchbar{
+    margin-top: 40px;
     margin-left: 500px;
 }
 

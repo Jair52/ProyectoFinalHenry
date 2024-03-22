@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 
 interface PlatoProps {
 
@@ -6,12 +7,10 @@ interface PlatoProps {
 
 const NuestrosPlatos: React.FC<PlatoProps> = () => {
   return (
-   
     <div>
       <h1>HOLAAAAA</h1>
-    </div>
-    
-    
+      <div><SearchBar/></div>
+    </div> 
   );
 }
 
