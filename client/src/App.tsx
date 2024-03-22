@@ -8,6 +8,8 @@ import QuienesSomos from './components/QuienesSomos/QuienesSomos.tsx';
 import Faqs from './components/FAQ\'S/Faqs.tsx';
 import Funciona from './components/ComoFunciona/Funciona.tsx';
 import Detail from './components/Detail/Detail.tsx';
+import Login from './components/Login/Login.tsx';
+
 function App() {
 
   return (
@@ -23,6 +25,9 @@ function App() {
           <Route path="/Comofunciona" element={<Funciona/>}/>
           <Route path="/QuienesSomos" element={<QuienesSomos/>}/>
           <Route path="/Faqs" element={<Faqs/>}/>
+         <Route path="/Login" element={<Login handleSubmit={function (): void {
+            throw new Error('Function not implemented.');
+          } }/>}/>
         </Routes>
         <Footer/>
       </div>

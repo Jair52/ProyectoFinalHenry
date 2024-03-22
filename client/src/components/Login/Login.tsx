@@ -2,7 +2,7 @@ import { ChangeEventHandler, FocusEventHandler, MouseEventHandler, useState } fr
 import Input from './Input';
 import Button from './Button';
 import Validation, { ValidationErrors } from './Validation';
-import styles from './login.module.css';
+import styles from './Login.module.css';
 
 type UserLoginState = {
   email: string;
