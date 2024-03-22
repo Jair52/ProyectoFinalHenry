@@ -9,7 +9,7 @@ import Faqs from './components/FAQ\'S/Faqs.tsx';
 import Funciona from './components/ComoFunciona/Funciona.tsx';
 import  {useDispatch, useSelector} from 'react-redux'
 import {StoreState } from './redux/reducer/Reducer.tsx';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { getFood } from './redux/actions/Actions.tsx';
 import { Dispatch } from 'redux';
 import axios from 'axios'
@@ -53,10 +53,15 @@ function App() {
 
   const foodState = useSelector((state: StoreState) => state.platos);
   console.log(foodState);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
   return (
     <>
       <div>
-        <NavBar onItemClick={()=>{}}/>
+       <NavBar onItemClick={() => {}} toggleMenu={toggleMenu} showMenu={showMenu}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/form" />

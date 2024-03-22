@@ -7,13 +7,14 @@ import Cart from '../Cart/Cart';
 
 interface NavBarProps {
   onItemClick: (item: string) => void;
+  toggleMenu: () => void;
+  showMenu: boolean;
 }
 
-const NavBar: React.FC<NavBarProps> = ({ onItemClick }) => {
-  const [showMenu, setShowMenu] = useState(false);
+const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu }) => {
 
-  const toggleMenu = () => {
-    setShowMenu(!showMenu);
+  const handleToggleMenu = () => {
+    toggleMenu();
   };
 
   const handleItemClick = (item: string) => {
@@ -50,11 +51,11 @@ const NavBar: React.FC<NavBarProps> = ({ onItemClick }) => {
        <NavLink to="/Login" onClick={() => handleItemClick('LOGIN')}>
       <img src="https://static.vecteezy.com/system/resources/thumbnails/019/879/186/small/user-icon-on-transparent-background-free-png.png" alt="Logo 2" className={styles.navLogo} />
         </NavLink>
-        <button onClick={toggleMenu} className={styles.navbtn}>
+        <button onClick={handleToggleMenu} className={styles.navbtn}>
         <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/original/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="Logo 1" className={styles.navLogo}/>
       </button>
       </div>
-      {showMenu ? <Cart toggleMenu={toggleMenu} /> : ''}
+      {showMenu ? <Cart toggleMenu={handleToggleMenu} /> : null}
     </div>
   );
 };

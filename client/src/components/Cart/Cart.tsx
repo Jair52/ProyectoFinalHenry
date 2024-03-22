@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Style from './Cart.module.css';
 
 interface Food {
+  name: string;
+  img: string;
+  weight: number;
+  price: number;
   id: number;
-  nombre: string;
-  imagen: string;
-  peso: number;
-  costo: number;
-  cantidad: number;
+  quantity: number;
 }
 
 interface CartProps {
@@ -15,53 +15,50 @@ interface CartProps {
 }
 
 const Cart: React.FC<CartProps> = ({ toggleMenu }) => {
-  const [foods, setFoods] = useState<Food[]>([
-    {
-      id: 1,
-      nombre: "Asado",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 15.99,
-      peso: 500,
-      cantidad: 3
-    },
-    {
-      id: 3,
-      nombre: "Ceviche",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 9.75,
-      peso: 300,
-      cantidad: 1
-    },
-    {
-      id: 4,
-      nombre: "Tacos",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 8.99,
-      peso: 400,
-      cantidad: 2
-    },
-  ]);
+  const [foods, setFoods] = useState<Food[]>([]);
+  const [totalQuantity, setTotalQuantity] = useState<number>(0); // Estado para el total de la cantidad de productos en el carrito
+
+  useEffect(() => {
+    const carritoGuardado = localStorage.getItem('cart');
+    if (carritoGuardado) {
+      setFoods(JSON.parse(carritoGuardado));
+      const totalQuantity = JSON.parse(carritoGuardado).reduce((total, food) => total + food.quantity, 0);
+      setTotalQuantity(totalQuantity);
+    }
+  }, []);
+
+  const addToCart = (id: number) => {
+    const updatedFoods = foods.map(food => {
+      if (food.id === id) {
+        return { ...food, quantity: food.quantity + 1 };
+      }
+      return food;
+    });
+    setFoods(updatedFoods);
+    localStorage.setItem('cart', JSON.stringify(updatedFoods));
+    setTotalQuantity(prevTotalQuantity => prevTotalQuantity + 1);
+  };
+
+  const removeFromCart = (id: number) => {
+    const updatedFoods = foods.map(food => {
+      if (food.id === id && food.quantity > 0) {
+        return { ...food, quantity: food.quantity - 1 };
+      }
+      return food;
+    });
+    
+    const filteredFoods = updatedFoods.filter(food => food.quantity > 0);
+    
+    setFoods(filteredFoods);
+    localStorage.setItem('cart', JSON.stringify(filteredFoods));
+    
+    const totalQuantity = filteredFoods.reduce((total, food) => total + food.quantity, 0);
+    setTotalQuantity(totalQuantity);
+  };
+  
 
   const calcularTotal = () => {
-    return foods.reduce((total, food) => total + (food.costo * food.cantidad), 0);
-  };
-
-  const incrementarCantidad = (id: number) => {
-    setFoods(prevFoods => prevFoods.map(food => {
-      if (food.id === id) {
-        return { ...food, cantidad: food.cantidad + 1 };
-      }
-      return food;
-    }));
-  };
-
-  const decrementarCantidad = (id: number) => {
-    setFoods(prevFoods => prevFoods.map(food => {
-      if (food.id === id && food.cantidad > 0) {
-        return { ...food, cantidad: food.cantidad - 1 };
-      }
-      return food;
-    }));
+    return foods.reduce((total, food) => total + (food.price * food.quantity), 0);
   };
 
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -81,25 +78,26 @@ const Cart: React.FC<CartProps> = ({ toggleMenu }) => {
             <div key={food.id} className={Style.cartItem}>
               <div className={Style.containerInfo}>
                 <div className={Style.info}>
-                  <img src={food.imagen} alt={food.nombre} className={Style.itemImage} />
-                  <p className={Style.name}>{food.nombre}</p>
-                  <button onClick={() => decrementarCantidad(food.id)} className={Style.btnCant}>-</button>
-                  <p>{food.cantidad}</p>
-                  <button onClick={() => incrementarCantidad(food.id)} className={Style.btnCant}>+</button>
+                  <img src={food.img} alt={food.name} className={Style.itemImage} />
+                  <p className={Style.name}>{food.name}</p>
+                  <button onClick={() => removeFromCart(food.id)} className={Style.btnCant}>-</button>
+                  <p>{food.quantity}</p>
+                  <button onClick={() => addToCart(food.id)} className={Style.btnCant}>+</button>
                 </div>
-                <div className={Style.precio}>              
-                  <p>Precio unitario: ${food.costo.toFixed(2)}</p>
-                  <p>Precio total: ${(food.costo * food.cantidad).toFixed(2)}</p>
+                <div className={Style.precio}>
+                  <p>Precio unitario: ${food.price ? food.price.toFixed(2) : "N/A"}</p>
+                  <p>Precio total: {food.price ? (food.price * food.quantity).toFixed(2) : "N/A"}</p>
                 </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className={Style.totalContainer}>
+          <p className={Style.totalAmount}>Total a pagar: ${calcularTotal().toFixed(2)}</p>
+          
+          <button className={Style.checkoutButton}>Comprar</button>
+        </div>
       </div>
-      <div className={Style.totalContainer}>
-        <p className={Style.totalAmount}>Total a pagar: ${calcularTotal().toFixed(2)}</p>
-        <button className={Style.checkoutButton}>Comprar</button>
-      </div>
-    </div>
     </div>
   );
 };
