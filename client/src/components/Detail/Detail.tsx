@@ -1,48 +1,42 @@
 import React from "react";
-import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import styles from './Detail.module.css'
 import Reseñas from "../Reseñas/Reseñas";
-
-
-interface comida {
-    idcomida: any;
-    name: string;
-    description: string;
-    image?: string;
-    ingredientes: string;
-    peso: number;
-    calorias: number;
-    status: string;
-}
+import {useSelector} from "react-redux";
+import { StoreState } from '../../redux/reducer/Reducer';
 
 const Detail: React.FC = () =>{
-    const { id } = useParams<{ id: string }>();
-    const [comida, setcomida] = useState<comida>({ idcomida: 0, name: "Milanesa con pure", description: "esta es una milanesa con pure y comida y pure y comida y pure y comida y pure y comida", image: "https://preview.redd.it/nada-mejor-que-unas-milanesas-con-pure-que-opinan-ustedes-v0-3f5xb34hjmab1.jpg?auto=webp&s=ed8aba96a165109b76bee38db50bc91056fec1cd", ingredientes : "milanesa y pure", peso: 250, calorias: 500, status: "AGOTADO"});
-    useEffect(() => {
-        setcomida(prevState => ({ ...prevState, idcomida: id }));
-    }, [id]);
+    let idComida: string = ''
+    let { id } = useParams();
+     if (id !== undefined) {
+     idComida = id;
+    } else {
+    }
+    const numeroEntero: number = (parseInt(idComida, 10) - 1);
+    const foodState = useSelector((state: StoreState) => state.platos);
+    // Convertir el id a un número
+   
     return ( 
                     <div className={styles.todo}>
                         <div className={styles.botonatras}>
-                            <button>hola</button>
+                            <NavLink to='/NuestrosPlatos'><img className={styles.flechita} src={'https://marketplace.canva.com/mJzgw/MAEkLfmJzgw/1/tl/canva-MAEkLfmJzgw.png'}></img><span className={styles.atras}>Atras</span></NavLink>
                         </div>
                         <div className={styles.container1}>
-                          <img className={styles.imagen2} src={comida.image}/>
+                          <img className={styles.imagen2} src={foodState[numeroEntero]?.imagen}/>
                             <div className={styles.container2}>
-                             <h2 className={styles.name}>{comida.name}<p className={styles.peso}>({comida.peso}g)</p></h2>
-                             <h2 className={styles.descripcion}>{comida.description}</h2>
-                             <div className={styles.calorias}> <p className={styles.caloriastexto}>50 calorias | 25g proteinas | 28g grasas </p></div>
+                             <h2 className={styles.name}>{foodState[numeroEntero]?.nombre}<p className={styles.peso}>({foodState[numeroEntero]?.peso}g)</p></h2>
+                             <h2 className={styles.descripcion}>Rica comida</h2>
+                             <div className={styles.calorias}> <p className={styles.caloriastexto}>{foodState[numeroEntero]?.kilocalorias} kilocalorias  |  {foodState[numeroEntero]?.grasas}g grasas  |  {foodState[numeroEntero]?.carbohidratos}g carbohidratos</p></div>
                              <div className={styles.cantidad}>Elije la Cantidad</div>
                              <div className={styles.boton}>
                                  <p className={styles.botontexto1}>-</p>
                                  <p className={styles.botontexto2}>1</p>
                                  <p className={styles.botontexto1}>+</p>
                             </div>
-                             <h2 className={styles.status}>{comida.status}</h2>
+                             <h2 className={styles.status}>En Stock</h2>
                              <div className={styles.ingredientes}>
                                 <h1 className={styles.ingretitulo}>ingredientes</h1>
-                                <h2 className={styles.ingretexto}>esto tiene milanesa y pure y muchas otras cosas que no se que poner para rrellenar</h2>
+                                <h2 className={styles.ingretexto}>{foodState[numeroEntero]?.ingredientes.join(', ')}</h2>
                              </div>
                            </div>
                           </div>

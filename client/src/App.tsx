@@ -15,6 +15,7 @@ import { Dispatch } from 'redux';
 import axios from 'axios'
 import Detail from './components/Detail/Detail.tsx';
 import Login from './components/Login/Login.tsx';
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -24,6 +25,12 @@ import Login from './components/Login/Login.tsx';
 
 
 function App() {
+    const { pathname } = useLocation();
+  
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, [pathname]);
+  
 
 
   const dispatch = useDispatch<Dispatch>();
@@ -46,17 +53,6 @@ function App() {
 
   const foodState = useSelector((state: StoreState) => state.platos);
   console.log(foodState);
-
-  
-  
-  
-
-
-
-
- 
-
-
   return (
     <>
       <div>

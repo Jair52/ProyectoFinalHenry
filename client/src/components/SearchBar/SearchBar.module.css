@@ -1,6 +1,8 @@
 .container{
     display: flex;
-    margin-left: 100px;
+    margin-left: 0px;
+    font-weight: 900;
+    margin-top: 20px;
 }
 
 
@@ -8,7 +10,7 @@
     margin-bottom: 30px;
 }
 .botoncomida {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.466);
     background-color: transparent;
     cursor: pointer;
     margin-left: 20px;
@@ -44,5 +46,6 @@
     margin-top: 40px;
     margin-left: 500px;
 }
+
 
 

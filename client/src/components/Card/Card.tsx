@@ -7,10 +7,10 @@ interface CardProps {
   img: string;
   weight: number;
   price: number;
-  id: number
+  id: number;
 }
 
-const Card: React.FC<CardProps> = ({ name, img, weight, price, id }) => {
+const Card: React.FC<CardProps> = ({ name, img, weight, price, id}) => {
   const [cant, setCant] = useState<number>(0)
 
   const cantSum = () => {

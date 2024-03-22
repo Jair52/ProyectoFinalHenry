@@ -1,5 +1,5 @@
 
-import { GET_FOOD } from '../actions/ActionsTypes';
+import { GET_FOOD, GET_PAIS } from '../actions/ActionsTypes';
 
 
 
@@ -9,7 +9,7 @@ interface Plato {
   id: number;
   nombre: string;
   origen: string;
-  ingredientes: any;
+  ingredientes: string[];
   kilocalorias: number;
   carbohidratos: number;
   grasas: number;
@@ -21,6 +21,9 @@ interface Plato {
 
 export interface StoreState {
   platos: Plato[];
+  filtros: Plato[];
+  pais: string
+  tipo: string
 }
 
 export interface Action {
@@ -30,18 +33,52 @@ export interface Action {
 
 const initialState: StoreState = {
   platos: [],
+  filtros: [],
+  pais: 'Todos',
+  tipo: 'Todosa',
 };
 
 
 const Reducer = (state: StoreState = initialState, action: Action): StoreState => {
   switch (action.type) {
     case GET_FOOD:
-      console.log('toy en el reducer');
-      
+      console.log('hpña');
       return{
         ...state, 
-        platos: action.payload
+        platos: action.payload,
+        filtros: action.payload
+      };
+    case GET_PAIS:
+      console.log(action.payload);
+      let final = state.platos;
+      if (action.payload === 'Todos' || action.payload === 'Argentina' || action.payload === 'Colombia' || action.payload === 'Mexico' || action.payload === 'Ecuador') {
+        state.pais = action.payload;
       }
+      if (action.payload === 'Todosa' || action.payload === 'plato fuerte' || action.payload === 'postre' || action.payload === 'plato vegano') {
+        state.tipo = action.payload;
+      }
+      if (action.payload === 'Todos') {} 
+      else if (state.pais === 'Argentina') {
+        final = final.filter((character) => character.origen === 'Argentina');
+      } else if (state.pais  === 'Mexico') {
+        final = final.filter((character) => character.origen === 'Mexico');
+      } else if (state.pais  === 'Colombia') {
+        final = final.filter((character) => character.origen === 'Colombia');
+      } else if (state.pais === 'Ecuador') {
+        final = final.filter((character) => character.origen === 'Ecuador');
+      };
+      if (state.tipo === 'Todosa') {} 
+      else if (state.tipo === 'plato fuerte' ) {
+        final = final.filter((character) => character.tipo === 'plato fuerte' );
+      } else if (state.tipo === 'postre') {
+        final = final.filter((character) => character.tipo === 'postre');
+      } else if (state.tipo === 'plato vegano') {
+        final = final.filter((character) => character.tipo === 'plato vegano');
+      }  
+      return {
+        ...state,
+        filtros: final,
+      };
     default:
       return state;
   }

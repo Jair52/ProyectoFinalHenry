@@ -1,20 +1,21 @@
 import React , { useState } from 'react'
 import Styles from './SearchBar.module.css'
+import { useDispatch} from 'react-redux';
+import { getPais} from '../../redux/actions/Actions';
 
 const SearchBar: React.FC = () => {
+    const dispatch = useDispatch();
     const [selectedType, setSelectedType] = useState<string>('');
     const [selectedCountry, setSelectedCountry] = useState<string>('');
 
     const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setSelectedType(event.currentTarget.value);
-        console.log(event.currentTarget.value);
-        //reducer para guardara opcion
-        //reducer para hacer el filtrado
+        dispatch(getPais(event.currentTarget.value))  
     };
     const handleButtonClickcountry = (event: React.MouseEvent<HTMLButtonElement>) => {
         setSelectedCountry(event.currentTarget.value);
-        console.log(event.currentTarget.value);
-        console.log(selectedCountry);
+        dispatch(getPais(event.currentTarget.value))
+      
         //reducer para guardara opcion
         //reducer para hacer el filtrado  
     };
@@ -25,10 +26,10 @@ const SearchBar: React.FC = () => {
         <div>
         <div className={Styles.comida}> 
             <span>
-                <button value="Todos" onClick={handleButtonClick} className={selectedType === 'Todos' ? Styles.botoncomida2 : Styles.botoncomida}>Todos</button>
-                <button value="Principales" onClick={handleButtonClick} className={selectedType === 'Principales' ? Styles.botoncomida2 : Styles.botoncomida}>Principales</button>
-                <button value="Postres" onClick={handleButtonClick} className={selectedType === 'Postres' ? Styles.botoncomida2 : Styles.botoncomida}>Postres</button>
-                <button value="Vegano" onClick={handleButtonClick} className={selectedType === 'Vegano' ? Styles.botoncomida2 : Styles.botoncomida}>Vegano</button>
+                <button value="Todosa" onClick={handleButtonClick} className={selectedType === 'Todosa' ? Styles.botoncomida2 : Styles.botoncomida}>Todos</button>
+                <button value='plato fuerte' onClick={handleButtonClick} className={selectedType === 'plato fuerte' ? Styles.botoncomida2 : Styles.botoncomida}>Principales</button>
+                <button value='postre' onClick={handleButtonClick} className={selectedType === 'postre' ? Styles.botoncomida2 : Styles.botoncomida}>Postres</button>
+                <button value='plato vegano' onClick={handleButtonClick} className={selectedType === 'plato vegano' ? Styles.botoncomida2 : Styles.botoncomida}>Vegano</button>
             </span>
         </div>
         <div className={Styles.comida}>
@@ -42,11 +43,11 @@ const SearchBar: React.FC = () => {
         </div>
         </div>
         <div className={Styles.searchbar}>
-          <input 
+          {/* <input 
                   type="text"
                   placeholder="Busca la comida..."
                />
-              <button type="submit" >Search</button>
+              <button type="submit" >Search</button> */}
         </div>
         </div>
         

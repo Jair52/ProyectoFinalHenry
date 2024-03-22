@@ -16,7 +16,7 @@
   z-index: 999;
   background-color: #47796d;
   padding: 20px;
-  border: 1px solid #ccc;
+  border: 1px solid #0e0e0e;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   color: #ffffff;
   overflow-y: auto;
@@ -25,6 +25,7 @@
 
 .cartTitle {
   margin-top: 0;
+  font-size: 40px;
 }
 
 .closeButton {
@@ -43,15 +44,17 @@
 }
 
 .itemsContainer {
-  max-height: calc(70%); 
+  max-height: calc(75%); 
   overflow-y: auto;
+  border-top: 1px solid black;
+  border-bottom: 4px solid black;
 }
 
 .cartItem {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
-  border-top: solid rgb(255, 255, 255) 3px;
+  border-top: solid rgb(0, 0, 0) 3px;
 }
 
 .itemImage {
@@ -68,17 +71,18 @@
   display: flex;
   gap: 5%;
   align-items: center;
-  border-bottom: solid rgb(165, 165, 165) 1px;
+  border-bottom: solid rgb(5, 5, 5) 1px;
 }
 
 .totalContainer {
-  margin-top: 20px;
+  display: flex;
+  align-items: center;
 }
 
 .totalAmount {
   font-weight: bold;
-  border-top: solid rgb(255, 255, 255) 3px;
-  padding-top: 5%;
+  font-size: 40px;
+  align-items: center;
 }
 
 .checkoutButton {
@@ -93,6 +97,8 @@
   margin-right: 5%;
   float: right;
   transition: all 0.3s ease;
+  height: fit-content;
+  margin-left: 30px;
 }
 
 .checkoutButton:hover {
