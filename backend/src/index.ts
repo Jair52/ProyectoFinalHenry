@@ -1,4 +1,5 @@
-import express from 'express'; //ESModules
+
+import express, { Request, Response } from 'express';
 // const express = require('express') -> commonjs
 
 import foodRouter from './routes/food';
@@ -8,10 +9,13 @@ app.use(express.json()); //middleware que transforma la rq.body a un json
 
 const PORT = 3000;
 
-app.get('/ping', (_req, res) => {
-    console.log('someone pinged here!!' + new Date().toLocaleDateString());
-    res.send('pong');
-});
+app.use((req: Request, res: Response, next) => {
+    const { method, originalUrl } = req; // Desestructura solo las propiedades que necesitas
+    res.header('Access-Control-Allow-Origin', 'http://localhost:5173');
+    console.log(`${method} ${originalUrl}`); // Usa las propiedades desestructuradas
+  
+    next();
+  });
 
 app.use('/api/food', foodRouter)
 
