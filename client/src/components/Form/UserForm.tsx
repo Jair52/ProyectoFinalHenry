@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './UserForm.module.css';
 import validateUser from './UserValidate';
-
+import { useNavigate } from 'react-router-dom';
 
 interface FormValues {
   firstName: string;
@@ -13,37 +13,39 @@ interface FormValues {
   profilePicture?: File | null;
 }
 
-
+const initialValues: FormValues = {
+  firstName: '',
+  lastName: '',
+  email: '',
+  password: '',
+  confirmPassword: '',
+  profilePicture: null,
+};
 
 const UserForm: React.FC = () => {
-  const initialValues: FormValues = {
-    firstName: '',
-    lastName: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-    profilePicture: null,
-  };
+  // hook para redireccionar al usuario a otra página
+  const history = useNavigate()
 
   const handleSubmit = (values: FormValues) => {
-    console.log(values);
-    // Aquí puedes enviar los datos del formulario a tu backend
+    handleSubmit(values)
+    history('/')
+    console
   };
 
   return (
     <div className={styles.container}>
-      <h1>Crear cuenta de interfood</h1>
       <Formik
         initialValues={initialValues}
         validationSchema={validateUser}
         onSubmit={handleSubmit}
-      >
+        >
         {({ setFieldValue }) => (
-          <Form>
-            <div>
+          <Form className={styles.form}>
+            <h1>Crear cuenta de interfood</h1>
+            <div >
               <label htmlFor="firstName">Nombre*:</label>
               <br />
-              <Field type="text" id="firstName" name="firstName" />
+              <Field type="text" id="firstName" name="firstName" className={styles.field} />
               <br />
               <ErrorMessage name="firstName" />
             </div>
@@ -51,7 +53,7 @@ const UserForm: React.FC = () => {
             <div>
               <label htmlFor="lastName">Apellido*:</label>
               <br />
-              <Field type="text" id="lastName" name="lastName" />
+              <Field type="text" id="lastName" name="lastName" className={styles.field} />
               <br />
               <ErrorMessage name="lastName" />
             </div>
@@ -59,7 +61,7 @@ const UserForm: React.FC = () => {
             <div>
               <label htmlFor="email">Email*:</label>
               <br />
-              <Field type="email" id="email" name="email" />
+              <Field type="email" id="email" name="email" className={styles.field} />
               <br />
               <ErrorMessage name="email" />
             </div>
@@ -67,7 +69,7 @@ const UserForm: React.FC = () => {
             <div>
               <label htmlFor="password">Contraseña*:</label>
               <br />
-              <Field type="password" id="password" name="password" />
+              <Field type="password" id="password" name="password" className={styles.field} />
               <br />
               <ErrorMessage name="password" />
             </div>
@@ -75,7 +77,7 @@ const UserForm: React.FC = () => {
             <div>
               <label htmlFor="confirmPassword">Confirma contraseña*:</label>
               <br />
-              <Field type="password" id="confirmPassword" name="confirmPassword" />
+              <Field type="password" id="confirmPassword" name="confirmPassword" className={styles.field} />
               <br />
               <ErrorMessage name="confirmPassword" />
             </div>
@@ -84,19 +86,20 @@ const UserForm: React.FC = () => {
               <label htmlFor="profilePicture">Foto de perfil: (formatos en .jpg, .jpeg ó .png)</label>
               <br />
               <input
+                className={styles.field}
                 type="file"
                 id="profilePicture"
                 name="profilePicture"
                 accept="image/png, image/jpeg, image/jpg"
                 onChange={(event) =>
-                  setFieldValue('profilePicture', event.currentTarget.files?.[0])
+                setFieldValue('profilePicture', event.currentTarget.files?.[0])
                 }
               />
               <br />
               <ErrorMessage name="profilePicture" />
             </div>
 
-            <button type="submit">Submit</button>
+            <button type="submit" className={styles.send}>REGISTRARME</button>
           </Form>
         )}
       </Formik>

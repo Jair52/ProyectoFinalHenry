@@ -9,6 +9,7 @@ import Faqs from './components/FAQ\'S/Faqs.tsx';
 import Funciona from './components/ComoFunciona/Funciona.tsx';
 import Detail from './components/Detail/Detail.tsx';
 import Login from './components/Login/Login.tsx';
+import UserForm from './components/Form/UserForm.tsx';
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
         <NavBar onItemClick={()=>{}}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
-          <Route path="/form" />
+          <Route path="/register" element={<UserForm />} />
           <Route path="/detail/:id" element={<Detail/>}/>
           <Route path="*" />
           <Route path="/NuestrosPlatos" element={<NuestrosPlatos/>}/>
