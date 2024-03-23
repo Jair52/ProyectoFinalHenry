@@ -1,7 +1,7 @@
 
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css'; 
-import { useState } from 'react';
+
 import Cart from '../Cart/Cart';
 
 

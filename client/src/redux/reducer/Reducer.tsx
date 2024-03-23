@@ -22,12 +22,12 @@ interface Plato {
 export interface StoreState {
   platos: Plato[];
   filtros: Plato[];
-  pais: string
+  pais: string;
   tipo: string
 }
 
 export interface Action {
-  type: any;
+  type: string;
   payload: any;
 }
 
@@ -42,14 +42,12 @@ const initialState: StoreState = {
 const Reducer = (state: StoreState = initialState, action: Action): StoreState => {
   switch (action.type) {
     case GET_FOOD:
-      console.log('hpña');
       return{
         ...state, 
         platos: action.payload,
         filtros: action.payload
       };
     case GET_PAIS:
-      console.log(action.payload);
       let final = state.platos;
       if (action.payload === 'Todos' || action.payload === 'Argentina' || action.payload === 'Colombia' || action.payload === 'Mexico' || action.payload === 'Ecuador') {
         state.pais = action.payload;

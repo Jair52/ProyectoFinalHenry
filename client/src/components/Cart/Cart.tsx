@@ -16,13 +16,13 @@ interface CartProps {
 
 const Cart: React.FC<CartProps> = ({ toggleMenu }) => {
   const [foods, setFoods] = useState<Food[]>([]);
-  const [totalQuantity, setTotalQuantity] = useState<number>(0); // Estado para el total de la cantidad de productos en el carrito
+  let [totalQuantity, setTotalQuantity] = useState<number>(0); // Estado para el total de la cantidad de productos en el carrito
 
   useEffect(() => {
     const carritoGuardado = localStorage.getItem('cart');
     if (carritoGuardado) {
       setFoods(JSON.parse(carritoGuardado));
-      const totalQuantity = JSON.parse(carritoGuardado).reduce((total, food) => total + food.quantity, 0);
+      totalQuantity = JSON.parse(carritoGuardado).reduce((total : any, food : any) => total + food.quantity, 0);
       setTotalQuantity(totalQuantity);
     }
   }, []);

@@ -7,8 +7,7 @@ import NuestrosPlatos from './components/NuestrosPlatos/Platos.tsx';
 import QuienesSomos from './components/QuienesSomos/QuienesSomos.tsx';
 import Faqs from './components/FAQ\'S/Faqs.tsx';
 import Funciona from './components/ComoFunciona/Funciona.tsx';
-import  {useDispatch, useSelector} from 'react-redux'
-import {StoreState } from './redux/reducer/Reducer.tsx';
+import  {useDispatch} from 'react-redux'
 import { useEffect, useState } from 'react';
 import { getFood } from './redux/actions/Actions.tsx';
 import { Dispatch } from 'redux';
@@ -16,12 +15,6 @@ import axios from 'axios'
 import Detail from './components/Detail/Detail.tsx';
 import Login from './components/Login/Login.tsx';
 import { useLocation } from 'react-router-dom';
-
-
-
-
-
-
 
 
 function App() {
@@ -51,8 +44,6 @@ function App() {
       fetchData2();
   }, []);
 
-  const foodState = useSelector((state: StoreState) => state.platos);
-  console.log(foodState);
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {

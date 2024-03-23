@@ -14,7 +14,7 @@ a{
   padding: 0;
   border-radius: 35px;
   margin: 0;
-  border: solid black 1px;
+  border: solid rgba(0, 0, 0, 0.062) 1px;
   height: fit-content;
 }
 
@@ -58,7 +58,6 @@ a{
   align-items: center;
   margin-top: 8%;
   padding: 5% 6%;
-  border-top: solid black 0.5px;
   background-color: #f4f7f6;
   border-radius: 0 0 35px 35px;
 }
