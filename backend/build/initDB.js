@@ -16,22 +16,16 @@ const sequelize_1 = __importDefault(require("./sequelize"));
 const Plato_1 = require("./Plato");
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        yield sequelize_1.default.sync({ force: true }); // Precaución con force: true, ya que borrará las tablas existentes
-        yield Plato_1.Plato.create({
-            nombre: 'Asado con Ensalada Criolla',
-            origen: 'Argentina',
-            ingredientes: ['Carne de res', 'Chorizo', 'Morcilla'],
-            kilocalorias: 1200,
-            carbohidratos: 0,
-            grasas: 80,
-            peso: 450,
-            precio: 15.0,
-            tipo: 'plato fuerte',
-            imagen: 'https://link.to/image.jpg',
-        });
-        console.log('Plato creado exitosamente');
+        try {
+            yield sequelize_1.default.authenticate(); // Prueba la conexión con la base de datos
+            console.log('Conexión con la base de datos establecida exitosamente.');
+            // Recupera todos los platos existentes en la base de datos
+            const platos = yield Plato_1.Plato.findAll();
+            console.log('Platos encontrados:', platos.map(plato => plato.toJSON()));
+        }
+        catch (error) {
+            console.error('No se pudo conectar con la base de datos:', error);
+        }
     });
 }
-main().catch((error) => {
-    console.error('Error:', error);
-});
+main();
