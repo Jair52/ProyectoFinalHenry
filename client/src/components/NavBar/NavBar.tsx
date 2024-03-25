@@ -1,7 +1,7 @@
 
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css'; 
-import { useState } from 'react';
+// import { useState } from 'react';
 import Cart from '../Cart/Cart';
 
 
@@ -49,7 +49,7 @@ const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu }) =>
       </div>
       <div>
        <NavLink to="/Login" onClick={() => handleItemClick('LOGIN')}>
-      <img src="https://static.vecteezy.com/system/resources/thumbnails/019/879/186/small/user-icon-on-transparent-background-free-png.png" alt="Logo 2" className={styles.navLogo} />
+      <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
         </NavLink>
         <button onClick={handleToggleMenu} className={styles.navbtn}>
         <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/original/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="Logo 1" className={styles.navLogo}/>
