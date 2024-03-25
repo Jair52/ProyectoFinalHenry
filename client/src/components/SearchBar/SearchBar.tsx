@@ -1,12 +1,17 @@
-import React , { useState } from 'react'
+import React , { useState} from 'react'
 import Styles from './SearchBar.module.css'
-import { useDispatch} from 'react-redux';
+import { useDispatch, useSelector} from 'react-redux';
 import { getPais} from '../../redux/actions/Actions';
+import { StoreState } from '../../redux/reducer/Reducer';
+
 
 const SearchBar: React.FC = () => {
     const dispatch = useDispatch();
-    const [selectedType, setSelectedType] = useState<string>('Todosa');
-    const [selectedCountry, setSelectedCountry] = useState<string>('Todos');
+    const foodState = useSelector((state: StoreState) => state);
+    let tipo = foodState.tipo
+    let pais = foodState.pais
+    const [selectedType, setSelectedType] = useState<string>(tipo);
+    const [selectedCountry, setSelectedCountry] = useState<string>(pais);
 
     const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setSelectedType(event.currentTarget.value);
