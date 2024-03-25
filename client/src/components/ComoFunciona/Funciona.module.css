@@ -26,7 +26,7 @@
 }
 
 .imageWrapper {
-  max-width: 40%; 
+  max-width: 45%; 
   margin-right: 20px; 
 }
 
@@ -34,7 +34,7 @@
   flex: 1; 
   text-align: left; 
   margin-top: 90px;
-  margin-left: 10px; 
+  margin-left: 40px; 
 }
 
 .imagesContainer img {

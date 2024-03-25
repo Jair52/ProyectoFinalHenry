@@ -27,13 +27,7 @@ const Funciona: React.FC<PlatoProps> = () => {
           </p>
         </div>
       </div>
-      <div>
-        <h4 className={styles.textWrapper}><strong>¡Te lo llevamos donde estés!</strong></h4>
-      </div>
       <div className={styles.imagesContainer}>
-        <div className={styles.imageWrapper}>
-          <img src={imagen2} alt="Logo 2" />
-        </div>
         <div className={styles.textWrapper}>
           <h2>Donde quiera que estes</h2>
           <p>
@@ -45,7 +39,11 @@ const Funciona: React.FC<PlatoProps> = () => {
             ¡Ya no tienes que preocuparte por ir a comprar, ponerte a cocinar y limpiar!
           </p>
         </div>
+        <div className={styles.imageWrapper}>
+          <img src={imagen2} alt="Logo 2" />
+        </div>
       </div>
+      
       <br></br>
       <br></br>
       <br></br>

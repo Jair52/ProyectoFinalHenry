@@ -5,8 +5,8 @@ import { getPais} from '../../redux/actions/Actions';
 
 const SearchBar: React.FC = () => {
     const dispatch = useDispatch();
-    const [selectedType, setSelectedType] = useState<string>('');
-    const [selectedCountry, setSelectedCountry] = useState<string>('');
+    const [selectedType, setSelectedType] = useState<string>('Todosa');
+    const [selectedCountry, setSelectedCountry] = useState<string>('Todos');
 
     const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setSelectedType(event.currentTarget.value);
