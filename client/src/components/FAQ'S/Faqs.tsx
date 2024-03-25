@@ -46,6 +46,7 @@ const Faqs: React.FC<FaqsProps> = () => {
   ]);
 
   const [respuestasVisibles, setRespuestasVisibles] = useState<string[]>([]);
+  
 
   const toggleRespuesta = (pregunta: string) => {
     setRespuestasVisibles(prevRespuestas => {

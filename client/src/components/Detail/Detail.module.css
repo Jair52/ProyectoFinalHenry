@@ -52,6 +52,7 @@
     padding-top: 15px;
     font-weight: 800;
     color: rgba(0, 0, 0, 0.692);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 
@@ -74,7 +75,6 @@
     border-radius: 8px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-weight: 900;
-    height: 200px;
 }
 
 .name{
@@ -104,7 +104,7 @@
 
 .ingretexto{
     font-size: 16px;
-    min-height: 200px;
+    min-height: 100px;
 }
 
 .boton{
@@ -161,3 +161,9 @@
 .atras:active {
     text-decoration: none; /* Elimina la decoración del enlace */
   }
+
+.ingredientesboton{
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+
+}

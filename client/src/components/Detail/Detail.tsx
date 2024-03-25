@@ -4,17 +4,25 @@ import styles from './Detail.module.css'
 import Reseñas from "../Reseñas/Reseñas";
 import {useSelector} from "react-redux";
 import { StoreState } from '../../redux/reducer/Reducer';
+import { useState, useEffect } from "react";
 
 const Detail: React.FC = () =>{
-    let idComida: string = ''
-    let { id } = useParams();
-     if (id !== undefined) {
-     idComida = id;
-    } else {
-    }
-    const numeroEntero: number = (parseInt(idComida, 10) - 1);
-    const foodState = useSelector((state: StoreState) => state.platos);
-    // Convertir el id a un número
+  const [idComida, setIdComida] = useState<string>('');
+  const [mostrarIngredientes, setMostrarIngredientes] = useState<boolean>(false);
+  const { id } = useParams();
+
+  useEffect(() => {
+      if (id !== undefined) {
+          setIdComida(id);
+      }
+  }, [id]);
+
+  const toggleMostrarIngredientes = () => {
+    setMostrarIngredientes(!mostrarIngredientes);
+}
+
+  const numeroEntero: number = (parseInt(idComida, 10) - 1);
+  const foodState = useSelector((state: StoreState) => state.platos);
    
     return ( 
                     <div className={styles.todo}>
@@ -35,8 +43,10 @@ const Detail: React.FC = () =>{
                             </div>
                              <h2 className={styles.status}>En Stock</h2>
                              <div className={styles.ingredientes}>
-                                <h1 className={styles.ingretitulo}>ingredientes</h1>
-                                <h2 className={styles.ingretexto}>{foodState[numeroEntero]?.ingredientes.join(', ')}</h2>
+                                  <button onClick={toggleMostrarIngredientes} className={styles.ingredientesboton}>{mostrarIngredientes ? <h1 className={styles.ingretitulo}>ingredientes&nbsp;-</h1> : <h1 className={styles.ingretitulo}>ingredientes&nbsp;+</h1>}</button>
+                                   {mostrarIngredientes &&
+                                   <h2 className={styles.ingretexto}>{foodState[numeroEntero]?.ingredientes.join(', ')}</h2>
+                                   }
                              </div>
                            </div>
                           </div>

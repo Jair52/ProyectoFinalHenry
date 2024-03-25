@@ -72,7 +72,7 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id }) => {
       <img src={img} alt={name} className={Style.img}/>
       <div className={Style.conteinerName}>
         <h2 className={Style.name}>{name}</h2>
-        <p className={Style.weight}>{weight}g</p>
+        <p className={Style.weight}>{weight}g grasas</p>
       </div>
       </NavLink>
       <div className={Style.conteinerPriceBtn}>
