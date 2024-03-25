@@ -9,9 +9,11 @@ interface CardProps {
   weight: number;
   price: number;
   id: number;
+  kilocalorias: number;
+  carbohidratos: number;
 }
 
-const Card: React.FC<CardProps> = ({ name, img, weight, price, id }) => {
+const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias, carbohidratos }) => {
   const [cant, setCant] = useState<number>(0);
 
   useEffect(() => {
@@ -64,19 +66,21 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id }) => {
       }
     }
   };
+  console.log(kilocalorias);
+  
 
   return (
 
     <div className={Style.card}>
       <NavLink to={`/detail/${id}`} className={Style.navLink}>
       <img src={img} alt={name} className={Style.img}/>
+      </NavLink>
       <div className={Style.conteinerName}>
         <h2 className={Style.name}>{name}</h2>
-        <p className={Style.weight}>{weight}g grasas</p>
+        <div className={Style.calorias}> <p className={Style.caloriastexto}> {kilocalorias} kilocalorias |  {weight}g grasas  |  {carbohidratos}g carbohidratos</p></div>
       </div>
-      </NavLink>
       <div className={Style.conteinerPriceBtn}>
-        <p className={Style.price}>${price}</p>
+        <p className={Style.price}>{price}$</p>
       <div className={Style.conteinerBtn}>
           {cant > 0 ? (
             <>

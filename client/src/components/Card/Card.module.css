@@ -12,7 +12,7 @@ a{
   width: 22vw;
   color: black;
   padding: 0;
-  border-radius: 35px;
+  border-radius: 25px;
   margin: 0;
   border: solid rgba(0, 0, 0, 0.062) 1px;
   height: fit-content;
@@ -21,7 +21,7 @@ a{
 
 .img{
   width: 100%;
-  border-radius: 35px 35px 0 0;
+  border-radius: 25px 25px 0 0;
   min-height: 400px;
 }
 
@@ -126,4 +126,19 @@ a{
 
 .card:hover{
   transform: scale(1.03);
+}
+
+.caloriastexto{
+  font-weight: 800;
+  color: rgba(0, 0, 0, 0.692);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+
+.calorias{
+  background-color: rgba(226, 226, 223, 0.842);
+  border-radius: 1000px;
+  text-align: center;
+  height: 50px;
+  padding-top: -40px;
 }

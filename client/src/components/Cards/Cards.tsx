@@ -24,6 +24,8 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
 
 
   const foods: Food[] = foodState;
+  console.log(foods);
+  
 
   const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
 
@@ -37,6 +39,8 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
           weight={food.peso}
           price={food.precio}
           id={food.id}
+          kilocalorias={food.kilocalorias}
+          carbohidratos={food.carbohidratos}
         />
       ))}
     </div>

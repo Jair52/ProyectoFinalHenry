@@ -21,7 +21,7 @@ interface Food {
 
 const NuestrosPlatos = () => {
   const foodState = useSelector((state: StoreState) => state.filtros)
-  console.log(foodState);
+
   
 
   const foods: Food[] = foodState;
@@ -33,6 +33,8 @@ const NuestrosPlatos = () => {
         <div className={Style.cards}>
         {foods.map((food) => (
           <Card
+            carbohidratos={food.carbohidratos}
+            kilocalorias={food.kilocalorias}
             key={food.id}
             name={food.nombre}
             img={food.imagen}
