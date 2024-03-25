@@ -16,6 +16,7 @@ a{
   margin: 0;
   border: solid rgba(0, 0, 0, 0.062) 1px;
   height: fit-content;
+  transition: transform 0.3s ease;
 }
 
 .img{
@@ -121,4 +122,8 @@ a{
   background-color: #ffb469;
   border: none;
   color: rgb(33, 33, 33);
+}
+
+.card:hover{
+  transform: scale(1.03);
 }
