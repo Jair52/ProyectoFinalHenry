@@ -1,3 +1,4 @@
+
 [
   {
     "id": 1,
@@ -9,7 +10,8 @@
     "grasas": 80,
     "peso": 450,
     "precio": 8.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711087290/wiqbjtfgh4qeoxl6tpnx.jpg "
   },
   {
     "id": 2,
@@ -21,7 +23,8 @@
     "grasas": 50,
     "peso": 400,
     "precio": 7.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089766/klhd5jsdmftcst2mjols.jpg"
   },
   {
     "id": 3,
@@ -33,7 +36,8 @@
     "grasas": 30,
     "peso": 450,
     "precio": 6.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088672/mtmif8z60vym1e5oivjp.jpg"
   },
   {
     "id": 4,
@@ -45,7 +49,8 @@
     "grasas": 40,
     "peso": 400,
     "precio": 8.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089776/ni4qo4g1h5iv6yzei1ef.jpg"
   },
   {
     "id": 5,
@@ -57,7 +62,8 @@
     "grasas": 55,
     "peso": 450,
     "precio": 7.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089774/sujjql3qerm5uvtlgzpz.jpg"
   },
   {
     "id": 6,
@@ -69,7 +75,8 @@
     "grasas": 75,
     "peso": 400,
     "precio": 6.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088683/o81gjdzdq1bcc2sufnra.jpg"
   },
   {
     "id": 7,
@@ -81,7 +88,8 @@
     "grasas": 20,
     "peso": 450,
     "precio": 6.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088689/tcnggxemjlb0gqxdpuz8.jpg"
   },
   {
     "id": 8,
@@ -93,7 +101,8 @@
     "grasas": 60,
     "peso": 400,
     "precio": 8.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088692/djn3lgtpktsfiz7vqmpa.jpg"
   },
   {
     "id": 9,
@@ -105,7 +114,8 @@
     "grasas": 45,
     "peso": 450,
     "precio": 7.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089775/ylaqvnapzwfmty5eqdmt.jpg"
   },
   {
     "id": 10,
@@ -117,7 +127,8 @@
     "grasas": 90,
     "peso": 400,
     "precio": 8.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/yjiz4wg46mrrrrfqgx4u.jpg"
   },
   {
     "id": 11,
@@ -129,7 +140,8 @@
     "grasas": 70,
     "peso": 450,
     "precio": 7.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088711/mbpff9b7a3w6mxpbjabp.jpg"
   },
   {
     "id": 12,
@@ -141,7 +153,8 @@
     "grasas": 50,
     "peso": 400,
     "precio": 6.0,
-    "tipo": "plato fuerte"
+    "tipo": "plato fuerte",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/bnxojwl7aw8twhhuhmom.jpg"
   },
   {
     "id": 13,
@@ -153,7 +166,8 @@
     "grasas": 20,
     "peso": 200,
     "precio": 5.0,
-    "tipo": "postre"
+    "tipo": "postre",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/huxgecnj1wgmwuiwm2yn.jpg"
   },
   {
     "id": 14,
@@ -165,7 +179,8 @@
     "grasas": 25,
     "peso": 200,
     "precio": 6.0,
-    "tipo": "postre"
+    "tipo": "postre",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088713/ntnfsdthckidghocgzgk.jpg"
   },
   {
     "id": 15,
@@ -177,7 +192,8 @@
     "grasas": 15,
     "peso": 200,
     "precio": 4.0,
-    "tipo": "postre"
+    "tipo": "postre",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088713/y7mcgzxw9jre8pllsasr.jpg"
   },
   {
     "id": 16,
@@ -189,7 +205,8 @@
     "grasas": 10,
     "peso": 200,
     "precio": 5.0,
-    "tipo": "postre"
+    "tipo": "postre",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088716/qokhh5sd10bq15kpif6d.png"
   },
   {
     "id": 17,
@@ -201,7 +218,8 @@
     "grasas": 15,
     "peso": 400,
     "precio": 9.0,
-    "tipo": "plato vegano"
+    "tipo": "plato vegano",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088714/tt21u99nrwyjbhsmpwtt.jpg"
   },
   {
     "id": 18,
@@ -213,7 +231,8 @@
     "grasas": 25,
     "peso": 400,
     "precio": 8.0,
-    "tipo": "plato vegano"
+    "tipo": "plato vegano",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088714/izxfro1eqck43wqvuvvn.jpg"
   },
   {
     "id": 19,
@@ -225,7 +244,8 @@
     "grasas": 20,
     "peso": 400,
     "precio": 7.5,
-    "tipo": "plato vegano"
+    "tipo": "plato vegano",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088711/mbpff9b7a3w6mxpbjabp.jpg"
   },
   {
     "id": 20,
@@ -237,6 +257,7 @@
     "grasas": 30,
     "peso": 400,
     "precio": 8.5,
-    "tipo": "plato vegano"
+    "tipo": "plato vegano",
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/jvdlvpble9tlimw809j7.jpg"
   }
 ]

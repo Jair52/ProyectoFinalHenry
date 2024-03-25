@@ -1,61 +1,66 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 const enums_1 = require("./enums");
-const parseName = (commentFromRequest) => {
-    if (!isString(commentFromRequest)) {
+const parseName = (nameFromRequest) => {
+    if (!isString(nameFromRequest)) {
         throw new Error('Incorrect or missing name');
     }
-    return commentFromRequest;
+    return nameFromRequest;
 };
-const parseOrigin = (commentFromRequest) => {
-    if (!isString(commentFromRequest)) {
+const parseOrigin = (originFromRequest) => {
+    if (!isString(originFromRequest)) {
         throw new Error('Incorrect or missing origin');
     }
-    return commentFromRequest;
+    return originFromRequest;
 };
-//!REVISAR
-const parseIngredients = (commentFromRequest) => {
-    if (!isStringArray(commentFromRequest)) {
+const parseIngredients = (ingredientFromRequest) => {
+    if (!isStringArray(ingredientFromRequest)) {
         throw new Error('Incorrect or missing ingredient');
     }
-    return commentFromRequest;
+    return ingredientFromRequest;
 };
-//!
-const parseKilocalories = (commentFromRequest) => {
-    if (!isNumber(commentFromRequest)) {
+const parseKilocalories = (caloriesFromRequest) => {
+    if (!isNumber(caloriesFromRequest)) {
         throw new Error('Incorrect or missing calories');
     }
-    return commentFromRequest;
+    return caloriesFromRequest;
 };
-const parseCarbohydrates = (commentFromRequest) => {
-    if (!isNumber(commentFromRequest)) {
+const parseCarbohydrates = (carbohydratesFromRequest) => {
+    if (!isNumber(carbohydratesFromRequest)) {
         throw new Error('Incorrect or missing carbohydrates');
     }
-    return commentFromRequest;
+    return carbohydratesFromRequest;
 };
-const parseFats = (commentFromRequest) => {
-    if (!isNumber(commentFromRequest)) {
+const parseFats = (fatsFromRequest) => {
+    if (!isNumber(fatsFromRequest)) {
         throw new Error('Incorrect or missing fats');
     }
-    return commentFromRequest;
+    return fatsFromRequest;
 };
-const parseWeight = (commentFromRequest) => {
-    if (!isNumber(commentFromRequest)) {
-        throw new Error('Incorrect or missing weight');
+const parseWeigth = (weigthFromRequest) => {
+    if (!isNumber(weigthFromRequest)) {
+        throw new Error('Incorrect or missing weigth');
     }
-    return commentFromRequest;
+    return weigthFromRequest;
 };
-const parsePrice = (commentFromRequest) => {
-    if (!isNumber(commentFromRequest)) {
+const parsePrice = (priceFromRequest) => {
+    if (!isNumber(priceFromRequest)) {
         throw new Error('Incorrect or missing price');
     }
-    return commentFromRequest;
+    return priceFromRequest;
 };
-const parseType = (weatherFromRequest) => {
-    if (!isString(weatherFromRequest) || !isTypeFood(weatherFromRequest)) {
+const parseTypeFood = (foodFromRequest) => {
+    if (!isString(foodFromRequest) || !isTypeFood(foodFromRequest)) {
         throw new Error('Incorrect or missing TypeFood');
     }
-    return weatherFromRequest;
+    return foodFromRequest;
+};
+//* comprobacion imagen
+const parseImage = (foodFromRequest) => {
+    if (!isString(foodFromRequest) || !isTypeFood(foodFromRequest)) {
+        throw new Error('Incorrect or missing TypeFood');
+    }
+    return foodFromRequest;
 };
 //*-----------------------------------------------------------
 const isString = (string) => {
@@ -83,9 +88,10 @@ const toNewFoodEntry = (object) => {
         kilocalorias: parseKilocalories(object.kilocalorias),
         carbohidratos: parseCarbohydrates(object.carbohidratos),
         grasas: parseFats(object.grasas),
-        peso: parseWeight(object.peso),
+        peso: parseWeigth(object.peso),
         precio: parsePrice(object.precio),
-        tipo: parseType(object.typeFood)
+        tipo: parseTypeFood(object.tipo),
+        imagen: parseImage(object.image)
         //...
     };
     return newEntry;

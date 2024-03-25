@@ -20,7 +20,7 @@ const foods = food_json_1.default;
 const getEntries = () => foods;
 exports.getEntries = getEntries;
 const findById = (id) => {
-    const entry = foods.find(d => d.id === id);
+    const entry = foods.find((d) => d.id === id);
     if (entry !== undefined && entry !== null) {
         const restOfFood = __rest(entry, []);
         return restOfFood;
@@ -30,7 +30,7 @@ const findById = (id) => {
 };
 exports.findById = findById;
 const getEntriesWithoutSensitiveInfo = () => {
-    return foods.map(({ id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas, peso, precio, tipo }) => {
+    return foods.map(({ id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas, peso, precio, tipo, imagen, }) => {
         return {
             id,
             nombre,
@@ -41,7 +41,8 @@ const getEntriesWithoutSensitiveInfo = () => {
             grasas,
             peso,
             precio,
-            tipo
+            tipo,
+            imagen,
         };
     });
 };
@@ -49,7 +50,7 @@ exports.getEntriesWithoutSensitiveInfo = getEntriesWithoutSensitiveInfo;
 const addFood = (newFoodEntry) => {
     const newFood = Object.assign({ 
         // id: foods.length + 1
-        id: Math.max(...foods.map(d => d.id)) + 1 }, newFoodEntry);
+        id: Math.max(...foods.map((d) => d.id)) + 1 }, newFoodEntry);
     foods.push(newFood);
     return newFood;
 };
