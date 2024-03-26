@@ -1,57 +1,32 @@
 "use strict";
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.addFood = exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
-const food_json_1 = __importDefault(require("./food.json"));
-const foods = food_json_1.default;
-const getEntries = () => foods;
-exports.getEntries = getEntries;
-const findById = (id) => {
-    const entry = foods.find(d => d.id === id);
-    if (entry !== undefined && entry !== null) {
-        const restOfFood = __rest(entry, []);
-        return restOfFood;
-    }
-    return entry;
-    // return undefined
-};
-exports.findById = findById;
-const getEntriesWithoutSensitiveInfo = () => {
-    return foods.map(({ id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas, peso, precio, tipo, imagen }) => {
-        return {
-            id,
-            nombre,
-            origen,
-            ingredientes,
-            kilocalorias,
-            carbohidratos,
-            grasas,
-            peso,
-            precio,
-            tipo,
-            imagen
-        };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
+const Plato_1 = require("../Plato"); // Asegúrate de que la ruta al modelo Plato sea correcta
+const getEntries = () => __awaiter(void 0, void 0, void 0, function* () {
+    return yield Plato_1.Plato.findAll();
+});
+exports.getEntries = getEntries;
+const findById = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    return yield Plato_1.Plato.findByPk(id, {
+        attributes: { exclude: ['campoSensible1', 'campoSensible2'] } // Excluye los campos sensibles si los hay
+    });
+});
+exports.findById = findById;
+const getEntriesWithoutSensitiveInfo = () => __awaiter(void 0, void 0, void 0, function* () {
+    return yield Plato_1.Plato.findAll({
+        attributes: ['id', 'nombre', 'origen', 'ingredientes', 'kilocalorias', 'carbohidratos', 'grasas', 'peso', 'precio', 'tipo', 'imagen']
+    });
+});
 exports.getEntriesWithoutSensitiveInfo = getEntriesWithoutSensitiveInfo;
-const addFood = (newFoodEntry) => {
-    const newFood = Object.assign({ 
-        // id: foods.length + 1
-        id: Math.max(...foods.map(d => d.id)) + 1 }, newFoodEntry);
-    foods.push(newFood);
-    return newFood;
-};
-exports.addFood = addFood;
+// export const addFood = async (newFoodEntry) => {
+//     return await Plato.create(newFoodEntry);
+// };
