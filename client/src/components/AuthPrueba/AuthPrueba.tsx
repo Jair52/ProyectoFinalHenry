@@ -1,20 +1,26 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { signInUser, signUpNewUser } from "../../redux/actions/Actions";
+import { signUpNewUser } from "../../redux/actions/Actions";
+import { signInWithEmailAndPassword, getAuth, signOut } from "@firebase/auth";
+import { app } from "../../Auth/firebaseConfig";
 
 function FormsFirebase() {
-    const  [passwordRegister, sePasswordRegister ] = useState("")
-    const [ EmailRegister, setEmailRegister  ]= useState("")
+    const [passwordRegister, setPasswordRegister] = useState("");
+    const [emailRegister, setEmailRegister] = useState("");
     const dispatch = useDispatch();
+    const auth = getAuth(app);
 
-const register = async () => {
-  await dispatch(signUpNewUser(EmailRegister, passwordRegister));
-}
+    const register = async () => {
+        await dispatch(signUpNewUser(emailRegister, passwordRegister));
+    };
 
-const singIn = async () => {
-  await dispatch(signInUser(EmailRegister, passwordRegister));
-}
+    const signIn = async () => {
+        signInWithEmailAndPassword(auth, emailRegister, passwordRegister);
+    };
 
+    const cerrarSesion = () => {
+        signOut(auth)
+    }
 
     return (
         <div>
@@ -23,12 +29,14 @@ const singIn = async () => {
                 <input
                     onChange={(e) => setEmailRegister(e.target.value)}
                     className="input"
-                    type="email" />
+                    type="email"
+                />
                 <input
-                    onChange={(e) => sePasswordRegister(e.target.value)}
+                    onChange={(e) => setPasswordRegister(e.target.value)}
                     className="input"
-                    type="password" />
-                <button onClick={() => register()}>Submit</button>
+                    type="password"
+                />
+                <button type="button" onClick={register}>Submit</button>
             </form>
 
             <form>
@@ -36,19 +44,20 @@ const singIn = async () => {
                 <input
                     onChange={(e) => setEmailRegister(e.target.value)}
                     className="input"
-                    type="email" />
+                    type="email"
+                />
                 <input
-                    onChange={(e) => sePasswordRegister(e.target.value)}
+                    onChange={(e) => setPasswordRegister(e.target.value)}
                     className="input"
-                    type="password" />
-                <button onClick={() => singIn()}>Submit</button>
+                    type="password"
+                />
+                <button type="button" onClick={signIn}>Submit</button>
                 <button>google</button>
             </form>
 
-            <button>LogOut</button>
+            <button onClick={cerrarSesion}>LogOut</button>
         </div>
-
-    )
+    );
 }
 
 export default FormsFirebase;

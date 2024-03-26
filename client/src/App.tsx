@@ -17,10 +17,27 @@ import Login from './components/Login/Login.tsx';
 import { useLocation } from 'react-router-dom';
 import { StoreState } from './utils/types';
 import FormsFirebase from './components/AuthPrueba/AuthPrueba.tsx';
+import {app} from './Auth/firebaseConfig.ts'
+import { getAuth, onAuthStateChanged } from '@firebase/auth';
+
+const auth = getAuth(app)
+
 
 function App() {
     const { pathname } = useLocation();
+    const [usuarioRegistrado, setUsuarioRegistrado] = useState(false)
   
+    onAuthStateChanged(auth, (usuario) => {
+      if(usuario){
+        console.log('se inicio sesion');
+        setUsuarioRegistrado(true)
+        console.log(usuarioRegistrado);
+        
+      } else {
+        console.log('no se inicio sesion');
+      }
+    })
+
     useEffect(() => {
       window.scrollTo(0, 0);
     }, [pathname]);

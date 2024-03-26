@@ -68,11 +68,11 @@ const Reducer = (
         ...state,
         user: action.payload,
       };
-    case SIGNIN_USER_EMAIL:
-      return {
-        ...state,
-        user: action.payload,
-      }
+    // case SIGNIN_USER_EMAIL:
+    //   return {
+    //     ...state,
+    //     user: action.payload,
+    //   }
     default:
       return state;
   }
