@@ -13,7 +13,7 @@ interface NavBarProps {
 
 const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu }) => {
 
-  const [auth, setAuth] = useState(false);
+  const [auth, setAuth] = useState(true);
   const [showMenuAuth, setShowMenuAuth] = useState(false);
 
   const toggleMenuAuth = () => {
