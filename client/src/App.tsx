@@ -8,7 +8,6 @@ import QuienesSomos from './components/QuienesSomos/QuienesSomos.tsx';
 import Faqs from './components/FAQ\'S/Faqs.tsx';
 import Funciona from './components/ComoFunciona/Funciona.tsx';
 import  {useDispatch, useSelector} from 'react-redux'
-import {StoreState } from './redux/reducer/Reducer.tsx';
 import { useEffect, useState } from 'react';
 import { getFood } from './redux/actions/Actions.tsx';
 import { Dispatch } from 'redux';
@@ -16,13 +15,8 @@ import axios from 'axios'
 import Detail from './components/Detail/Detail.tsx';
 import Login from './components/Login/Login.tsx';
 import { useLocation } from 'react-router-dom';
-
-
-
-
-
-
-
+import { StoreState } from './utils/types';
+import FormsFirebase from './components/AuthPrueba/AuthPrueba.tsx';
 
 function App() {
     const { pathname } = useLocation();
@@ -31,8 +25,6 @@ function App() {
       window.scrollTo(0, 0);
     }, [pathname]);
   
-
-
   const dispatch = useDispatch<Dispatch>();
   
   useEffect(() => {
@@ -60,8 +52,8 @@ function App() {
   };
   return (
     <>
-      <div>
-       <NavBar onItemClick={() => {}} toggleMenu={toggleMenu} showMenu={showMenu}/>
+      {/* <div>
+        <NavBar onItemClick={() => {}} toggleMenu={toggleMenu} showMenu={showMenu}/>
         <Routes>
           <Route path="/" element={<Home/>}/>
           <Route path="/form" />
@@ -71,12 +63,13 @@ function App() {
           <Route path="/Comofunciona" element={<Funciona/>}/>
           <Route path="/QuienesSomos" element={<QuienesSomos/>}/>
           <Route path="/Faqs" element={<Faqs/>}/>
-         <Route path="/Login" element={<Login handleSubmit={function (): void {
+          <Route path="/Login" element={<Login handleSubmit={function (): void {
             throw new Error('Function not implemented.');
           } }/>}/>
         </Routes>
         <Footer/>
-      </div>
+      </div> */}
+      <FormsFirebase/>
     </>
   );
 }

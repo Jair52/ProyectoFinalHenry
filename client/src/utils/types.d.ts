@@ -26,6 +26,7 @@ export interface StoreState {
   filtros: Plato[];
   pais: string;
   tipo: string;
+  user: any | null;
 }
 
 export interface Action {

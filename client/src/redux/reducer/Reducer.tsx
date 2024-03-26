@@ -1,11 +1,12 @@
-import { StoreState, Action } from "../../utils/types";
-import { GET_FOOD, GET_PAIS } from "../actions/ActionsTypes";
+import { StoreState, Action} from "../../utils/types";
+import { GET_FOOD, GET_PAIS, SIGNIN_USER_EMAIL, SIGNUP_USER_EMAIL } from "../actions/ActionsTypes";
 
 const initialState: StoreState = {
   platos: [],
   filtros: [],
   pais: "Todos",
   tipo: "Todos",
+  user: null
 };
 
 const Reducer = (
@@ -62,6 +63,16 @@ const Reducer = (
         ...state,
         filtros: final,
       };
+    case SIGNUP_USER_EMAIL:
+      return {
+        ...state,
+        user: action.payload,
+      };
+    case SIGNIN_USER_EMAIL:
+      return {
+        ...state,
+        user: action.payload,
+      }
     default:
       return state;
   }

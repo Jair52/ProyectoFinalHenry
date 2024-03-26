@@ -30,30 +30,21 @@ export const getPais = (event: any) => ({
   payload: event,
 });
 
-export const signUpNewUser =
-  (email: string, password: string) => async (dispatch: any) => {
-    try {
-      // Registro en Firebase
-      await createUserWithEmailAndPassword(auth, email, password);
-      window.alert("Registro exitoso");
+export const signUpNewUser = (email: string, password: string) => async (dispatch: any) => {
+  try {  
 
-      // Registro en el backend
-      const endpoint = `${URL}/register/signup`;
-      const { data } = await axios.post(endpoint, { email, password });
-      console.log("Registro exitoso con email y contraseña en el backend");
+    await axios.post("http://127.0.0.1:3000/api/register/signup", { email, password });
 
-      // Dispatch alguna acción de éxito si es necesario
+    return dispatch({
+      type: SIGNUP_USER_EMAIL,
+    });
 
-      return dispatch({
-        type: SIGNUP_USER_EMAIL,
-        payload: data,
-      });
-    } catch (error: any) {
-      console.error("Error al registrar nuevo usuario:", error);
-      window.alert("¡Error al registrar nuevo usuario!");
-      throw new Error(error);
-    }
-  };
+  } catch (error: any) {
+    console.error("Error al registrar nuevo usuario:", error);
+    window.alert("¡Error al registrar nuevo usuario!");
+    throw new Error(error);
+  }
+};
 
 export const signInUser =
   (email: string, password: string) => async (dispatch: any) => {
