@@ -1,0 +1,74 @@
+
+.pageDesplegable {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  display: flex;
+  justify-content: right;
+  align-items: top;
+}
+
+.container {
+  background-color: #47796d;
+  padding: 20px;
+  border: 1px solid #0e0e0e;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
+  width: 50%; 
+  max-width: 400px;
+  height: fit-content;
+}
+
+.btnCerrar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background-color: transparent;
+  font-size: 35px; 
+  border: none;
+  cursor: pointer;
+  color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.btnCerrar:hover {
+  color: #cccccc; 
+}
+
+.btnPerfil {
+  background-color: #1e3532; 
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 55px 0 0 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.btnPerfil:hover {
+  background-color: #13443c; 
+}
+
+.btnCerrarSesion{
+  background-color: #1e3532; 
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  margin: 25px 0;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  font-size: 24px;
+  transition: all 0.3s ease;
+}
+
+.btnCerrarSesion:hover {
+  background-color: #13443c; 
+}

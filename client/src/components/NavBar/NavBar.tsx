@@ -1,7 +1,8 @@
-
+import SesionDesplegable from '../SesionDesplegable/SesionDesplegable';
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css'; 
 import Cart from '../Cart/Cart';
+import { useState } from 'react';
 
 
 interface NavBarProps {
@@ -11,6 +12,13 @@ interface NavBarProps {
 }
 
 const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu }) => {
+
+  const [auth, setAuth] = useState(false);
+  const [showMenuAuth, setShowMenuAuth] = useState(false);
+
+  const toggleMenuAuth = () => {
+    setShowMenuAuth(!showMenuAuth);
+  };
 
   const handleToggleMenu = () => {
     toggleMenu();
@@ -47,14 +55,22 @@ const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu }) =>
         </ul>
       </div>
       <div>
-       <NavLink to="/Login" onClick={() => handleItemClick('LOGIN')}>
-      <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
-        </NavLink>
+        {auth ? (
+          <NavLink to="/Login" onClick={() => handleItemClick('LOGIN')}>
+            <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
+          </NavLink>
+        )  : 
+        (
+          <button onClick={toggleMenuAuth} className={styles.navbtn}>
+            <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
+          </button>
+        )}
         <button onClick={handleToggleMenu} className={styles.navbtn}>
-        <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/original/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="Logo 1" className={styles.navLogo}/>
-      </button>
+          <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/original/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="Logo 1" className={styles.navLogo}/>
+        </button>
       </div>
-      {showMenu ? <Cart toggleMenu={handleToggleMenu} /> : null}
+      {showMenuAuth && <SesionDesplegable toggleMenu={toggleMenuAuth} setAuth={setAuth} />}
+      {showMenu && <Cart toggleMenu={handleToggleMenu} />}
     </div>
   );
 };
