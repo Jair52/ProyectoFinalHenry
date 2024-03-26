@@ -3,6 +3,9 @@ import Input from './Input';
 import Button from './Button';
 import Validation, { ValidationErrors } from './Validation';
 import styles from './Login.module.css';
+import google from '../../assets/img/google-logo.svg';
+import facebook from '../../assets/img/facebook-logo.svg';
+import github from '../../assets/img/github-logo.svg';
 
 type UserLoginState = {
   email: string;
@@ -88,6 +91,12 @@ const Login = ({ handleSubmit }: UserLoginProps) => {
         </div>
         <div className={styles.forgetandcreates}>
           <a href="/register">Crear cuenta</a>
+        </div>
+        <div className={styles.thirdLogin}>
+          <button className={styles.google}><img src={google} className={styles.google}/> </button>
+          <button className={styles.facebook}><img src={facebook} className={styles.facebook} /> </button>
+          <button className={styles.github}><img src={github} className={styles.github} /> </button>
+
         </div>
       </div>
     </div>

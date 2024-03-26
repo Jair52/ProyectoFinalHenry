@@ -101,3 +101,29 @@
   color:  #2f695c;
   text-align: center;
   }
+
+  .thirdLogin {
+    padding: 15px 10px;
+    background-color: none;
+  }
+
+  .google{
+    border: none;
+    border-radius: 50%;
+    background-color: #dbe9e9;
+  }
+  .facebook{
+    border: none;
+    border-radius: 50%;
+    background-color: #dbe9e9;
+  }
+  .github{
+    border-radius: 50%;
+    border: none;
+    height: 52px;
+    background-color: #dbe9e9;
+  }
+
+  .github, .google, .facebook:hover {
+    cursor: pointer;
+  }
