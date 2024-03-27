@@ -17,6 +17,8 @@ interface Plato {
   precio: number;
   tipo: string;
   imagen: string;
+  descripcion: string;
+  stock: string;
 }
 
 export interface StoreState {

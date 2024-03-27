@@ -11,7 +11,9 @@ export interface FoodEntry {
     peso: number,
     precio: number,
     tipo: TypeFood,
-    imagen: image
+    imagen: image,
+    descripcion: string;
+    stock: string;
 };
 
 export type NonSensitiveInfoFoodEntry = FoodEntry;

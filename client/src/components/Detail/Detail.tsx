@@ -23,6 +23,8 @@ const Detail: React.FC = () =>{
 
   const numeroEntero: number = (parseInt(idComida, 10) - 1);
   const foodState = useSelector((state: StoreState) => state.platos);
+  console.log(foodState);
+  
    
     return ( 
                     <div className={styles.todo}>
@@ -33,7 +35,7 @@ const Detail: React.FC = () =>{
                           <img className={styles.imagen2} src={foodState[numeroEntero]?.imagen}/>
                             <div className={styles.container2}>
                              <h2 className={styles.name}>{foodState[numeroEntero]?.nombre}<p className={styles.peso}>({foodState[numeroEntero]?.peso}g)</p></h2>
-                             <h2 className={styles.descripcion}>Rica comida</h2>
+                             <h2 className={styles.descripcion}>{foodState[numeroEntero]?.descripcion}</h2>
                              <div className={styles.calorias}> <p className={styles.caloriastexto}>{foodState[numeroEntero]?.kilocalorias} kilocalorias  |  {foodState[numeroEntero]?.grasas}g grasas  |  {foodState[numeroEntero]?.carbohidratos}g carbohidratos</p></div>
                              <div className={styles.cantidad}>Elije la Cantidad</div>
                              <div className={styles.boton}>
@@ -41,7 +43,7 @@ const Detail: React.FC = () =>{
                                  <p className={styles.botontexto2}>1</p>
                                  <p className={styles.botontexto1}>+</p>
                             </div>
-                             <h2 className={styles.status}>En Stock</h2>
+                             <h2 className={styles.status}>{foodState[numeroEntero]?.stock}</h2>
                              <div className={styles.ingredientes}>
                                   <button onClick={toggleMostrarIngredientes} className={styles.ingredientesboton}>{mostrarIngredientes ? <h1 className={styles.ingretitulo}>ingredientes&nbsp;-</h1> : <h1 className={styles.ingretitulo}>ingredientes&nbsp;+</h1>}</button>
                                    {mostrarIngredientes &&

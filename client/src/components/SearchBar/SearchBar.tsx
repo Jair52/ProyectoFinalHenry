@@ -7,9 +7,7 @@ import { StoreState } from '../../redux/reducer/Reducer';
 
 const SearchBar: React.FC = () => {
     const dispatch = useDispatch();
-    const foodState = useSelector((state: StoreState) => state);
-    let tipo = foodState.tipo
-    let pais = foodState.pais
+    const { tipo, pais } = useSelector((state: StoreState) => state);
     const [selectedType, setSelectedType] = useState<string>(tipo);
     const [selectedCountry, setSelectedCountry] = useState<string>(pais);
 

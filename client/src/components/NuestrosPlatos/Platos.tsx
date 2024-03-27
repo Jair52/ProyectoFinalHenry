@@ -17,6 +17,7 @@ interface Food {
   precio: number;
   tipo: string;
   imagen: string;
+  stock: string;
 }
 
 const NuestrosPlatos = () => {
@@ -33,6 +34,7 @@ const NuestrosPlatos = () => {
         <div className={Style.cards}>
         {foods.map((food) => (
           <Card
+            stock={food.stock}
             carbohidratos={food.carbohidratos}
             kilocalorias={food.kilocalorias}
             key={food.id}

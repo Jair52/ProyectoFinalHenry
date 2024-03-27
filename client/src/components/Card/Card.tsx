@@ -11,9 +11,10 @@ interface CardProps {
   id: number;
   kilocalorias: number;
   carbohidratos: number;
+  stock: string;
 }
 
-const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias, carbohidratos }) => {
+const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias, carbohidratos, stock}) => {
   const [cant, setCant] = useState<number>(0);
 
   useEffect(() => {
@@ -66,14 +67,17 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       }
     }
   };
-  console.log(kilocalorias);
+  console.log(stock);
   
 
   return (
 
     <div className={Style.card}>
       <NavLink to={`/detail/${id}`} className={Style.navLink}>
-      <img src={img} alt={name} className={Style.img}/>
+      <div className={Style.imgcontainer}>
+      <img src={img} alt={name} className={Style.img}></img>
+      {stock !== 'Disponible' && <p className={Style.stock}>{stock}</p>}
+      </div>
       </NavLink>
       <div className={Style.conteinerName}>
         <h2 className={Style.name}>{name}</h2>
@@ -81,17 +85,24 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       </div>
       <div className={Style.conteinerPriceBtn}>
         <p className={Style.price}>{price}$</p>
-      <div className={Style.conteinerBtn}>
-          {cant > 0 ? (
-            <>
-              <button className={Style.btn} onClick={removeFromCart}>-</button>
-              <span className={Style.cant}>{cant}</span>
-              <button className={Style.btn} onClick={addToCart}>+</button>
-            </>
-          ) : (
-            <button className={Style.btnAdd} onClick={addToCart}>Añadir</button>
-          )}
-        </div>
+        <div className={Style.conteinerBtn}>
+        {/* Condicionamos la renderización del botón según el stock */}
+        {stock !== 'Agotado' ? (
+          <>
+            {cant > 0 ? (
+              <>
+                <button className={Style.btn} onClick={removeFromCart}>-</button>
+                <span className={Style.cant}>{cant}</span>
+                <button className={Style.btn} onClick={addToCart}>+</button>
+              </>
+            ) : (
+              <button className={Style.btnAdd} onClick={addToCart}>Añadir</button>
+            )}
+          </>
+        ) : (
+          <button className={Style.btnAdd} disabled>Agotado</button>
+        )}
+      </div>
       </div>
     </div>
   );

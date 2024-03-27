@@ -1,4 +1,4 @@
-import { FoodEntry, NewFoodEntry, NonSensitiveInfoFoodEntry } from '../types';
+import { FoodEntry, NonSensitiveInfoFoodEntry } from '../types';
 import foodData from './food.json';
 
 const foods: Array<FoodEntry> = foodData as Array<FoodEntry>;
@@ -17,7 +17,7 @@ export const findById = (id: number): NonSensitiveInfoFoodEntry | undefined => {
 
 export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoFoodEntry[] => {
     return foods.map(({id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas,
-                       peso, precio, tipo, imagen}) => {
+                       peso, precio, tipo, imagen, descripcion, stock}) => {
         return {
             id,
             nombre,
@@ -29,19 +29,21 @@ export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoFoodEntry[] =>
             peso,
             precio,
             tipo,
-            imagen
+            imagen,
+            descripcion,
+            stock,
         }
     })
 };
 
-export const addFood = (newFoodEntry:  NewFoodEntry): FoodEntry => {
-    const newFood = {
-        // id: foods.length + 1
-        id: Math.max(...foods.map(d => d.id)) + 1,
-        ...newFoodEntry
-    }
+// // // export const addFood = (newFoodEntry:  NewFoodEntry): FoodEntry => {
+// // //     const newFood = {
+// // //         // id: foods.length + 1
+// // //         id: Math.max(...foods.map(d => d.id)) + 1,
+// // //         ...newFoodEntry
+// // //     }
 
-    foods.push(newFood)
-    return newFood
-};
+// //     foods.push(newFood)
+// //     return newFood
+// };
 

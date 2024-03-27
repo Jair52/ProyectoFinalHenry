@@ -142,3 +142,27 @@ a{
   height: 50px;
   padding-top: -40px;
 }
+
+.stock{
+  width: 80%;
+  color: rgb(2, 2, 2);
+  background-color:   #FF9933; /* Fondo semitransparente para que el texto sea legible */
+  height: 30px;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  top: 10px; /* Ajusta la posición vertical del texto "stock" */
+  left: 10px; /* Ajusta la posición horizontal del texto "stock" */
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 30px;
+  margin-left: 6%;
+  color: white;
+}
+
+.imgcontainer {
+  position: relative;
+}

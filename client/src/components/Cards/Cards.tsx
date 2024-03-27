@@ -13,6 +13,7 @@ interface Food {
   peso: number;
   precio: number;
   imagen: string;
+  stock: string;
 }
 
 interface CardsProps {
@@ -24,15 +25,18 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
 
 
   const foods: Food[] = foodState;
-  console.log(foods);
   
 
   const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
+
+ 
+  
 
   return (
     <div className={Style.cards}>
       {limitedFoods.map((food) => (
         <Card
+          stock={food.stock}
           key={food.id}
           name={food.nombre}
           img={food.imagen}
