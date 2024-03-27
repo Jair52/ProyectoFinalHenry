@@ -11,6 +11,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
 const Plato_1 = require("../Plato"); // Asegúrate de que la ruta al modelo Plato sea correcta
+// import { FoodEntry } from '../types';
 const getEntries = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield Plato_1.Plato.findAll();
 });
@@ -27,6 +28,3 @@ const getEntriesWithoutSensitiveInfo = () => __awaiter(void 0, void 0, void 0, f
     });
 });
 exports.getEntriesWithoutSensitiveInfo = getEntriesWithoutSensitiveInfo;
-// export const addFood = async (newFoodEntry) => {
-//     return await Plato.create(newFoodEntry);
-// };

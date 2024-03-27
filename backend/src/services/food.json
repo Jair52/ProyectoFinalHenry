@@ -11,7 +11,8 @@
     "peso": 450,
     "precio": 8.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711087290/wiqbjtfgh4qeoxl6tpnx.jpg "
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711087290/wiqbjtfgh4qeoxl6tpnx.jpg",
+    "descripcion": "Un festín argentino clásico que celebra la carne asada en su esplendor. Este plato incluye jugosa carne de res, chorizo, morcilla, mollejas y chinchulines, acompañados de una refrescante ensalada criolla compuesta por lechuga, tomate, cebolla y un toque de vinagre y aceite de oliva."
   },
   {
     "id": 2,
@@ -24,7 +25,8 @@
     "peso": 400,
     "precio": 7.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089766/klhd5jsdmftcst2mjols.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089766/klhd5jsdmftcst2mjols.jpg",
+    "descripcion": "Una deliciosa y reconfortante opción que combina finas rebanadas de carne de res empanizadas y cubiertas con salsa de tomate, jamón y queso derretido, acompañadas de un cremoso puré de papas casero."
   },
   {
     "id": 3,
@@ -37,7 +39,8 @@
     "peso": 450,
     "precio": 6.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088672/mtmif8z60vym1e5oivjp.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088672/mtmif8z60vym1e5oivjp.jpg",
+    "descripcion": "Estas empanadas argentinas son un festín para el paladar, rellenas de carne de res sazonada con cebolla, aceitunas y especias, todo envuelto en una masa crujiente. Se sirven con una vibrante salsa chimichurri, que realza el sabor con su frescura y su toque picante."
   },
   {
     "id": 4,
@@ -50,7 +53,8 @@
     "peso": 400,
     "precio": 8.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089776/ni4qo4g1h5iv6yzei1ef.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089776/ni4qo4g1h5iv6yzei1ef.jpg",
+    "descripcion": "Una explosión de sabores mexicanos en cada bocado. La carne de cerdo marinada con especias y piña se sirve en tortillas de maíz calientes, acompañadas de guacamole fresco con cilantro y cebolla, todo rematado con un toque de limón."
   },
   {
     "id": 5,
@@ -63,7 +67,8 @@
     "peso": 450,
     "precio": 7.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089774/sujjql3qerm5uvtlgzpz.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089774/sujjql3qerm5uvtlgzpz.jpg",
+    "descripcion": "Un plato típico mexicano que combina sabores dulces y salados. Los chiles poblanos se rellenan con una mezcla de carne molida, frutas y nueces, se cubren con una suave salsa de nogada y se sirven con arroz blanco para crear una experiencia gastronómica única."
   },
   {
     "id": 6,
@@ -76,7 +81,8 @@
     "peso": 400,
     "precio": 6.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088683/o81gjdzdq1bcc2sufnra.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088683/o81gjdzdq1bcc2sufnra.jpg",
+    "descripcion": "Un plato emblemático de la gastronomía mexicana, el mole poblano es una salsa espesa y deliciosa hecha con chiles secos, chocolate y especias, servida sobre trozos de pollo tierno. Se acompaña con tortillas de maíz calientes para saborear cada bocado."
   },
   {
     "id": 7,
@@ -89,20 +95,22 @@
     "peso": 450,
     "precio": 6.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088689/tcnggxemjlb0gqxdpuz8.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088689/tcnggxemjlb0gqxdpuz8.jpg",
+    "descripcion": "Este ceviche ecuatoriano es una explosión de frescura y sabor. Los camarones se marinan en limón con cebolla, tomate y cilantro, creando un plato ligero y refrescante. Se sirve con chifles, crujientes trozos de plátano verde frito."
   },
   {
     "id": 8,
     "nombre": "Seco de chivo con Arroz con frijoles",
     "origen": "Ecuador",
-    "ingredientes": ["Chivo", "Cerveza", "Culantro", "Cebolla", "Tomate", "Arroz", "Frijoles", "Aceite vegetal", "Comino"],
+    "ingredientes": ["Chivo", "Cerveza", "Cilantro", "Cebolla", "Tomate", "Arroz", "Frijoles", "Aceite vegetal", "Comino"],
     "kilocalorias": 1100,
     "carbohidratos": 40,
     "grasas": 60,
     "peso": 400,
     "precio": 8.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088692/djn3lgtpktsfiz7vqmpa.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711561244/seco_de_chivo_lwleym.webp",
+    "descripcion": "Un plato reconfortante de la cocina ecuatoriana, el seco de chivo es un estofado sabroso hecho con carne de chivo tierna cocida lentamente en una salsa de cerveza con hierbas y especias. Se sirve con arroz y frijoles, creando una combinación perfecta de texturas y sabores."
   },
   {
     "id": 9,
@@ -115,7 +123,8 @@
     "peso": 450,
     "precio": 7.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089775/ylaqvnapzwfmty5eqdmt.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711089775/ylaqvnapzwfmty5eqdmt.jpg",
+    "descripcion": "Este plato tradicional ecuatoriano es un guiso de atún en una base de caldo de pescado con cebolla, cilantro y tomate. Se sirve con trozos de yuca y se complementa con aguacate en rodajas. Se acompaña con chifles para agregar un toque crujiente."
   },
   {
     "id": 10,
@@ -128,7 +137,8 @@
     "peso": 400,
     "precio": 8.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/yjiz4wg46mrrrrfqgx4u.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/yjiz4wg46mrrrrfqgx4u.jpg",
+    "descripcion": "Plato colombiano abundante y delicioso que combina varios elementos tradicionales de la gastronomía colombiana. Incluye carne molida sazonada, chicharrón crujiente, arepas tiernas, aguacate fresco, plátano maduro frito, arroz blanco, frijoles refritos y un huevo frito en la parte superior. Es un festín para los amantes de la comida colombiana."
   },
   {
     "id": 11,
@@ -141,7 +151,8 @@
     "peso": 450,
     "precio": 7.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088711/mbpff9b7a3w6mxpbjabp.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711560558/jvgsip12q62jzss0yuxb.jpg",
+    "descripcion": "El ajiaco es una sopa colombiana reconfortante y abundante, especialmente popular en la región de Bogotá. Está hecha con pollo, papa criolla, maíz y una variedad de hierbas y especias. Se sirve con aguacate en rodajas, crema de leche, alcaparras y cilantro fresco. Se acompaña con arepas, panecillos de maíz típicos de Colombia."
   },
   {
     "id": 12,
@@ -154,7 +165,8 @@
     "peso": 400,
     "precio": 6.0,
     "tipo": "plato fuerte",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/bnxojwl7aw8twhhuhmom.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/bnxojwl7aw8twhhuhmom.jpg",
+    "descripcion": "Guiso colombiano tradicionalmente hecho con carne de res, yuca, plátano, mazorca de maíz, cilantro y papa. Es una comida reconfortante y abundante que se sirve caliente. Se acompaña con aguacate en rodajas."
   },
   {
     "id": 13,
@@ -167,7 +179,8 @@
     "peso": 200,
     "precio": 5.0,
     "tipo": "postre",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/huxgecnj1wgmwuiwm2yn.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/huxgecnj1wgmwuiwm2yn.jpg",
+    "descripcion": "Postre clásico de la cocina argentina, amado por su textura suave y su sabor dulce y delicado. Hecho con huevos, leche, azúcar y vainilla, se sirve con un delicioso caramelo líquido que se forma en la parte superior. Es el final perfecto para cualquier comida, añadiendo un toque de dulzura y elegancia."
   },
   {
     "id": 14,
@@ -180,7 +193,8 @@
     "peso": 200,
     "precio": 6.0,
     "tipo": "postre",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088713/ntnfsdthckidghocgzgk.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088713/ntnfsdthckidghocgzgk.jpg",
+    "descripcion": "El pastel de Tres Leches es un postre mexicano clásico y decadente que consiste en un bizcocho esponjoso empapado en tres tipos de leche: leche evaporada, leche condensada y crema de leche. Se sirve frío y está adornado con una capa de crema batida y a menudo se decora con frutas frescas. Es una delicia dulce y indulgente que deleita a los amantes del dulce."
   },
   {
     "id": 15,
@@ -193,7 +207,8 @@
     "peso": 200,
     "precio": 4.0,
     "tipo": "postre",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088713/y7mcgzxw9jre8pllsasr.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088713/y7mcgzxw9jre8pllsasr.jpg",
+    "descripcion": "El Morocho con dulce de leche es un postre tradicional ecuatoriano que consiste en un pudín cremoso hecho de morocho, un tipo de maíz blanco grande, cocido en leche con azúcar, vainilla y canela. Se sirve frío y a menudo se decora con una generosa porción de dulce de leche. Es una delicia reconfortante y dulce que satisface los antojos de postre."
   },
   {
     "id": 16,
@@ -206,7 +221,8 @@
     "peso": 200,
     "precio": 5.0,
     "tipo": "postre",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088716/qokhh5sd10bq15kpif6d.png"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088716/qokhh5sd10bq15kpif6d.png",
+    "descripcion": "Postre colombiano tradicional, similar a una crema dulce y espesa, aromatizada con canela y clavos de olor. Se hace con leche, maicena, azúcar y panela, y se sirve fría. Es una delicia reconfortante y llena de sabor, perfecta para disfrutar en cualquier ocasión."
   },
   {
     "id": 17,
@@ -219,7 +235,8 @@
     "peso": 400,
     "precio": 9.0,
     "tipo": "plato vegano",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088714/tt21u99nrwyjbhsmpwtt.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711560571/bmeqorh8fujernzc3r2g.jpg",
+    "descripcion": "El Locro Vegano es una versión sin carne del tradicional guiso argentino, elaborado con porotos (judías), maíz, calabaza, batata, cebolla, pimiento, pimentón, comino y ajo, cocidos en un caldo vegetal y aceite de oliva. Es un plato abundante y reconfortante, perfecto para los amantes de la comida vegana y vegetariana."
   },
   {
     "id": 18,
@@ -232,20 +249,22 @@
     "peso": 400,
     "precio": 8.0,
     "tipo": "plato vegano",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088714/izxfro1eqck43wqvuvvn.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088714/izxfro1eqck43wqvuvvn.jpg",
+    "descripcion": "Los Tacos Veganos son una deliciosa y saludable alternativa a los tacos tradicionales, hechos con champiñones salteados, frijoles negros, pimientos, cebollas, aguacate, cilantro y limón, todo envuelto en tortillas de maíz. Son una opción sabrosa y abundante para quienes siguen una dieta vegana o vegetariana."
   },
   {
     "id": 19,
-    "nombre": "Encebollado Vegano",
+    "nombre": "Guatita Vegana",
     "origen": "Ecuador",
-    "ingredientes": ["Corazón de palmito", "Yuca", "Cebolla", "Tomate", "Cilantro", "Aguacate", "Limón", "Aceite de oliva", "Sal"],
-    "kilocalorias": 550,
-    "carbohidratos": 70,
-    "grasas": 20,
+    "ingredientes": ["Papa", "Zanahoria", "Arroz", "Cacahuates", "Leche de coco", "Cilantro", "Comino", "Ajo", "Cebolla", "Pimiento", "Aceite de oliva", "Sal"],
+    "kilocalorias": 600,
+    "carbohidratos": 65,
+    "grasas": 30,
     "peso": 400,
     "precio": 7.5,
     "tipo": "plato vegano",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088711/mbpff9b7a3w6mxpbjabp.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711562327/guati_l9qo3s.jpg",
+    "descripcion": "Versión sin carne del plato ecuatoriano tradicional, hecho con papa, zanahoria, arroz, cacahuates, leche de coco, cilantro, comino, ajo, cebolla, pimiento, aceite de oliva y sal. Es un plato rico y reconfortante, perfecto para quienes siguen una dieta vegana o vegetariana."
   },
   {
     "id": 20,
@@ -258,6 +277,7 @@
     "peso": 400,
     "precio": 8.5,
     "tipo": "plato vegano",
-    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711088712/jvdlvpble9tlimw809j7.jpg"
+    "imagen": "https://res.cloudinary.com/dfwlkhi0o/image/upload/v1711561348/Bandeja_paisa_Vegana_y9bikv.jpg",
+    "descripcion": "Una versión sin carne del icónico plato colombiano, compuesto por frijoles negros, plátano maduro, aguacate, arroz integral, arepas, tomate, cebolla, cilantro, aceite de oliva y sal. Es una comida abundante y llena de sabor, perfecta para quienes prefieren una dieta vegana o vegetariana."
   }
 ]
