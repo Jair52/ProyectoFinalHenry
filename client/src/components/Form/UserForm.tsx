@@ -39,7 +39,10 @@ const UserForm: React.FC = () => {
         validationSchema={validateUser}
         onSubmit={handleSubmit}
         >
-        {({ setFieldValue }) => (
+      {/* es una funcion de formik y nos permite cambiar el valor de un campo de formulario
+          de manera manual (para cuando manejamos File) 
+          isValid y dirty son validadores para habilitar el botón registrarme*/}
+        {({ setFieldValue, isValid, dirty }) => (
           <Form className={styles.form}>
             <h1>Crear cuenta de interfood</h1>
             <div >
@@ -47,7 +50,7 @@ const UserForm: React.FC = () => {
               <br />
               <Field type="text" id="firstName" name="firstName" className={styles.field} />
               <br />
-              <ErrorMessage name="firstName" />
+              <p className={styles.error}><ErrorMessage name="firstName" /></p>
             </div>
 
             <div>
@@ -55,7 +58,7 @@ const UserForm: React.FC = () => {
               <br />
               <Field type="text" id="lastName" name="lastName" className={styles.field} />
               <br />
-              <ErrorMessage name="lastName" />
+              <p className={styles.error}><ErrorMessage name="lastName" /></p>
             </div>
 
             <div>
@@ -63,7 +66,7 @@ const UserForm: React.FC = () => {
               <br />
               <Field type="email" id="email" name="email" className={styles.field} />
               <br />
-              <ErrorMessage name="email" />
+              <p className={styles.error}><ErrorMessage name="email" /></p>
             </div>
 
             <div>
@@ -71,7 +74,7 @@ const UserForm: React.FC = () => {
               <br />
               <Field type="password" id="password" name="password" className={styles.field} />
               <br />
-              <ErrorMessage name="password" />
+              <p className={styles.error}><ErrorMessage name="password" /></p>
             </div>
 
             <div>
@@ -79,7 +82,7 @@ const UserForm: React.FC = () => {
               <br />
               <Field type="password" id="confirmPassword" name="confirmPassword" className={styles.field} />
               <br />
-              <ErrorMessage name="confirmPassword" />
+              <p className={styles.error}><ErrorMessage name="confirmPassword" /></p>
             </div>
 
             <div>
@@ -96,10 +99,10 @@ const UserForm: React.FC = () => {
                 }
               />
               <br />
-              <ErrorMessage name="profilePicture" />
+              <p className={styles.error}><ErrorMessage name="profilePicture" /></p>
             </div>
 
-            <button type="submit" className={styles.send}>REGISTRARME</button>
+            <button type="submit" className={styles.send} disabled={!isValid || !dirty}>REGISTRARME</button>
           </Form>
         )}
       </Formik>

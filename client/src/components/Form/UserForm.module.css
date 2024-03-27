@@ -26,6 +26,11 @@
   height: 35px;
 }
 
+.send:disabled{
+  background-color: gray;
+  color: #dbe9e9;
+}
+
 button:hover{
   cursor: pointer;
 }
