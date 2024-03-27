@@ -15,6 +15,7 @@ import axios from 'axios'
 import Detail from './components/Detail/Detail.tsx';
 import Login from './components/Login/Login.tsx';
 import { useLocation } from 'react-router-dom';
+import UserForm from './components/AdminDashboard/FormMeal.tsx';
 
 
 function App() {
@@ -65,6 +66,7 @@ function App() {
          <Route path="/Login" element={<Login handleSubmit={function (): void {
             throw new Error('Function not implemented.');
           } }/>}/>
+          <Route path="/createmeal" element={<UserForm/>}/>
         </Routes>
         <Footer/>
       </div>
