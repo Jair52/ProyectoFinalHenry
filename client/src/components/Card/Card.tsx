@@ -39,6 +39,8 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       if (itemIndex !== -1) {
         cartItems[itemIndex].quantity += 1;
       } else {
+        console.log(id, name, img, weight, price);
+        
         cartItems.push({ id, name, img, weight, price, quantity: 1 });
       }
       localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -67,7 +69,6 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       }
     }
   };
-  console.log(stock);
   
 
   return (
@@ -86,7 +87,6 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       <div className={Style.conteinerPriceBtn}>
         <p className={Style.price}>{price}$</p>
         <div className={Style.conteinerBtn}>
-        {/* Condicionamos la renderización del botón según el stock */}
         {stock !== 'Agotado' ? (
           <>
             {cant > 0 ? (
