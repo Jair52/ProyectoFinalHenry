@@ -7,6 +7,7 @@ import { StoreState } from '../../redux/reducer/Reducer';
 import { useState, useEffect } from "react";
 
 const Detail: React.FC = () =>{
+  
   const [idComida, setIdComida] = useState<string>('');
   const [mostrarIngredientes, setMostrarIngredientes] = useState<boolean>(false);
   const { id } = useParams();
@@ -23,9 +24,65 @@ const Detail: React.FC = () =>{
 
   const numeroEntero: number = (parseInt(idComida, 10) - 1);
   const foodState = useSelector((state: StoreState) => state.platos);
-  console.log(foodState);
+  let id2 = foodState[numeroEntero]?.id
+  let name = foodState[numeroEntero]?.nombre
+  let img = foodState[numeroEntero]?.imagen
+  let weight = foodState[numeroEntero]?.peso
+  let price = foodState[numeroEntero]?.precio
+  let stock = foodState[numeroEntero]?.stock
+  const [cant, setCant] = useState<number>(0);
+  useEffect(() => {
+    const existingCart = localStorage.getItem('cart');
+    if (existingCart) {
+      const cartItems = JSON.parse(existingCart);
+      const item = cartItems.find((item: any) => item.id === id2);
+      if (item) {
+        setCant(item.quantity); 
+      } else {
+        setCant(0);
+      }
+    }
+  });
+
+
   
-   
+  const addToCart = () => {
+    const existingCart = localStorage.getItem('cart');
+    if (existingCart) {
+      let id = id2
+      const cartItems = JSON.parse(existingCart);
+      const itemIndex = cartItems.findIndex((item: any) => item.id === id);
+      if (itemIndex !== -1) {
+        cartItems[itemIndex].quantity += 1;
+      } else {
+        cartItems.push({ id, name, img, weight, price, quantity: 1  });
+      }
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+    } else {
+      localStorage.setItem(
+        'cart',
+        JSON.stringify([{ id, name, img, weight, price, quantity: 1  }])
+      );
+    }
+    setCant(prevCant => prevCant + 1);
+  };
+
+  const removeFromCart = () => {
+    const existingCart = localStorage.getItem('cart');
+    if (existingCart) {
+      const cartItems = JSON.parse(existingCart);
+      const itemIndex = cartItems.findIndex((item: any) => item.id === id2);
+      if (itemIndex !== -1) {
+        if (cartItems[itemIndex].quantity === 1) {
+          cartItems.splice(itemIndex, 1);
+        } else {
+          cartItems[itemIndex].quantity -= 1;
+        }
+        localStorage.setItem('cart', JSON.stringify(cartItems));
+        setCant(prevCant => prevCant > 0 ? prevCant - 1 : 0);
+      }
+    }
+  };
     return ( 
                     <div className={styles.todo}>
                         <div className={styles.botonatras}>
@@ -37,17 +94,23 @@ const Detail: React.FC = () =>{
                              <h2 className={styles.name}>{foodState[numeroEntero]?.nombre}<p className={styles.peso}>({foodState[numeroEntero]?.peso}g)</p></h2>
                              <h2 className={styles.descripcion}>{foodState[numeroEntero]?.descripcion}</h2>
                              <div className={styles.calorias}> <p className={styles.caloriastexto}>{foodState[numeroEntero]?.kilocalorias} kilocalorias  |  {foodState[numeroEntero]?.grasas}g grasas  |  {foodState[numeroEntero]?.carbohidratos}g carbohidratos</p></div>
-                             {foodState[numeroEntero]?.stock !== 'Agotado' && (
-                             <div>
-                               <div className={styles.cantidad}>Elije la Cantidad</div>
-                               <div className={styles.boton}>
-                               <p className={styles.botontexto1}>-</p>
-                               <p className={styles.botontexto2}>1</p>
-                               <p className={styles.botontexto1}>+</p>
+                             <div className={styles.botoncarro}>
+                             {stock !== 'Agotado' ? (
+                                   <>
+                                   {cant > 0 ? (
+                                   <>
+                                   <button className={styles.btn} onClick={removeFromCart}>-</button>
+                                   <span className={styles.cant}>{cant}</span>
+                                   <button className={styles.btn} onClick={addToCart}>+</button>
+                                   </>
+                               ) : (
+                                   <button className={styles.btnAdd} onClick={addToCart}>Añadir</button>
+                                  )}
+                               </>
+                               ) : (
+                                  <button className={styles.btnAdd} disabled>Agotado</button>
+                               )}
                              </div>
-                            </div>
-                            )}
-                             <h2 className={styles.status}>{foodState[numeroEntero]?.stock}</h2>
                              <div className={styles.ingredientes}>
                                   <button onClick={toggleMostrarIngredientes} className={styles.ingredientesboton}>{mostrarIngredientes ? <h1 className={styles.ingretitulo}>ingredientes&nbsp;-</h1> : <h1 className={styles.ingretitulo}>ingredientes&nbsp;+</h1>}</button>
                                    {mostrarIngredientes &&
