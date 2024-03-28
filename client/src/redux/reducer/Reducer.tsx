@@ -1,7 +1,5 @@
 
-import { GET_FOOD, GET_PAIS } from '../actions/ActionsTypes';
-
-
+import { GET_FOOD, GET_PAIS, SIGNUP_USER_EMAIL } from '../actions/ActionsTypes';
 
 
 
@@ -66,7 +64,7 @@ const Reducer = (state: StoreState = initialState, action: Action): StoreState =
         final = final.filter((character) => character.origen === 'Colombia');
       } else if (state.pais === 'Ecuador') {
         final = final.filter((character) => character.origen === 'Ecuador');
-      };
+      }
       if (state.tipo === 'Todosa') {} 
       else if (state.tipo === 'plato fuerte' ) {
         final = final.filter((character) => character.tipo === 'plato fuerte' );
@@ -78,6 +76,10 @@ const Reducer = (state: StoreState = initialState, action: Action): StoreState =
       return {
         ...state,
         filtros: final,
+      };
+    case SIGNUP_USER_EMAIL:
+      return {
+        ...state,
       };
     default:
       return state;

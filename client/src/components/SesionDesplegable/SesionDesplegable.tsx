@@ -1,11 +1,16 @@
+import { getAuth, signOut } from '@firebase/auth';
 import Style from './SesionDesplegable.module.css';
+import { app } from "../../Auth/firebaseConfig";
+
 
 interface SesionDesplegableProps {
   toggleMenu: () => void;
-  setAuth: (value: boolean) => void;
 }
 
-const SesionDesplegable: React.FC<SesionDesplegableProps> = ({ toggleMenu, setAuth }) => {
+const SesionDesplegable: React.FC<SesionDesplegableProps> = ({ toggleMenu }) => {
+  
+  const auth = getAuth(app);
+
   const handleClickOutside = (event: React.MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLElement;
     if (!target.closest(`.${Style.container}`)) {
@@ -13,10 +18,10 @@ const SesionDesplegable: React.FC<SesionDesplegableProps> = ({ toggleMenu, setAu
     }
   };
 
-  const handleCerrarSesion = () => {
-    setAuth(false);
-    toggleMenu();
-  };
+  const cerrarSesion = () => {
+      signOut(auth)
+      toggleMenu()
+  }
 
   return (
     <div className={Style.pageDesplegable} onClick={handleClickOutside}>
@@ -27,7 +32,7 @@ const SesionDesplegable: React.FC<SesionDesplegableProps> = ({ toggleMenu, setAu
         <button className={Style.btnPerfil}> 
           Mi perfil
         </button>
-        <button className={Style.btnCerrarSesion} onClick={handleCerrarSesion}>
+        <button className={Style.btnCerrarSesion} onClick={cerrarSesion}>
           Cerrar sesión
         </button>
       </div>

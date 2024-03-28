@@ -27,6 +27,9 @@
     "redux-devtools-extension": "^2.13.9",
     "redux-thunk": "^2.4.2",
     "typescript": "^5.2.2",
-    "vite": "^5.1.6"
+    "vite": "^5.1.6",
+    "@firebase/auth": "^1.6.2",
+    "firebase": "^10.9.0",
+    "react-firebase-hooks": "^5.1.1"
   }
 }

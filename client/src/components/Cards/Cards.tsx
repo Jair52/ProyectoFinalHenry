@@ -14,7 +14,6 @@ interface Food {
   precio: number;
   imagen: string;
   stock: string;
-  tipo: string;
 }
 
 interface CardsProps {
@@ -37,7 +36,6 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
     <div className={Style.cards}>
       {limitedFoods.map((food) => (
         <Card
-          tipo={food.tipo}
           stock={food.stock}
           key={food.id}
           name={food.nombre}

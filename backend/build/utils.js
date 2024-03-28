@@ -91,7 +91,7 @@ const toNewFoodEntry = (object) => {
         peso: parseWeigth(object.peso),
         precio: parsePrice(object.precio),
         tipo: parseTypeFood(object.tipo),
-        imagen: parseImage(object.image)
+        imagen: parseImage(object.image),
         //...
     };
     return newEntry;

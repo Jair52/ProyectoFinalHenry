@@ -2,18 +2,17 @@ import SesionDesplegable from '../SesionDesplegable/SesionDesplegable';
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css'; 
 import Cart from '../Cart/Cart';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 interface NavBarProps {
   onItemClick: (item: string) => void;
   toggleMenu: () => void;
   showMenu: boolean;
+  auth: boolean; 
 }
 
-const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu }) => {
-
-  const [auth, setAuth] = useState(true);
+const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu, auth}) => {
   const [showMenuAuth, setShowMenuAuth] = useState(false);
 
   const toggleMenuAuth = () => {
@@ -55,21 +54,20 @@ const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu }) =>
         </ul>
       </div>
       <div>
-        {auth ? (
-          <NavLink to="/Login" onClick={() => handleItemClick('LOGIN')}>
-            <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
-          </NavLink>
-        )  : 
-        (
-          <button onClick={toggleMenuAuth} className={styles.navbtn}>
-            <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
-          </button>
-        )}
+      {auth ? (
+  <button onClick={toggleMenuAuth} className={styles.navbtn}>
+    <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
+  </button>
+) : (
+  <NavLink to="/Login" onClick={() => handleItemClick('LOGIN')}>
+    <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
+  </NavLink>
+)}
         <button onClick={handleToggleMenu} className={styles.navbtn}>
           <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/original/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="Logo 1" className={styles.navLogo}/>
         </button>
       </div>
-      {showMenuAuth && <SesionDesplegable toggleMenu={toggleMenuAuth} setAuth={setAuth} />}
+      {showMenuAuth && <SesionDesplegable toggleMenu={toggleMenuAuth} />}
       {showMenu && <Cart toggleMenu={handleToggleMenu} />}
     </div>
   );

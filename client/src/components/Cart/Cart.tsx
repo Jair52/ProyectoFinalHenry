@@ -76,27 +76,25 @@ const Cart: React.FC<CartProps> = ({ toggleMenu }) => {
         <div className={Style.itemsContainer}>
           {foods.map((food) => (
             <div key={food.id} className={Style.cartItem}>
-                <img src={food.img} alt={food.name} className={Style.itemImage} />
-                <div className={Style.infoprecio}>
+              <div className={Style.containerInfo}>
                 <div className={Style.info}>
+                  <img src={food.img} alt={food.name} className={Style.itemImage} />
                   <p className={Style.name}>{food.name}</p>
+                  <button onClick={() => removeFromCart(food.id)} className={Style.btnCant}>-</button>
+                  <p>{food.quantity}</p>
+                  <button onClick={() => addToCart(food.id)} className={Style.btnCant}>+</button>
                 </div>
-                <div className={Style.info}>
-                  <div className={Style.precio}>
-                    <p>P/u: ${food.price ? food.price.toFixed(2) : "N/A"}</p>
-                  </div>
-                  <div className={Style.botonprecio}>
-                     <button onClick={() => removeFromCart(food.id)} className={Style.btnCant}>-</button>
-                     <p className={Style.cant}>{food.quantity}</p>
-                     <button onClick={() => addToCart(food.id)} className={Style.btnCant}>+</button>
-                  </div>
-                  </div>
+                <div className={Style.precio}>
+                  <p>Precio unitario: ${food.price ? food.price.toFixed(2) : "N/A"}</p>
+                  <p>Precio total: {food.price ? (food.price * food.quantity).toFixed(2) : "N/A"}</p>
                 </div>
+              </div>
             </div>
           ))}
         </div>
         <div className={Style.totalContainer}>
-          <p className={Style.totalAmount}>Total a pagar:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${calcularTotal().toFixed(2)}</p>
+          <p className={Style.totalAmount}>Total a pagar: ${calcularTotal().toFixed(2)}</p>
+          
           <button className={Style.checkoutButton}>Comprar</button>
         </div>
       </div>

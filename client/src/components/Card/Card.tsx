@@ -12,10 +12,9 @@ interface CardProps {
   kilocalorias: number;
   carbohidratos: number;
   stock: string;
-  tipo: string;
 }
 
-const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias, carbohidratos, stock, tipo}) => {
+const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias, carbohidratos, stock}) => {
   const [cant, setCant] = useState<number>(0);
 
   useEffect(() => {
@@ -40,8 +39,6 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       if (itemIndex !== -1) {
         cartItems[itemIndex].quantity += 1;
       } else {
-        console.log(id, name, img, weight, price);
-        
         cartItems.push({ id, name, img, weight, price, quantity: 1 });
       }
       localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -79,7 +76,6 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       <div className={Style.imgcontainer}>
       <img src={img} alt={name} className={Style.img}></img>
       {stock !== 'Disponible' && <p className={Style.stock}>{stock}</p>}
-      <p className={Style.tipofoto}>{tipo}</p>
       </div>
       </NavLink>
       <div className={Style.conteinerName}>
@@ -89,6 +85,7 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       <div className={Style.conteinerPriceBtn}>
         <p className={Style.price}>{price}$</p>
         <div className={Style.conteinerBtn}>
+        {/* Condicionamos la renderización del botón según el stock */}
         {stock !== 'Agotado' ? (
           <>
             {cant > 0 ? (

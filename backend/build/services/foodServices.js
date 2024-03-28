@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addFood = exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
+exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
 const food_json_1 = __importDefault(require("./food.json"));
 const foods = food_json_1.default;
 const getEntries = () => foods;
@@ -30,7 +30,7 @@ const findById = (id) => {
 };
 exports.findById = findById;
 const getEntriesWithoutSensitiveInfo = () => {
-    return foods.map(({ id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas, peso, precio, tipo, imagen }) => {
+    return foods.map(({ id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas, peso, precio, tipo, imagen, descripcion, stock }) => {
         return {
             id,
             nombre,
@@ -42,16 +42,19 @@ const getEntriesWithoutSensitiveInfo = () => {
             peso,
             precio,
             tipo,
-            imagen
+            imagen,
+            descripcion,
+            stock,
         };
     });
 };
 exports.getEntriesWithoutSensitiveInfo = getEntriesWithoutSensitiveInfo;
-const addFood = (newFoodEntry) => {
-    const newFood = Object.assign({ 
-        // id: foods.length + 1
-        id: Math.max(...foods.map(d => d.id)) + 1 }, newFoodEntry);
-    foods.push(newFood);
-    return newFood;
-};
-exports.addFood = addFood;
+// // // export const addFood = (newFoodEntry:  NewFoodEntry): FoodEntry => {
+// // //     const newFood = {
+// // //         // id: foods.length + 1
+// // //         id: Math.max(...foods.map(d => d.id)) + 1,
+// // //         ...newFoodEntry
+// // //     }
+// //     foods.push(newFood)
+// //     return newFood
+// };

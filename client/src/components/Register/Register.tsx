@@ -2,9 +2,9 @@ import { ChangeEventHandler, FocusEventHandler, MouseEventHandler, useState } fr
 import Input from './Input';
 import Button from './Button';
 import Validation, { ValidationErrors } from './Validation';
-import styles from './Login.module.css';
-import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
-import { app } from "../../Auth/firebaseConfig";
+import styles from './Register.module.css';
+import { useDispatch } from 'react-redux';
+import { signUpNewUser } from '../../redux/actions/Actions';
 
 type UserLoginState = {
   email: string;
@@ -16,10 +16,10 @@ const InitialValue: UserLoginState = {
   password: '',
 };
 
-const Login = () => {
+const Register = () => {
   const [login, setLogin] = useState(InitialValue);
   const [errors, setErrors] = useState<ValidationErrors>({});
-  const auth = getAuth(app);
+  const dispatch = useDispatch();
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const name = e.target.name as keyof UserLoginState;
@@ -41,16 +41,16 @@ const Login = () => {
     setErrors(validateErrors);
   
     if (Object.keys(validateErrors).length === 0) {
-      signIn(); 
+      signUp(); 
       setLogin(InitialValue);
     }
   };
   
   
-  const signIn = async () => {
+  const signUp = async () => {
     try {
-      await signInWithEmailAndPassword(auth, login.email, login.password); 
-      console.log("Inicio de sesión exitoso");
+      await dispatch(signUpNewUser(login.email, login.password)); 
+      console.log("Cuenta creada");
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
     }
@@ -60,9 +60,9 @@ const Login = () => {
   return (
     <div className={styles.loginPageContainer}>
       <div className={styles.loginContainer}>
-        <h2 className={styles.loginHeading}>Inicio de sesión</h2>
+        <h2 className={styles.loginHeading}>Crear cuenta</h2>
         <div className={styles.introText}>
-          Introduce tu cuenta de siempre en InterFoods o regístrate si es tu primera vez.
+          Regístrate si es tu primera vez o introduce tu cuenta de siempre en InterFoods.
         </div>
         {errors.email && <p className={styles.inputError}>{errors.email}</p>}
         <div className={styles.inputContainer}>
@@ -93,15 +93,15 @@ const Login = () => {
         </div>
         <div className={styles.buttonSub}>
           <Button className={styles.submitButton} handleClick={handleClick}>
-            INICIAR SESION
+            CREAR CUENTA
           </Button>
         </div>
         <div className={styles.forgetandcreates}>
-          <a href="/register">Crear cuenta</a>
+          <a href="/Login">Iniciar sesion</a>
         </div>
       </div>
     </div>
   );
 };
 
-export default Login
+export default Register
