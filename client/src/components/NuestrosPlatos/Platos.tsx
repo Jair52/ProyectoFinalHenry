@@ -34,6 +34,7 @@ const NuestrosPlatos = () => {
         <div className={Style.cards}>
         {foods.map((food) => (
           <Card
+            tipo={food.tipo}
             stock={food.stock}
             carbohidratos={food.carbohidratos}
             kilocalorias={food.kilocalorias}
