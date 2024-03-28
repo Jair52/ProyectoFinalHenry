@@ -17,6 +17,9 @@ const validateUser = Yup.object().shape({
     ),
     confirmPassword: Yup.string().required('Confirmar contraseña es requerida')
       .oneOf([Yup.ref('password')], 'Las contraseñas no coinciden'),
+      country: Yup.string().required('País es requerido'),
+      city: Yup.string().required('Ciudad es requerido'),
+      address: Yup.string().required('dirección es requerido'),
   profilePicture: Yup.mixed()
     .nullable()
     .test('fileFormat', 
@@ -27,6 +30,9 @@ const validateUser = Yup.object().shape({
       const supportedFormats = ['image/jpeg', 'image/png', 'image/jpg'];
       return supportedFormats.includes(file.type);
     }),
+
+
+
 });
 
 export default validateUser;

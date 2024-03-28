@@ -11,6 +11,9 @@ interface FormValues {
   password: string;
   confirmPassword: string;
   profilePicture?: File | null;
+  county: string;
+  city: string;
+  address: string;
 }
 
 const initialValues: FormValues = {
@@ -20,6 +23,9 @@ const initialValues: FormValues = {
   password: '',
   confirmPassword: '',
   profilePicture: null,
+  county: '',
+  city: '',
+  address: '',
 };
 
 const UserForm: React.FC = () => {
@@ -100,6 +106,30 @@ const UserForm: React.FC = () => {
               />
               <br />
               <p className={styles.error}><ErrorMessage name="profilePicture" /></p>
+            </div>
+
+            <div>
+              <label htmlFor="country">País*:</label>
+              <br />
+              <Field type="text" id="country" name="country" className={styles.field} />
+              <br />
+              <p className={styles.error}><ErrorMessage name="country" /></p>
+            </div>
+
+            <div>
+              <label htmlFor="city">Ciudad*:</label>
+              <br />
+              <Field type="text" id="city" name="city" className={styles.field} />
+              <br />
+              <p className={styles.error}><ErrorMessage name="city" /></p>
+            </div>
+
+            <div>
+              <label htmlFor="address">Direccion*:</label>
+              <br />
+              <Field type="text" id="address" name="address" className={styles.field} />
+              <br />
+              <p className={styles.error}><ErrorMessage name="address" /></p>
             </div>
 
             <button type="submit" className={styles.send} disabled={!isValid || !dirty}>REGISTRARME</button>
