@@ -105,7 +105,7 @@
 
 .btnCant {
   display: flex;
-  height: 40px;
+  height: 30px;
   width: 40px;
   align-items: center;
   justify-content: center;
@@ -131,7 +131,8 @@
   font-size: 22px;
   width: 300px;
   font-weight: bold;
-  margin-top: 6px;
+  margin-top: 30px;
+  min-height: 52px;
 }
 
 .precio{
@@ -139,17 +140,18 @@
   display: flex;
   top: 300px;
   margin-right: 40px;
-  margin-top: 10px;
+  margin-top: 0px;
 }
 
 .infoprecio{
   margin-left: 10px;
   display: inline;
+  max-height: 170px;
 }
 .botonprecio{
   display: flex;
   height: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 
@@ -162,6 +164,6 @@
   color: black;
   font-size: 20px;
   font-weight: 600;
-  margin: 10% 10%;
+  margin: 5% 10%;
   height: 20px;
 }
