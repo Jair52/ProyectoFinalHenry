@@ -1,5 +1,5 @@
 import { Plato } from '../Plato'; // Asegúrate de que la ruta al modelo Plato sea correcta
-// import { FoodEntry } from '../types';
+// import { NewFoodEntry } from '../types';
 export const getEntries = async () => {
     return await Plato.findAll();
 };
@@ -16,5 +16,7 @@ export const getEntriesWithoutSensitiveInfo = async () => {
     });
 };
 
-
-
+export const addFood = async (newFoodEntry: any) => {
+    const newPlato = await Plato.create(newFoodEntry);
+    return newPlato;
+};

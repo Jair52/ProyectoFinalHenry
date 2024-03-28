@@ -1,12 +1,15 @@
-// import { Request, Response } from 'express';
-// import * as foodServices from '../services/foodServices';
+import { Request, Response } from 'express';
+import * as foodServices from '../services/foodServices';
+import { NewFoodEntry } from '../types';
 
-// export const createFood = async (req: Request, res: Response) => {
-//     try {
-//         const { body } = req; // Captura el cuerpo de la solicitud
-//         const newPlato = await foodServices.addFood(body); // Llama al servicio para crear un nuevo plato
-//         res.status(201).json(newPlato); // Devuelve el nuevo plato con código de estado 201 (Creado)
-//     } catch (error) {
-//         res.status(400).json({ error: 'Error creating new Food entry.' }); // Maneja posibles errores
-//     }
-// };
+export const createFood = async (req: Request, res: Response) => {
+    try {
+        // Aquí podrías agregar validación adicional para asegurarte
+        // de que req.body cumpla con la interfaz NewFoodEntry
+        const newFoodEntry: NewFoodEntry = req.body;
+        const newPlato = await foodServices.addFood(newFoodEntry);
+        res.status(201).json(newPlato);
+    } catch (error) {
+        res.status(400).json({ error: 'Error creating new food entry.' });
+    }
+};
