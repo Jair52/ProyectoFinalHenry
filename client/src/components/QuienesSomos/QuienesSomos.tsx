@@ -1,10 +1,27 @@
 import React from 'react';
 import quienesSomosStyles from './QuienesSomos.module.css';
 import imagenCocina from '../../assets/img/_2b7b3cb0-fe4d-41bd-9640-0aeea3057fc2.jpg';
+import Carousel from '../Carrousel/Carrousel';
 
 interface QuienesSomosProps {}
 
 const QuienesSomos: React.FC<QuienesSomosProps> = () => {
+  const images : any = [
+    'https://cnnespanol.cnn.com/wp-content/uploads/2023/09/rio-amazonas.jpg?quality=100&strip=info',
+    'https://www.fundacionaquae.org/wp-content/uploads/2015/04/rios2-e1563448555353-1024x683.jpg',
+    'https://definicion.de/wp-content/uploads/2009/02/rio-1.jpg',
+    'https://www.fundacionaquae.org/wp-content/uploads/2014/08/rio-de-espana-e1642092837863.jpg',
+    'https://www.fundacionaquae.org/wp-content/uploads/2019/07/rio-amazonas.jpg',
+    'https://losreartes.gob.ar/images/atractivos/riolosreartes09.jpg',
+  ];
+  const nombres : any = [
+    'Gaston Vergagni',
+    'Joel',
+    'Mirko',
+    'Luis',
+    'Andres',
+    'Aurelio',
+  ];
   return (
     <div>
       <div className={quienesSomosStyles['qs-margin']}>
@@ -13,14 +30,17 @@ const QuienesSomos: React.FC<QuienesSomosProps> = () => {
         <br />
         <div><h1>¿Quiénes somos?</h1></div>
        <div><p>Te hablamos un poco de nosotros</p></div> 
+       <div>         
+         <Carousel images={images} nombres={nombres}/>
+       </div>
       </div>
 
       <div className={`${quienesSomosStyles['qs-section']}`}>
         <div className={quienesSomosStyles['qs-textContainer']}>
           <h1>De dónde venimos</h1>
          <p>
-  Somos un equipo compuesto por ocho individuos de diversas nacionalidades: 
-  <strong>Mirko, Luis, Gastón, Aurelio, Joel, Jair, German y Andrés </strong>.
+  Somos un equipo compuesto por seis individuos de diversas nacionalidades:<br></br>
+  <strong><br></br>Mirko, Luis, Gastón, Aurelio, Joel, Jair, y Andrés</strong>.
   Estamos unidos por el objetivo común de promover la exploración gastronómica de distintas culturas y tradiciones culinarias.
 </p>
           <p>
