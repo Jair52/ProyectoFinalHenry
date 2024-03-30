@@ -1,12 +1,15 @@
 import { Sequelize } from 'sequelize-typescript';
 import path from 'path';
 
-const sequelize = new Sequelize({
-  database: 'InterFoods',
+const sequelize = new Sequelize('postgres://interfood_user:LwlWCns7JcQE47RZurM2j2oEIgO6S1Ou@dpg-co42socf7o1s738nng90-a.oregon-postgres.render.com/interfood', {
   dialect: 'postgres',
-  username: 'postgres',
-  password: 'ravyolo',
-  models: [path.join(__dirname, 'models')] // O especifica directamente los modelos
+  models: [path.join(__dirname, 'models')],
+  dialectOptions: {
+    ssl: {
+      require: true,
+      rejectUnauthorized: true
+    }
+  }
 });
 
 async function main() {

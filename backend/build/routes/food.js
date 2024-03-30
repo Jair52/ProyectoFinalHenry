@@ -8,12 +8,13 @@ const getFood_1 = require("../controllers/getFood");
 // import { getFoodId } from '../controllers/getFoodId';
 // import { postFood } from '../controllers/postFood';
 const postFood_1 = require("../controllers/postFood");
-// import { updateFood } from '../controllers/updateFood';
+const putFood_1 = require("../controllers/putFood");
 // import * as foodServices from '../services/foodServices';
 const router = express_1.default.Router();
 router.get('/', getFood_1.getFood);
 // router.get('/:id', getFoodId);
 router.post('/', postFood_1.createFood);
+router.put('/:id', putFood_1.updateFood);
 // router.put('/:id', async (req, res) => { 
 //     const foodActualizado = req.body;
 //     const foodID = req.params.id;

@@ -14,12 +14,23 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const sequelize_typescript_1 = require("sequelize-typescript");
 const path_1 = __importDefault(require("path"));
-const sequelize = new sequelize_typescript_1.Sequelize({
-    database: 'InterFoods',
+// const sequelize = new Sequelize({
+//   database: 'InterFoods',
+//   dialect: 'postgres',
+//   username: 'postgres',
+//   password: 'Luis4613944',
+//   models: [path.join(__dirname, 'models')] // O especifica directamente los modelos
+// });
+// db.ts
+const sequelize = new sequelize_typescript_1.Sequelize('postgres://interfood_user:LwlWCns7JcQE47RZurM2j2oEIgO6S1Ou@dpg-co42socf7o1s738nng90-a.oregon-postgres.render.com/interfood', {
     dialect: 'postgres',
-    username: 'postgres',
-    password: 'ravyolo',
-    models: [path_1.default.join(__dirname, 'models')] // O especifica directamente los modelos
+    models: [path_1.default.join(__dirname, 'models')],
+    dialectOptions: {
+        ssl: {
+            require: true,
+            rejectUnauthorized: true
+        }
+    }
 });
 function main() {
     return __awaiter(this, void 0, void 0, function* () {

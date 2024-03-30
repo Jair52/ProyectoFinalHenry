@@ -9,9 +9,8 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.addFood = exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
+exports.updateFood = exports.addFood = exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
 const Plato_1 = require("../Plato"); // Asegúrate de que la ruta al modelo Plato sea correcta
-// import { NewFoodEntry } from '../types';
 const getEntries = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield Plato_1.Plato.findAll();
 });
@@ -33,3 +32,11 @@ const addFood = (newFoodEntry) => __awaiter(void 0, void 0, void 0, function* ()
     return newPlato;
 });
 exports.addFood = addFood;
+const updateFood = (id, updateData) => __awaiter(void 0, void 0, void 0, function* () {
+    const plato = yield Plato_1.Plato.findByPk(id);
+    if (!plato) {
+        throw new Error('Plato no encontrado');
+    }
+    return yield plato.update(updateData);
+});
+exports.updateFood = updateFood;
