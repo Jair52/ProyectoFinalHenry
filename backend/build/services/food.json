@@ -106,7 +106,7 @@
     },
     {
         "id": 8,
-        "nombre": "Seco de chivo con Arroz con frijoles",
+        "nombre": "Seco de chivo con arroz",
         "origen": "Ecuador",
         "ingredientes": ["Chivo", "Cerveza", "Cilantro", "Cebolla", "Tomate", "Arroz", "Frijoles", "Aceite vegetal", "Comino"],
         "kilocalorias": 1100,

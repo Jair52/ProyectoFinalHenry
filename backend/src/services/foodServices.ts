@@ -1,49 +1,31 @@
-import { FoodEntry, NonSensitiveInfoFoodEntry } from '../types';
-import foodData from './food.json';
-
-const foods: Array<FoodEntry> = foodData as Array<FoodEntry>;
-
-export const getEntries = (): FoodEntry[] => foods;
-
-export const findById = (id: number): NonSensitiveInfoFoodEntry | undefined => {
-    const entry = foods.find(d => d.id === id)
-    if(entry !== undefined && entry !== null){
-        const {...restOfFood } = entry;
-        return restOfFood
-    }
-    return entry
-    // return undefined
-}
-
-export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoFoodEntry[] => {
-    return foods.map(({id, nombre, origen, ingredientes, kilocalorias, carbohidratos, grasas,
-                       peso, precio, tipo, imagen, descripcion, stock}) => {
-        return {
-            id,
-            nombre,
-            origen,
-            ingredientes,
-            kilocalorias,
-            carbohidratos,
-            grasas,
-            peso,
-            precio,
-            tipo,
-            imagen,
-            descripcion,
-            stock,
-        }
-    })
+import { Plato } from '../Plato'; // Asegúrate de que la ruta al modelo Plato sea correcta
+// import { NewFoodEntry } from '../types';
+import { UpdateFoodEntry } from '../types';
+export const getEntries = async () => {
+    return await Plato.findAll();
 };
 
-// // // export const addFood = (newFoodEntry:  NewFoodEntry): FoodEntry => {
-// // //     const newFood = {
-// // //         // id: foods.length + 1
-// // //         id: Math.max(...foods.map(d => d.id)) + 1,
-// // //         ...newFoodEntry
-// // //     }
+export const findById = async (id: number) => {
+    return await Plato.findByPk(id, {
+        attributes: { exclude: ['campoSensible1', 'campoSensible2'] } // Excluye los campos sensibles si los hay
+    });
+};
 
-// //     foods.push(newFood)
-// //     return newFood
-// };
+export const getEntriesWithoutSensitiveInfo = async () => {
+    return await Plato.findAll({
+        attributes: ['id', 'nombre', 'origen', 'ingredientes', 'kilocalorias', 'carbohidratos', 'grasas', 'peso', 'precio', 'tipo', 'imagen']
+    });
+};
 
+export const addFood = async (newFoodEntry: any) => {
+    const newPlato = await Plato.create(newFoodEntry);
+    return newPlato;
+};
+
+export const updateFood = async (id: number, updateData: UpdateFoodEntry) => {
+    const plato = await Plato.findByPk(id);
+    if (!plato) {
+        throw new Error('Plato no encontrado');
+    }
+    return await plato.update(updateData);
+};
