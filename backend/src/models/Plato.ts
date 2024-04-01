@@ -1,9 +1,9 @@
-import { Table, Column, Model, DataType } from 'sequelize-typescript';
-import sequelize from './sequelize';
+import { Table, Column, Model, DataType } from "sequelize-typescript";
+import sequelize from "../sequelize";
 
 @Table({
-  modelName: 'Plato',
-  tableName: 'Platos',
+  modelName: "Plato",
+  tableName: "Platos",
 })
 export class Plato extends Model {
   @Column({

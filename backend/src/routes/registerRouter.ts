@@ -1,5 +1,5 @@
 import express from "express";
-import { signUpNewUser } from "../handlers/register/signUpNewUser";
+import { signUpNewUser } from "../handlers/signUpNewUser";
 
 const router = express.Router();
 
