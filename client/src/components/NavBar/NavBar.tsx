@@ -1,12 +1,28 @@
-import React from 'react';
+import SesionDesplegable from '../SesionDesplegable/SesionDesplegable';
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css'; 
+import Cart from '../Cart/Cart';
+import { useState } from 'react';
+
 
 interface NavBarProps {
   onItemClick: (item: string) => void;
+  toggleMenu: () => void;
+  showMenu: boolean;
+  auth: boolean; 
 }
 
-const NavBar: React.FC<NavBarProps> = ({ onItemClick }) => {
+const NavBar: React.FC<NavBarProps> = ({ onItemClick, toggleMenu, showMenu, auth}) => {
+  const [showMenuAuth, setShowMenuAuth] = useState(false);
+
+  const toggleMenuAuth = () => {
+    setShowMenuAuth(!showMenuAuth);
+  };
+
+  const handleToggleMenu = () => {
+    toggleMenu();
+  };
+
   const handleItemClick = (item: string) => {
     onItemClick(item);
   };
@@ -15,7 +31,7 @@ const NavBar: React.FC<NavBarProps> = ({ onItemClick }) => {
     <div className={styles.navContainer}>
       <div>
         <NavLink to="/" className={styles.parrafo}>
-         <p>INTERFOODS</p>
+         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTERFOODS</p>
         </NavLink>
       </div>
       <div className={styles.navLinksContainer}>
@@ -33,13 +49,26 @@ const NavBar: React.FC<NavBarProps> = ({ onItemClick }) => {
             <NavLink to="/Faqs" className={styles.navLink} onClick={() => handleItemClick('FAQ\'S')}>
               FAQ'S
             </NavLink>
+            
           </li>
         </ul>
       </div>
       <div>
-        <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/original/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="Logo 1" className={styles.navLogo} />
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/019/879/186/small/user-icon-on-transparent-background-free-png.png" alt="Logo 2" className={styles.navLogo} />
+      {auth ? (
+  <button onClick={toggleMenuAuth} className={styles.navbtn}>
+    <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
+  </button>
+) : (
+  <NavLink to="/Login" onClick={() => handleItemClick('LOGIN')}>
+    <img src="https://monestir.org/wp-content/uploads/2020/06/usuario.png" alt="Logo 2" className={styles.navUser} />
+  </NavLink>
+)}
+        <button onClick={handleToggleMenu} className={styles.navbtn}>
+          <img src="https://static.vecteezy.com/system/resources/previews/019/787/018/original/shopping-cart-icon-shopping-basket-on-transparent-background-free-png.png" alt="Logo 1" className={styles.navLogo}/>
+        </button>
       </div>
+      {showMenuAuth && <SesionDesplegable toggleMenu={toggleMenuAuth} />}
+      {showMenu && <Cart toggleMenu={handleToggleMenu} />}
     </div>
   );
 };

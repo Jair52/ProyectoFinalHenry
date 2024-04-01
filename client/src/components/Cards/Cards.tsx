@@ -1,73 +1,66 @@
+import React from "react";
+import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import Style from './Cards.module.css'
+import { StoreState } from "../../redux/reducer/Reducer";
+import { useLocation } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 interface Food {
   id: number;
   nombre: string;
-  imagen: string;
+  ingredientes: string[];
+  kilocalorias: number;
+  carbohidratos: number;
+  grasas: number;
   peso: number;
-  costo: number;
+  precio: number;
+  imagen: string;
+  stock: string;
+  tipo: string;
 }
 
 interface CardsProps {
-  numberOfCards?: number; // Prop opcional
+  numberOfCards?: number;
 }
 
 const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
-  const foods: Food[] = [
-    {
-      id: 1,
-      nombre: "Asado",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 15.99,
-      peso: 500,
-    },
-    {
-      id: 2,
-      nombre: "Bandeja paisa",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 12.50,
-      peso: 700,
-    },
-    {
-      id: 3,
-      nombre: "Ceviche",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 9.75,
-      peso: 300,
-    },
-    {
-      id: 4,
-      nombre: "Tacos",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 8.99,
-      peso: 400,
-    },
-    {
-      id: 5,
-      nombre: "Empanadas",
-      imagen: "https://th.bing.com/th/id/OIP.WZzAMKDjzhhyAf9D2dhpEQHaE7?w=226&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7",
-      costo: 2.50,
-      peso: 200,
-    },
-  ];
-
+  const location = useLocation();
+  const foodState = useSelector((state: StoreState) => state.filtros);
+  const foodAllState = useSelector((state: StoreState) => state.platos);
+  
+  const loading = foodState.length === 0 && foodAllState.length === 0;
+  
+  const foods: Food[] = location.pathname === "/" ? foodAllState : foodState;
+  
   const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
 
   return (
-    <div className={Style.cards}>
-      {limitedFoods.map((food) => (
-        <Card
-          key={food.id}
-          name={food.nombre}
-          img={food.imagen}
-          weight={food.peso}
-          price={food.costo}
-          id={food.id}
-        />
-      ))}
-    </div>
+    <>
+      {loading ? (
+        <div className="containerLoading">
+          <Loading/>
+        </div>
+      ) : (
+        <div className={Style.cards}>
+          {limitedFoods.map((food) => (
+            <Card
+              tipo={food.tipo}
+              stock={food.stock}
+              key={food.id}
+              name={food.nombre}
+              img={food.imagen}
+              weight={food.peso}
+              price={food.precio}
+              id={food.id}
+              kilocalorias={food.kilocalorias}
+              carbohidratos={food.carbohidratos}
+            />
+          ))}
+        </div>
+      )}
+    </>
   );
 };
 
-export default Cards
+export default Cards;

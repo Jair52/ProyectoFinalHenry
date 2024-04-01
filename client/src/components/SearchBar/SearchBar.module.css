@@ -1,6 +1,8 @@
 .container{
     display: flex;
-    margin-left: 100px;
+    margin-left: 0px;
+    font-weight: 900;
+    margin-top: 20px;
 }
 
 
@@ -8,12 +10,14 @@
     margin-bottom: 30px;
 }
 .botoncomida {
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.466);
     background-color: transparent;
     cursor: pointer;
     margin-left: 20px;
     border-radius: 30px;
     font-weight: bolder;
+    height: 40px;
+    width: 100px;
   }
 .botoncomida2 {
     border: 1px solid black;
@@ -23,6 +27,8 @@
     color: #ffffff;
     margin-left: 20px;
     border-radius: 30px;
+    height: 40px;
+    width: 100px;
 }
 
 .botoncomida:hover{
@@ -30,12 +36,17 @@
     background-color: #070707;
     color: #ffffff;
     font-weight: bolder;
+    height: 40px;
+    width: 100px;
 
     margin-left: 20px;
     border-radius: 30px;
 }
 .searchbar{
-    margin-left: 500px;
+    margin-top: 40px;
+    margin-left: 800px;
+    margin-bottom: 120px;
 }
+
 
 
