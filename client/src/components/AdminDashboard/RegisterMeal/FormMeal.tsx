@@ -58,7 +58,7 @@ const UserForm: React.FC = () => {
             <div>
               <label htmlFor='ingredientes' className={styles.label}>Ingredientes:</label>
               <br />
-              <Field placeholder='ingredientes' name='ingredientes' className={styles.inputField} />
+              <Field placeholder='ingredientes' name='ingrediente' className={styles.inputField} />
               <button
                 type='button'
                 
@@ -126,8 +126,8 @@ const UserForm: React.FC = () => {
             <input
               className={styles.inputField}
               type='file'
-              id='imagen'
-              name='imagen'
+              id='image'
+              name='image'
               accept='image/png, image/jpeg, image/jpg'
               onChange={(event) =>
                 setFieldValue('image', event.currentTarget.files?.[0])
@@ -137,9 +137,8 @@ const UserForm: React.FC = () => {
 
             <label htmlFor='descripcion' className={styles.label}>Decripción:</label>
             <Field placeholder='Descripcion' as='textarea' name='descripcion' 
-            className={`${styles.inputField} ${styles.textArea}`} />
+            className={styles.textArea} />
             <p className={styles.error}><ErrorMessage name='descripcion' /></p>
-
 
             <label htmlFor='cantidad' className={styles.label}>Cantidad (unidades):</label>
             <Field placeholder='Cantidad' type='text' name='stock' className={styles.inputField} />
@@ -154,4 +153,3 @@ const UserForm: React.FC = () => {
 };
 
 export default UserForm;
-
