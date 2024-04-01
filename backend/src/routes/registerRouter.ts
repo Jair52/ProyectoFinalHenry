@@ -1,8 +1,8 @@
-// import express from "express";
-// import { signUpNewUser } from "../handlers/register/signUpNewUser";
+import express from "express";
+import { signUpNewUser } from "../handlers/register/signUpNewUser";
 
-// const router = express.Router();
+const router = express.Router();
 
-// router.post("/signup", signUpNewUser);
+router.post("/signup", signUpNewUser);
 
-// export default router;
+export default router;

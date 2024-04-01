@@ -14,7 +14,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Plato = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
-const sequelize_1 = __importDefault(require("./sequelize")); // Ajusta la ruta según sea necesario
+const sequelize_1 = __importDefault(require("./sequelize"));
 let Plato = class Plato extends sequelize_typescript_1.Model {
 };
 exports.Plato = Plato;

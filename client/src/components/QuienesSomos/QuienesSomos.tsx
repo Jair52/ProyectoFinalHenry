@@ -12,7 +12,7 @@ const QuienesSomos: React.FC<QuienesSomosProps> = () => {
     'https://avatars.githubusercontent.com/u/123500246?v=4',
     'https://avatars.githubusercontent.com/u/134454433?v=4',
     'https://avatars.githubusercontent.com/u/108027704?v=4',
-    'https://losreartes.gob.ar/images/atractivos/riolosreartes09.jpg',
+    'https://avatars.githubusercontent.com/u/122408865?v=4',
   ];
   const nombres : any = [
     'Gaston Vergagni',
@@ -40,7 +40,7 @@ const QuienesSomos: React.FC<QuienesSomosProps> = () => {
           <h1>De dónde venimos</h1>
          <p>
   Somos un equipo compuesto por seis individuos de diversas nacionalidades:<br></br>
-  <strong><br></br>Mirko, Luis, Gastón, Aurelio, Joel, Jair, y Andrés</strong>.
+  <strong><br></br>Mirko, Luis, Gastón, Aurelio, Joel y Andrés</strong>.
   Estamos unidos por el objetivo común de promover la exploración gastronómica de distintas culturas y tradiciones culinarias.
 </p>
           <p>

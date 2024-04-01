@@ -4,6 +4,7 @@ import Card from "../Card/Card";
 import Style from './Cards.module.css'
 import { StoreState } from "../../redux/reducer/Reducer";
 import { useLocation } from "react-router-dom";
+import Loading from "../Loading/Loading";
 
 interface Food {
   id: number;
@@ -37,7 +38,9 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
   return (
     <div className={Style.cards}>
       {loading ? (
-        <div>Loading...</div>
+        <div className="containerLoading">
+          <Loading/>
+        </div>
       ) : (
         limitedFoods.map((food) => (
           <Card
