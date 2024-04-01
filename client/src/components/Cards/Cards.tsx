@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import Style from './Cards.module.css'
 import { StoreState } from "../../redux/reducer/Reducer";
+import { useLocation } from "react-router-dom";
 
 interface Food {
   id: number;
@@ -22,16 +23,15 @@ interface CardsProps {
 }
 
 const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
+  const location = useLocation();
   const foodState = useSelector((state: StoreState) => state.filtros);
+  const foodAllState = useSelector((state: StoreState) => state.platos);
 
-
-  const foods: Food[] = foodState;
+  console.log(foodAllState);
   
-
+  const foods: Food[] = location.pathname === "/" ? foodAllState : foodState;
+  
   const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
-
- 
-  
 
   return (
     <div className={Style.cards}>
@@ -53,4 +53,4 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
   );
 };
 
-export default Cards
+export default Cards;
