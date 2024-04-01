@@ -2,7 +2,7 @@ import SesionDesplegable from '../SesionDesplegable/SesionDesplegable';
 import { NavLink } from 'react-router-dom';
 import styles from './NavBar.module.css'; 
 import Cart from '../Cart/Cart';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 
 interface NavBarProps {

@@ -18,6 +18,7 @@ import { useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import {app} from './Auth/firebaseConfig.ts'
 import Register from './components/Register/Register.tsx';
+import Error404 from './components/Error/error.tsx';
 
 function App() {
   const auth = getAuth(app);
@@ -76,6 +77,7 @@ function App() {
                   auth={usuarioRegistrado}
               />
               <Routes>
+                  <Route path="*"  element={<Error404/>}/>
                   <Route path="/" element={<Home/>}/>
                   <Route path="/form" />
                   <Route path="/detail/:id" element={<Detail/>}/>
@@ -94,3 +96,5 @@ function App() {
 }
 
 export default App;
+
+

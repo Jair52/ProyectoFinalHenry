@@ -1,4 +1,3 @@
-
 .pageDesplegable {
   position: fixed;
   top: 0;
@@ -8,67 +7,72 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 998;
   display: flex;
-  justify-content: right;
-  align-items: top;
+  justify-content: flex-end; 
+  align-items: flex-start; 
 }
-
+ 
 .container {
-  background-color: #47796d;
+  background-color: #2F695C;
   padding: 20px;
-  border: 1px solid #0e0e0e;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  color: #ffffff;
-  width: 50%; 
-  max-width: 400px;
-  height: fit-content;
+  border-radius: 5px;
+  color: #000000;
+  width: 300px;
+  max-width: 80%;
 }
 
-.btnCerrar {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+.item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.item:hover {
+  background-color: #a9a9a9; 
+}
+
+.btnPerfil,
+.btnCerrarSesion {
   background-color: transparent;
-  font-size: 35px; 
-  border: none;
-  cursor: pointer;
-  color: #ffffff;
-  transition: all 0.3s ease;
-}
-
-.btnCerrar:hover {
-  color: #cccccc; 
-}
-
-.btnPerfil {
-  background-color: #1e3532; 
   color: #ffffff;
   border: none;
   padding: 10px 20px;
-  margin: 55px 0 0 0;
+  margin: 10px 0;
   cursor: pointer;
   width: 100%;
   text-align: left;
-  font-size: 24px;
-  transition: all 0.3s ease;
+  font-size: 16px;
+  display: flex;
+  align-items: center; 
+  
 }
 
-.btnPerfil:hover {
-  background-color: #13443c; 
+.sesionImg {
+  width: 24px; 
+  height: 24px; 
+  margin-right: 10px; 
+
 }
 
-.btnCerrarSesion{
-  background-color: #1e3532; 
-  color: #ffffff;
+.btnCerrarX {
+  background-color: transparent;
   border: none;
-  padding: 10px 20px;
-  margin: 25px 0;
+  color: #ffffff;
+  font-size: 20px;
   cursor: pointer;
-  width: 100%;
-  text-align: left;
-  font-size: 24px;
-  transition: all 0.3s ease;
+  margin-left: 280px;
 }
 
-.btnCerrarSesion:hover {
-  background-color: #13443c; 
+.btnCerrarX:hover {
+  color: #d32f2f;
 }
+
+
+
+
+
+
+
+
+
+
+
