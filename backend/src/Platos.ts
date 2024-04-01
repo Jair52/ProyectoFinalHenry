@@ -3,6 +3,7 @@ import path from 'path';
 import sequelize from './sequelize'; // Ajusta la ruta según la estructura de tu proyecto
 import { Plato } from './Plato'; // Ajusta la ruta según la estructura de tu proyecto
 
+
 // Función para cargar los platos desde un archivo JSON
 async function cargarPlatosDesdeJSON(): Promise<any[]> {
     const filePath = path.join(__dirname, 'services', 'food.json'); // Asegúrate de que la ruta sea correcta
@@ -29,6 +30,8 @@ async function insertarPlatos() {
                 precio: plato.precio,
                 tipo: plato.tipo,
                 imagen: plato.imagen,
+                descripcion: plato.descripcion,
+                stock: plato.stock
             });
         }
         console.log('Todos los platos fueron insertados exitosamente.');

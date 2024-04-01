@@ -9,7 +9,8 @@ export interface NewFoodEntry {
     precio: number;
     tipo: string;
     imagen: string;
-    
+    descripcion: string;
+    stock: string;
 }
 
 // export type NonSensitiveInfoFoodEntry = FoodEntry;
@@ -28,4 +29,6 @@ export interface UpdateFoodEntry {
     precio?: number;
     tipo?: string;
     imagen?: string;
+    descripcion?: string;
+    stock?: string;
 }

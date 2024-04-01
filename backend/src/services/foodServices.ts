@@ -13,7 +13,7 @@ export const findById = async (id: number) => {
 
 export const getEntriesWithoutSensitiveInfo = async () => {
     return await Plato.findAll({
-        attributes: ['id', 'nombre', 'origen', 'ingredientes', 'kilocalorias', 'carbohidratos', 'grasas', 'peso', 'precio', 'tipo', 'imagen']
+        attributes: ['id', 'nombre', 'origen', 'ingredientes', 'kilocalorias', 'carbohidratos', 'grasas', 'peso', 'precio', 'tipo', 'imagen', 'descripcion', 'stock']
     });
 };
 

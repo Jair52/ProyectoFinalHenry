@@ -38,6 +38,12 @@ export class Plato extends Model {
 
   @Column(DataType.STRING)
   imagen!: string;
+
+  @Column(DataType.STRING(1000))
+  descripcion!: string;
+
+  @Column(DataType.STRING)
+  stock!: string;
 }
 
 sequelize.addModels([Plato]);
