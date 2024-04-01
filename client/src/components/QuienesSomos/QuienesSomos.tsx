@@ -7,20 +7,20 @@ interface QuienesSomosProps {}
 
 const QuienesSomos: React.FC<QuienesSomosProps> = () => {
   const images : any = [
-    'https://cnnespanol.cnn.com/wp-content/uploads/2023/09/rio-amazonas.jpg?quality=100&strip=info',
-    'https://www.fundacionaquae.org/wp-content/uploads/2015/04/rios2-e1563448555353-1024x683.jpg',
-    'https://definicion.de/wp-content/uploads/2009/02/rio-1.jpg',
-    'https://www.fundacionaquae.org/wp-content/uploads/2014/08/rio-de-espana-e1642092837863.jpg',
-    'https://www.fundacionaquae.org/wp-content/uploads/2019/07/rio-amazonas.jpg',
+    'https://avatars.githubusercontent.com/u/116928445?v=4',
+    'https://avatars.githubusercontent.com/u/102487252?v=4',
+    'https://avatars.githubusercontent.com/u/123500246?v=4',
+    'https://avatars.githubusercontent.com/u/134454433?v=4',
+    'https://avatars.githubusercontent.com/u/108027704?v=4',
     'https://losreartes.gob.ar/images/atractivos/riolosreartes09.jpg',
   ];
   const nombres : any = [
     'Gaston Vergagni',
-    'Joel',
-    'Mirko',
-    'Luis',
-    'Andres',
-    'Aurelio',
+    'Luis Defago',
+    'Andrez Martinez',
+    'Mirko Miler',
+    'Joel Fernandez',
+    'Aurelio Cabello',
   ];
   return (
     <div>
