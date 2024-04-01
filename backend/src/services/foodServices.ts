@@ -29,3 +29,12 @@ export const updateFood = async (id: number, updateData: UpdateFoodEntry) => {
     }
     return await plato.update(updateData);
 };
+
+export const deleteFood = async (id: number) => {
+    const plato = await Plato.findByPk(id);
+    if (!plato) {
+        throw new Error('Plato no encontrado');
+    }
+    await plato.destroy();
+    return { message: "Plato eliminado exitosamente" };
+};
