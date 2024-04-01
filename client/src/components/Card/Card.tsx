@@ -40,7 +40,6 @@ const Card: React.FC<CardProps> = ({ name, img, weight, price, id, kilocalorias,
       if (itemIndex !== -1) {
         cartItems[itemIndex].quantity += 1;
       } else {
-        console.log(id, name, img, weight, price);
         
         cartItems.push({ id, name, img, weight, price, quantity: 1 });
       }
