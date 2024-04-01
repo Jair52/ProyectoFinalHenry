@@ -1,8 +1,9 @@
 import React , { useState} from 'react'
 import Styles from './SearchBar.module.css'
 import { useDispatch, useSelector} from 'react-redux';
-import { getPais} from '../../redux/actions/Actions';
+import { getFiltro} from '../../redux/actions/Actions';
 import { StoreState } from '../../redux/reducer/Reducer';
+import axios from 'axios';
 
 
 const SearchBar: React.FC = () => {
@@ -11,17 +12,43 @@ const SearchBar: React.FC = () => {
     const pais = useSelector((state: StoreState) => state.pais);
     const [selectedType, setSelectedType] = useState<string>(tipo);
     const [selectedCountry, setSelectedCountry] = useState<string>(pais);
+    
 
-    const handleButtonClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleButtonClick = async (event: React.MouseEvent<HTMLButtonElement>) => {
         setSelectedType(event.currentTarget.value);
-        dispatch(getPais(event.currentTarget.value))  
+        try {
+            const params = new URLSearchParams({
+                pais: selectedCountry,
+                tipo: event.currentTarget.value,
+            });
+            // Realizar una solicitud GET con axios y pasar los parámetros a través de la URL
+            const response = await axios.get(`http://localhost:3000/api/food/filtro?${params}`);
+
+            // Verificar la respuesta si es necesario
+            // Actualizar el estado con los datos recibidos del servidor
+            dispatch(getFiltro(response.data)) 
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
-    const handleButtonClickcountry = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const handleButtonClickcountry = async (event: React.MouseEvent<HTMLButtonElement>) => {
         setSelectedCountry(event.currentTarget.value);
-        dispatch(getPais(event.currentTarget.value))
-      
-        //reducer para guardara opcion
-        //reducer para hacer el filtrado  
+        try {
+            const params = new URLSearchParams({
+                pais: event.currentTarget.value,
+                tipo: selectedType,
+            });
+
+            // Realizar una solicitud GET con axios y pasar los parámetros a través de la URL
+            const response = await axios.get(`http://localhost:3000/api/food/filtro?${params}`);
+
+            // Verificar la respuesta si es necesario
+
+            // Actualizar el estado con los datos recibidos del servidor
+            dispatch(getFiltro(response.data)) 
+        } catch (error) {
+            console.error('Error:', error);
+        }
     };
 
 

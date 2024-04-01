@@ -1,5 +1,5 @@
 
-import { GET_FOOD, GET_PAIS, SIGNUP_USER_EMAIL } from '../actions/ActionsTypes';
+import { GET_FOOD, GET_PAIS, SIGNUP_USER_EMAIL, GET_FILTRO } from '../actions/ActionsTypes';
 
 
 
@@ -41,6 +41,11 @@ const initialState: StoreState = {
 
 const Reducer = (state: StoreState = initialState, action: Action): StoreState => {
   switch (action.type) {
+    case GET_FILTRO:
+      return{
+        ...state, 
+        filtros: action.payload
+      };
     case GET_FOOD:
       return{
         ...state, 

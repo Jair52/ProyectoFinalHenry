@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GET_FOOD, GET_PAIS, SIGNUP_USER_EMAIL} from '../actions/ActionsTypes';
+import { GET_FILTRO, GET_FOOD, GET_PAIS, SIGNUP_USER_EMAIL} from '../actions/ActionsTypes';
 
 // ----------------------------------------------------------------------------
 
@@ -33,3 +33,10 @@ export const getFood = (comida : any) => ({
       throw new Error(error);
     }
   };
+
+  export const getFiltro = (payload: any) => (
+    console.log(payload),
+    {
+    type: GET_FILTRO,
+    payload: payload,
+  })
