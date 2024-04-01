@@ -14,10 +14,6 @@ import * as Yup from 'yup';
     peso: Yup.number().min(1,'La cantidad mínima es de 1').required('Peso es requerido'),
     precio: Yup.number().min(1,'La cantidad mínima es de 1').required('Precio es requerido'),
     tipo: Yup.string().required('Seleccione qué tipo de plato es'),
-    descripcion: Yup.string()
-      .min(10, 'La descripción debe tener al menos 10 caracteres')
-      .max(100, 'La descripción no puede exceder los 500 caracteres')
-      .required('La descripción del plato es requerida'),
     image: Yup.mixed()
     .test('fileFormat', 
     'Unsupported file format', 
@@ -26,8 +22,12 @@ import * as Yup from 'yup';
     const file = value as File;
     const supportedFormats = ['image/jpeg', 'image/png', 'image/jpg'];
     return supportedFormats.includes(file.type);
-    }).required('Imagen del plato es requerida'),
-    cantidad: Yup.number().min(1,'La cantidad mínima es de 1').required('Cantidad es requerida'),
+  }).required('Imagen del plato es requerida'),
+    stock: Yup.number().min(1,'La cantidad mínima es de 1').required('Cantidad es requerida'),
+    descripcion: Yup.string()
+      .min(10, 'La descripción debe tener al menos 10 caracteres')
+      .max(1000, 'La descripción no puede exceder los 1000 caracteres')
+      .required('La descripción del plato es requerida'),
   });
 
 
