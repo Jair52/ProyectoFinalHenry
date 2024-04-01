@@ -1,25 +1,11 @@
-import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import Cards from '../Cards/Cards';
-import Loading from '../Loading/Loading'; 
 import Style from './Home.module.css';
 
 const Home = () => {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-  
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-  }, []);
 
   return (
     <div className={Style.home}>
-      {isLoading ? ( 
-        <Loading />
-      ) : (
-        <div>
           <section className={Style.inicio}>
             <div>
               <h3 className={Style.title}>Come rico toda la semana</h3>
@@ -36,8 +22,6 @@ const Home = () => {
             <Cards numberOfCards={3}/>
             <NavLink to='/NuestrosPlatos'><button className={Style.btnMas}>Ver todos</button></NavLink>
           </section>
-        </div>
-      )}
     </div>
   );
 }

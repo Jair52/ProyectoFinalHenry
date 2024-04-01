@@ -21,47 +21,47 @@ import Register from './components/Register/Register.tsx';
 import Error404 from './components/Error/error.tsx';
 
 function App() {
-  const auth = getAuth(app);
-  const { pathname } = useLocation();
-  const [usuarioRegistrado, setUsuarioRegistrado] = useState(false);
+    const auth = getAuth(app);
+    const { pathname } = useLocation();
+    const [usuarioRegistrado, setUsuarioRegistrado] = useState(false);
 
-  useEffect(() => {
-      window.scrollTo(0, 0);
-  }, [pathname]);
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
-  useEffect(() => {
-      const unsubscribe = onAuthStateChanged(auth, (usuario) => {
-          if (usuario) {
-              console.log('se inicio sesion');
-              setUsuarioRegistrado(true);
-          } else {
-              console.log('no se inicio sesion');
-              setUsuarioRegistrado(false);
-          }
-      });
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (usuario) => {
+            if (usuario) {
+                console.log('se inicio sesion');
+                setUsuarioRegistrado(true);
+            } else {
+                console.log('no se inicio sesion');
+                setUsuarioRegistrado(false);
+            }
+        });
 
-      return () => unsubscribe();
-  }, [auth]);
+        return () => unsubscribe();
+    }, [auth]);
 
-  const dispatch = useDispatch<Dispatch>();
+    const dispatch = useDispatch<Dispatch>();
 
-  useEffect(() => {
-      const fetchData2 = async () => {
-          try {
-              const { data } = await axios.get(`http://127.0.0.1:3000/api/food/`);
-              if (data) {
-                  dispatch(getFood(data));
-              } else {
-                  alert('There are no characters with this ID!');
-              }
-          } catch (error : any) {
-              alert(error.message);
-          }
-      };
-      fetchData2();
-  }, []);
+    useEffect(() => {
+        const fetchData2 = async () => {
+            try {
+                const { data } = await axios.get(`http://127.0.0.1:3000/api/food/`);
+                if (data) {
+                    dispatch(getFood(data));
+                } else {
+                    alert('There are no characters with this ID!');
+                }
+            } catch (error : any) {
+                alert(error.message);
+            }
+        };
+        fetchData2();
+    }, []);
 
-  const [showMenu, setShowMenu] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = () => {
       setShowMenu(!showMenu);

@@ -1,5 +1,5 @@
 import { Table, Column, Model, DataType } from 'sequelize-typescript';
-import sequelize from './sequelize'; // Ajusta la ruta según sea necesario
+import sequelize from './sequelize';
 
 @Table({
   modelName: 'Plato',

@@ -26,7 +26,6 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
   const location = useLocation();
   const foodState = useSelector((state: StoreState) => state.filtros);
   const foodAllState = useSelector((state: StoreState) => state.platos);
-  
   const foods: Food[] = location.pathname === "/" ? foodAllState : foodState;
   
   const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
