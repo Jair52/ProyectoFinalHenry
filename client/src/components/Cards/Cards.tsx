@@ -1,3 +1,4 @@
+import React from "react";
 import { useSelector } from "react-redux";
 import Card from "../Card/Card";
 import Style from './Cards.module.css'
@@ -26,26 +27,33 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
   const location = useLocation();
   const foodState = useSelector((state: StoreState) => state.filtros);
   const foodAllState = useSelector((state: StoreState) => state.platos);
+  
+  const loading = foodState.length === 0 && foodAllState.length === 0;
+  
   const foods: Food[] = location.pathname === "/" ? foodAllState : foodState;
   
   const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
 
   return (
     <div className={Style.cards}>
-      {limitedFoods.map((food) => (
-        <Card
-          tipo={food.tipo}
-          stock={food.stock}
-          key={food.id}
-          name={food.nombre}
-          img={food.imagen}
-          weight={food.peso}
-          price={food.precio}
-          id={food.id}
-          kilocalorias={food.kilocalorias}
-          carbohidratos={food.carbohidratos}
-        />
-      ))}
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        limitedFoods.map((food) => (
+          <Card
+            tipo={food.tipo}
+            stock={food.stock}
+            key={food.id}
+            name={food.nombre}
+            img={food.imagen}
+            weight={food.peso}
+            price={food.precio}
+            id={food.id}
+            kilocalorias={food.kilocalorias}
+            carbohidratos={food.carbohidratos}
+          />
+        ))
+      )}
     </div>
   );
 };
