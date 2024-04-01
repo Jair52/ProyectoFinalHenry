@@ -40,7 +40,7 @@ const QuienesSomos: React.FC<QuienesSomosProps> = () => {
           <h1>De dónde venimos</h1>
          <p>
   Somos un equipo compuesto por seis individuos de diversas nacionalidades:<br></br>
-  <strong><br></br>Mirko, Luis, Gastón, Aurelio, Joel, Jair, y Andrés</strong>.
+  <strong><br></br>Mirko, Luis, Gastón, Aurelio, Joel, y Andrés</strong>.
   Estamos unidos por el objetivo común de promover la exploración gastronómica de distintas culturas y tradiciones culinarias.
 </p>
           <p>
