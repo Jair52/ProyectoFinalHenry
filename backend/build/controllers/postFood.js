@@ -22,21 +22,28 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.postFood = void 0;
+exports.createFood = void 0;
 const foodServices = __importStar(require("../services/foodServices"));
-const utils_1 = __importDefault(require("../utils"));
-const postFood = (req, res) => {
+const createFood = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const newFoodEntry = (0, utils_1.default)(req.body);
-        const addedFoodEntry = foodServices.addFood(newFoodEntry);
-        res.json(addedFoodEntry);
+        // Aquí podrías agregar validación adicional para asegurarte
+        // de que req.body cumpla con la interfaz NewFoodEntry
+        const newFoodEntry = req.body;
+        const newPlato = yield foodServices.addFood(newFoodEntry);
+        res.status(201).json(newPlato);
     }
     catch (error) {
-        res.status(400).send(error.message);
+        res.status(400).json({ error: 'Error creating new food entry.' });
     }
-};
-exports.postFood = postFood;
+});
+exports.createFood = createFood;

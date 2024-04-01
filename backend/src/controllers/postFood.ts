@@ -1,16 +1,15 @@
 import { Request, Response } from 'express';
 import * as foodServices from '../services/foodServices';
-import toNewFoodEntry from '../utils';
+import { NewFoodEntry } from '../types';
 
-export const postFood = (req: Request, res: Response) => {
+export const createFood = async (req: Request, res: Response) => {
     try {
-        const newFoodEntry = toNewFoodEntry(req.body);
-
-        const addedFoodEntry = foodServices.addFood(newFoodEntry)
-
-        res.json(addedFoodEntry);
-    } catch (error: any ) {
-        res.status(400).send(error.message);
+        // Aquí podrías agregar validación adicional para asegurarte
+        // de que req.body cumpla con la interfaz NewFoodEntry
+        const newFoodEntry: NewFoodEntry = req.body;
+        const newPlato = await foodServices.addFood(newFoodEntry);
+        res.status(201).json(newPlato);
+    } catch (error) {
+        res.status(400).json({ error: 'Error creating new food entry.' });
     }
-
-}
+};
