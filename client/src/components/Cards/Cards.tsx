@@ -36,28 +36,30 @@ const Cards: React.FC<CardsProps> = ({ numberOfCards }) => {
   const limitedFoods = numberOfCards ? foods.slice(0, numberOfCards) : foods;
 
   return (
-    <div className={Style.cards}>
+    <>
       {loading ? (
         <div className="containerLoading">
           <Loading/>
         </div>
       ) : (
-        limitedFoods.map((food) => (
-          <Card
-            tipo={food.tipo}
-            stock={food.stock}
-            key={food.id}
-            name={food.nombre}
-            img={food.imagen}
-            weight={food.peso}
-            price={food.precio}
-            id={food.id}
-            kilocalorias={food.kilocalorias}
-            carbohidratos={food.carbohidratos}
-          />
-        ))
+        <div className={Style.cards}>
+          {limitedFoods.map((food) => (
+            <Card
+              tipo={food.tipo}
+              stock={food.stock}
+              key={food.id}
+              name={food.nombre}
+              img={food.imagen}
+              weight={food.peso}
+              price={food.precio}
+              id={food.id}
+              kilocalorias={food.kilocalorias}
+              carbohidratos={food.carbohidratos}
+            />
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 };
 

@@ -5,6 +5,8 @@ import Validation, { ValidationErrors } from './Validation';
 import styles from './Register.module.css';
 import { useDispatch } from 'react-redux';
 import { signUpNewUser } from '../../redux/actions/Actions';
+import { GoogleAuthProvider, getAuth, signInWithRedirect } from '@firebase/auth';
+import { app } from '../../Auth/firebaseConfig';
 
 type UserLoginState = {
   email: string;

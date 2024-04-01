@@ -111,8 +111,8 @@ import Input from './Input';
 import Button from './Button';
 import Validation, { ValidationErrors } from './Validation';
 import styles from './Login.module.css';
-import { getAuth, signInWithEmailAndPassword } from '@firebase/auth';
-import { app } from "../../Auth/firebaseConfig";
+import { GoogleAuthProvider, getAuth, signInWithEmailAndPassword, signInWithRedirect } from '@firebase/auth';
+import { app} from "../../Auth/firebaseConfig";
 
 type UserLoginState = {
   email: string;
@@ -128,6 +128,7 @@ const Login = () => {
   const [login, setLogin] = useState(InitialValue);
   const [errors, setErrors] = useState<ValidationErrors>({});
   const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider()
 
   const handleChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     const name = e.target.name as keyof UserLoginState;
@@ -153,6 +154,7 @@ const Login = () => {
       setLogin(InitialValue);
     }
   };
+
   
   const signIn = async () => {
     try {
@@ -203,6 +205,11 @@ const Login = () => {
           <Button className={styles.submitButton} handleClick={handleClick}>
             INICIAR SESION
           </Button>
+        </div>
+        <div className={styles.buttonSub}>
+          <button  className={styles.submitButtonGoogle} onClick={() => signInWithRedirect(auth, googleProvider)}>
+            INICIAR SESION CON GOOGLE
+          </button>
         </div>
         <div className={styles.forgetandcreates}>
           <a href="/register">Crear cuenta</a>
