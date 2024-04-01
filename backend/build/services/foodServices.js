@@ -10,20 +10,34 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.updateFood = exports.addFood = exports.getEntriesWithoutSensitiveInfo = exports.findById = exports.getEntries = void 0;
-const Plato_1 = require("../Plato"); // Asegúrate de que la ruta al modelo Plato sea correcta
+const Plato_1 = require("../models/Plato"); // Asegúrate de que la ruta al modelo Plato sea correcta
 const getEntries = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield Plato_1.Plato.findAll();
 });
 exports.getEntries = getEntries;
 const findById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     return yield Plato_1.Plato.findByPk(id, {
-        attributes: { exclude: ['campoSensible1', 'campoSensible2'] } // Excluye los campos sensibles si los hay
+        attributes: { exclude: ["campoSensible1", "campoSensible2"] }, // Excluye los campos sensibles si los hay
     });
 });
 exports.findById = findById;
 const getEntriesWithoutSensitiveInfo = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield Plato_1.Plato.findAll({
-        attributes: ['id', 'nombre', 'origen', 'ingredientes', 'kilocalorias', 'carbohidratos', 'grasas', 'peso', 'precio', 'tipo', 'imagen', 'descripcion', 'stock']
+        attributes: [
+            "id",
+            "nombre",
+            "origen",
+            "ingredientes",
+            "kilocalorias",
+            "carbohidratos",
+            "grasas",
+            "peso",
+            "precio",
+            "tipo",
+            "imagen",
+            "descripcion",
+            "stock",
+        ],
     });
 });
 exports.getEntriesWithoutSensitiveInfo = getEntriesWithoutSensitiveInfo;
@@ -35,7 +49,7 @@ exports.addFood = addFood;
 const updateFood = (id, updateData) => __awaiter(void 0, void 0, void 0, function* () {
     const plato = yield Plato_1.Plato.findByPk(id);
     if (!plato) {
-        throw new Error('Plato no encontrado');
+        throw new Error("Plato no encontrado");
     }
     return yield plato.update(updateData);
 });
