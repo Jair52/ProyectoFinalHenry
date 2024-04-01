@@ -86,8 +86,9 @@
     color: white; /* Color del texto */
     padding: 5px; /* Espaciado alrededor del texto */
     font-size: xx-large;
-    margin-left: 14rem;
     margin-bottom: 4rem;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     font-weight: 900;
+    text-align: center;
+    width: 100%;
   }
