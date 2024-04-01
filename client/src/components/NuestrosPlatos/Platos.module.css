@@ -21,3 +21,10 @@
 .page{
   margin-top: 5vh;
 }
+
+
+.loading{
+  margin-left: 50rem;
+  height: 400px;
+  width: 400px;
+}

@@ -5,6 +5,7 @@ import Reseñas from "../Reseñas/Reseñas";
 import {useSelector} from "react-redux";
 import { StoreState } from '../../redux/reducer/Reducer';
 import { useState, useEffect } from "react";
+import Loading from "../Loading/Loading";
 
 const Detail: React.FC = () =>{
   
@@ -43,6 +44,11 @@ const Detail: React.FC = () =>{
       }
     }
   });
+
+  const loading = foodState.length === 0;
+  if (loading) {
+    return <div><Loading/></div>;
+  }
 
 
   
