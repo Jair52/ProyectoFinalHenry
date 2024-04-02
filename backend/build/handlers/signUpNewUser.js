@@ -12,9 +12,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.signUpNewUser = void 0;
 const postNewUser_1 = require("../controllers/postNewUser");
 const signUpNewUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, password } = req.body;
+    const { email, password, nombre, apellido, foto, pais, ciudad, direccion, admin, habilitado, } = req.body;
     try {
-        const response = yield (0, postNewUser_1.registerNewUser)(email, password);
+        const response = yield (0, postNewUser_1.registerNewUser)(email, password, nombre, apellido, foto, pais, ciudad, direccion, admin, habilitado);
         console.log(response);
         res.status(200).json(response);
     }
