@@ -17,7 +17,6 @@ import Login from './components/Login/Login.tsx';
 import { useLocation } from 'react-router-dom';
 import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import {app} from './Auth/firebaseConfig.ts'
-import Register from './components/Register/Register.tsx';
 import Error404 from './components/Error/error.tsx';
 import UserForm from './components/userForm/UserForm.tsx';
 

@@ -5,7 +5,15 @@ import {
   GithubAuthProvider,
   FacebookAuthProvider,
 } from "firebase/auth";
-import { FirebaseConfig } from "../utils/types";
+
+interface FirebaseConfig {
+  apiKey: string;
+  authDomain: string;
+  projectId: string;
+  storageBucket: string;
+  messagingSenderId: string;
+  appId: string;
+}
 
 const firebaseConfig: FirebaseConfig = {
   apiKey: "AIzaSyDGBicy5gY0luTu6A7n3px_UJ16tc1Y_qM",

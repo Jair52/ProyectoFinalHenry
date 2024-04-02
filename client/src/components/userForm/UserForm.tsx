@@ -7,6 +7,7 @@ import { signUpNewUser } from '../../redux/actions/Actions';
 import { useDispatch } from 'react-redux';
 
 interface FormValues {
+  profilePictureName: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -28,33 +29,33 @@ const initialValues: FormValues = {
   country: '',
   city: '',
   address: '',
+  profilePictureName: ''
 };
 
 const UserForm: React.FC = () => {
-  // hook para redireccionar al usuario a otra página
   const history = useNavigate()
   const dispatch = useDispatch();
+  
   const handleSubmit = async (values: FormValues) => {
     try {
-      await signUp(values);
-      console.log("Cuenta creada");
+      await signUp(values, dispatch);
       history('/');
     } catch (error) {
       console.error("Error al crear la cuenta:", error);
     }
   };
   
-  const signUp = async (values: FormValues) => {
-    try {
-      console.log(values.email, values.password, values.firstName, values.lastName, values.profilePicture?.name, values.city, values.country, values.address, false, true );
-      
-      await dispatch(signUpNewUser(values.email, values.password, values.firstName, values.lastName, values.profilePicture?.name, values.city, values.country, values.address, false, true )); 
-      console.log("Cuenta creada");
-    } catch (error) {
-      console.error("Error al iniciar sesión:", error);
-    }
-  };
-
+ const signUp = async (values: FormValues, dispatch: any) => {
+  try {
+    console.log(values.email, values.password, values.firstName, values.lastName, values.profilePicture?.name, values.city, values.country, values.address, false, true );
+    
+    
+    await dispatch(signUpNewUser(values.email, values.password, values.firstName, values.lastName, values.profilePictureName, values.city, values.country, values.address, false, true )); 
+    console.log("Cuenta creada");
+  } catch (error) {
+    console.error("Error al iniciar sesión:", error);
+  }
+};
   return (
     <div className={styles.container}>
       <Formik
@@ -62,13 +63,10 @@ const UserForm: React.FC = () => {
         validationSchema={validateUser}
         onSubmit={handleSubmit}
         >
-      {/* es una funcion de formik y nos permite cambiar el valor de un campo de formulario
-          de manera manual (para cuando manejamos File) 
-          isValid y dirty son validadores para habilitar el botón registrarme*/}
         {({ setFieldValue, isValid, dirty }) => (
           <Form className={styles.form}>
             <h1>Crear cuenta de interfood</h1>
-            <div >
+            <div>
               <label htmlFor="firstName">Nombre*:</label>
               <br />
               <Field type="text" id="firstName" name="firstName" className={styles.field} />
@@ -158,4 +156,3 @@ const UserForm: React.FC = () => {
 };
 
 export default UserForm;
-
