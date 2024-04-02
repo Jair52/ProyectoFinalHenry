@@ -23,10 +23,7 @@ export class Usuario extends Model {
   })
   email!: string;
 
-  @Column({
-    type: DataType.STRING(1000),
-    allowNull: false,
-  })
+  @Column(DataType.STRING(1000),)
   foto!: string;
 
   @Column({

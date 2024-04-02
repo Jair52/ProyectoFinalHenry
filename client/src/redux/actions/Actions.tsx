@@ -18,10 +18,29 @@ export const getFood = (comida : any) => ({
 
 // ----------------------------------------------------------------------------
 
-  export const signUpNewUser = (email: string, password: string) => async (dispatch: any) => {
+  export const signUpNewUser = (  email: string, 
+    password:string, 
+    nombre: string,
+    apellido: string,
+    foto: string,
+    pais: string,
+    ciudad: string,
+    direccion: string,
+    admin: boolean,
+    habilitado: boolean) => async (dispatch: any) => {
     try {  
   
-      await axios.post("http://127.0.0.1:3000/api/register/signup", { email, password });
+      await axios.post("http://127.0.0.1:3000/api/register/signup", {       
+      email,
+      password,
+      nombre,
+      apellido,
+      foto,
+      pais,
+      ciudad,
+      direccion,
+      admin,
+      habilitado });
   
       return dispatch({
         type: SIGNUP_USER_EMAIL,

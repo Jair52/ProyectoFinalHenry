@@ -19,6 +19,7 @@ import { getAuth, onAuthStateChanged } from '@firebase/auth';
 import {app} from './Auth/firebaseConfig.ts'
 import Register from './components/Register/Register.tsx';
 import Error404 from './components/Error/error.tsx';
+import UserForm from './components/userForm/UserForm.tsx';
 
 function App() {
     const auth = getAuth(app);
@@ -86,7 +87,7 @@ function App() {
                   <Route path="/QuienesSomos" element={<QuienesSomos/>}/>
                   <Route path="/Faqs" element={<Faqs/>}/>
                   <Route path="/Login" element={<Login/>}/>
-                  <Route path="/Register" element={<Register/>}/>
+                  <Route path="/Register" element={<UserForm/>}/>
                   <Route path="*" />
               </Routes>
               <Footer/>

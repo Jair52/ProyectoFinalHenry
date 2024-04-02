@@ -3,6 +3,8 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import styles from './UserForm.module.css';
 import validateUser from './UserValidate';
 import { useNavigate } from 'react-router-dom';
+import { signUpNewUser } from '../../redux/actions/Actions';
+import { useDispatch } from 'react-redux';
 
 interface FormValues {
   firstName: string;
@@ -11,7 +13,7 @@ interface FormValues {
   password: string;
   confirmPassword: string;
   profilePicture?: File | null;
-  county: string;
+  country: string;
   city: string;
   address: string;
 }
@@ -23,7 +25,7 @@ const initialValues: FormValues = {
   password: '',
   confirmPassword: '',
   profilePicture: null,
-  county: '',
+  country: '',
   city: '',
   address: '',
 };
@@ -31,11 +33,26 @@ const initialValues: FormValues = {
 const UserForm: React.FC = () => {
   // hook para redireccionar al usuario a otra página
   const history = useNavigate()
-
-  const handleSubmit = (values: FormValues) => {
-    handleSubmit(values)
-    history('/')
-    console
+  const dispatch = useDispatch();
+  const handleSubmit = async (values: FormValues) => {
+    try {
+      await signUp(values);
+      console.log("Cuenta creada");
+      history('/');
+    } catch (error) {
+      console.error("Error al crear la cuenta:", error);
+    }
+  };
+  
+  const signUp = async (values: FormValues) => {
+    try {
+      console.log(values.email, values.password, values.firstName, values.lastName, values.profilePicture?.name, values.city, values.country, values.address, false, true );
+      
+      await dispatch(signUpNewUser(values.email, values.password, values.firstName, values.lastName, values.profilePicture?.name, values.city, values.country, values.address, false, true )); 
+      console.log("Cuenta creada");
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+    }
   };
 
   return (
