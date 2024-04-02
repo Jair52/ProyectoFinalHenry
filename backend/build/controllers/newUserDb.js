@@ -9,18 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.signUpNewUser = void 0;
-const postNewUser_1 = require("../../controllers/postNewUser");
-const signUpNewUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { email, password, nombre, apellido, foto, pais, ciudad, direccion, admin, habilitado } = req.body;
+exports.newUser = void 0;
+const userServices_1 = require("../services/userServices"); // Asegúrate de que la ruta es correcta
+const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const response = yield (0, postNewUser_1.registerNewUser)(email, password, nombre, apellido, foto, pais, ciudad, direccion, admin, habilitado);
-        console.log(response);
-        res.status(200).json(response);
+        const createdUser = yield (0, userServices_1.createUser)(req.body);
+        res.status(201).json(createdUser);
     }
     catch (error) {
-        console.error("Error al registrar usuario:", error);
-        res.status(500).send(error);
+        res.status(500).json({ error: "error al crear usuario" });
     }
 });
-exports.signUpNewUser = signUpNewUser;
+exports.newUser = newUser;

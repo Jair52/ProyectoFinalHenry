@@ -43,6 +43,8 @@ function insertarPlatos() {
                     precio: plato.precio,
                     tipo: plato.tipo,
                     imagen: plato.imagen,
+                    descripcion: plato.descripcion,
+                    stock: plato.stock
                 });
             }
             console.log('Todos los platos fueron insertados exitosamente.');

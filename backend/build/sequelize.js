@@ -29,6 +29,15 @@ function main() {
         try {
             yield sequelize.authenticate();
             console.log('Conexión con la base de datos establecida exitosamente.');
+            // Sincroniza los modelos con la base de datos
+            yield sequelize.sync();
+            console.log('Modelos sincronizados con la base de datos.');
+            // Accede a los modelos después de que la conexión se haya establecido
+            const models = sequelize.models;
+            Object.keys(models).forEach((modelName) => __awaiter(this, void 0, void 0, function* () {
+                const instances = yield models[modelName].findAll();
+                console.log(`Modelo: ${modelName}, Instancias: ${instances.length}`);
+            }));
         }
         catch (error) {
             console.error('No se pudo conectar con la base de datos:', error);
