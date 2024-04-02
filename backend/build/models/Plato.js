@@ -7,14 +7,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+<<<<<<< HEAD
 };
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
+=======
+>>>>>>> 6d0d62304953cbc0dd54954e1f83348b97f4ca88
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Plato = void 0;
 const sequelize_typescript_1 = require("sequelize-typescript");
+<<<<<<< HEAD
 const sequelize_1 = __importDefault(require("../sequelize"));
+=======
+>>>>>>> 6d0d62304953cbc0dd54954e1f83348b97f4ca88
 let Plato = class Plato extends sequelize_typescript_1.Model {
 };
 exports.Plato = Plato;
@@ -71,8 +77,15 @@ __decorate([
 ], Plato.prototype, "stock", void 0);
 exports.Plato = Plato = __decorate([
     (0, sequelize_typescript_1.Table)({
+<<<<<<< HEAD
         modelName: "Plato",
         tableName: "Platos",
     })
 ], Plato);
 sequelize_1.default.addModels([Plato]);
+=======
+        modelName: 'Plato',
+        tableName: 'Platos',
+    })
+], Plato);
+>>>>>>> 6d0d62304953cbc0dd54954e1f83348b97f4ca88
