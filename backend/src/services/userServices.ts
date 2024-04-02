@@ -5,7 +5,6 @@ export const createUser = async (userData: {
   nombre: string;
   apellido: string;
   email: string;
-  contraseña: string; // Asegúrate de tener este campo en tu modelo si es necesario
   foto: string;
   pais: string;
   ciudad: string;
