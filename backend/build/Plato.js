@@ -71,8 +71,8 @@ __decorate([
 ], Plato.prototype, "stock", void 0);
 exports.Plato = Plato = __decorate([
     (0, sequelize_typescript_1.Table)({
-        modelName: 'Plato',
-        tableName: 'Platos',
+        modelName: "Plato",
+        tableName: "Platos",
     })
 ], Plato);
 sequelize_1.default.addModels([Plato]);

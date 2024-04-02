@@ -17,13 +17,27 @@ const getEntries = () => __awaiter(void 0, void 0, void 0, function* () {
 exports.getEntries = getEntries;
 const findById = (id) => __awaiter(void 0, void 0, void 0, function* () {
     return yield Plato_1.Plato.findByPk(id, {
-        attributes: { exclude: ['campoSensible1', 'campoSensible2'] } // Excluye los campos sensibles si los hay
+        attributes: { exclude: ["campoSensible1", "campoSensible2"] }, // Excluye los campos sensibles si los hay
     });
 });
 exports.findById = findById;
 const getEntriesWithoutSensitiveInfo = () => __awaiter(void 0, void 0, void 0, function* () {
     return yield Plato_1.Plato.findAll({
-        attributes: ['id', 'nombre', 'origen', 'ingredientes', 'kilocalorias', 'carbohidratos', 'grasas', 'peso', 'precio', 'tipo', 'imagen', 'descripcion', 'stock']
+        attributes: [
+            "id",
+            "nombre",
+            "origen",
+            "ingredientes",
+            "kilocalorias",
+            "carbohidratos",
+            "grasas",
+            "peso",
+            "precio",
+            "tipo",
+            "imagen",
+            "descripcion",
+            "stock",
+        ],
     });
 });
 exports.getEntriesWithoutSensitiveInfo = getEntriesWithoutSensitiveInfo;
@@ -35,7 +49,7 @@ exports.addFood = addFood;
 const updateFood = (id, updateData) => __awaiter(void 0, void 0, void 0, function* () {
     const plato = yield Plato_1.Plato.findByPk(id);
     if (!plato) {
-        throw new Error('Plato no encontrado');
+        throw new Error("Plato no encontrado");
     }
     return yield plato.update(updateData);
 });
@@ -43,7 +57,7 @@ exports.updateFood = updateFood;
 const deleteFood = (id) => __awaiter(void 0, void 0, void 0, function* () {
     const plato = yield Plato_1.Plato.findByPk(id);
     if (!plato) {
-        throw new Error('Plato no encontrado');
+        throw new Error("Plato no encontrado");
     }
     yield plato.destroy();
     return { message: "Plato eliminado exitosamente" };

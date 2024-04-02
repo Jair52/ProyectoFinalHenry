@@ -43,7 +43,7 @@ const createFood = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
         res.status(201).json(newPlato);
     }
     catch (error) {
-        res.status(400).json({ error: 'Error creating new food entry.' });
+        res.status(400).json({ error: "Error creating new food entry." });
     }
 });
 exports.createFood = createFood;
